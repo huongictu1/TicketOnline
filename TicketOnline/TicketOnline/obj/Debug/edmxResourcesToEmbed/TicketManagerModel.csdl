@@ -1,0 +1,2529 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="TICKET_MANAGERModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="ACCOUNT">
+    <Key>
+      <PropertyRef Name="ACC_ID" />
+    </Key>
+    <Property Name="ACC_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PRI_ID" Type="Int32" />
+    <Property Name="EM_ID" Type="Int32" />
+    <Property Name="ACC_USERNAME" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="ACC_PASSWORD" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="ACC_STATUS" Type="Boolean" />
+    <NavigationProperty Name="EMPLOYEE" Relationship="Self.FK_ACCOUNTS_EMPLOYEES" FromRole="ACCOUNTS" ToRole="EMPLOYEES" />
+    <NavigationProperty Name="PRIVILE" Relationship="Self.FK_ACCOUNTS_PRIVILES" FromRole="ACCOUNTS" ToRole="PRIVILES" />
+  </EntityType>
+  <EntityType Name="BARCODE">
+    <Key>
+      <PropertyRef Name="BAR_ID" />
+    </Key>
+    <Property Name="BAR_ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CT_ID" Type="Int32" />
+    <Property Name="TYPEID" Type="Int32" />
+    <Property Name="ZONE_ID" Type="Int32" />
+    <Property Name="BAR_NO" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="NUMBER" Type="Int32" Nullable="false" />
+    <Property Name="CREATE_DATE" Type="DateTime" Precision="3" />
+    <Property Name="APPLY_DATE" Type="DateTime" Precision="3" />
+    <Property Name="ACC_ID" Type="Int32" />
+    <Property Name="ACTIVE" Type="Boolean" />
+    <Property Name="USED" Type="Boolean" />
+    <Property Name="DAMAGE" Type="Boolean" />
+    <NavigationProperty Name="CARD_TYPE" Relationship="Self.FK_BARCODE_CARD_TYPE" FromRole="BARCODE" ToRole="CARD_TYPE" />
+    <NavigationProperty Name="TICKET_TYPE" Relationship="Self.FK_BARCODE_TICKET_TYPE" FromRole="BARCODE" ToRole="TICKET_TYPE" />
+    <NavigationProperty Name="ZONE" Relationship="Self.FK_BARCODE_ZONE" FromRole="BARCODE" ToRole="ZONE" />
+    <NavigationProperty Name="DETAIL_SALE" Relationship="Self.FK_DETAIL_SALE_BARCODE" FromRole="BARCODE" ToRole="DETAIL_SALE" />
+    <NavigationProperty Name="IO_INFO" Relationship="Self.FK_IO_INFO_BARCODE" FromRole="BARCODE" ToRole="IO_INFO" />
+  </EntityType>
+  <EntityType Name="CARD_NO">
+    <Key>
+      <PropertyRef Name="CA_ID" />
+    </Key>
+    <Property Name="CA_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="USER_ID" Type="Int32" />
+    <Property Name="CA_NO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CA_NUMBER" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CT_ID" Type="Int32" />
+    <Property Name="TYPEID" Type="Int32" />
+    <Property Name="CREATE_DATE" Type="DateTime" Precision="3" />
+    <Property Name="UPDATE_DATE" Type="DateTime" Precision="3" />
+    <Property Name="CA_STATUS" Type="Boolean" />
+    <Property Name="CA_ACTIVE" Type="Boolean" />
+    <Property Name="DESCRIPTION" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="APPLY_DATE" Type="DateTime" Precision="3" />
+    <Property Name="EXPRIED_DATE" Type="DateTime" Precision="3" />
+    <Property Name="CA_DAMAGED" Type="Boolean" />
+    <Property Name="CA_LOST" Type="Boolean" />
+    <Property Name="USING" Type="Boolean" />
+    <Property Name="ALLOW_SYNCHRONIZED" Type="Boolean" />
+    <Property Name="ZONE_LIST" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="ACC_ID" Type="Int32" />
+    <NavigationProperty Name="CARD_TYPE" Relationship="Self.FK_CARD_NO_CARD_TYPE" FromRole="CARD_NO" ToRole="CARD_TYPE" />
+    <NavigationProperty Name="TICKET_TYPE" Relationship="Self.FK_CARD_NO_TICKET_TYPE" FromRole="CARD_NO" ToRole="TICKET_TYPE" />
+    <NavigationProperty Name="DETAIL_SALE" Relationship="Self.FK_DETAIL_SALE_CARD_NO" FromRole="CARD_NO" ToRole="DETAIL_SALE" />
+    <NavigationProperty Name="IO_INFO" Relationship="Self.FK_IO_INFO_CARD_NO" FromRole="CARD_NO" ToRole="IO_INFO" />
+  </EntityType>
+  <EntityType Name="CARD_TYPE">
+    <Key>
+      <PropertyRef Name="CT_ID" />
+    </Key>
+    <Property Name="CT_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CT_NAME" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="CT_CODE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CT_DESCRIPTION" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="CT_STATUS" Type="Boolean" />
+    <NavigationProperty Name="BARCODEs" Relationship="Self.FK_BARCODE_CARD_TYPE" FromRole="CARD_TYPE" ToRole="BARCODE" />
+    <NavigationProperty Name="CARD_NO" Relationship="Self.FK_CARD_NO_CARD_TYPE" FromRole="CARD_TYPE" ToRole="CARD_NO" />
+    <NavigationProperty Name="TICKET_PRICE" Relationship="Self.FK_TICKET_PRICE_CARD_TYPE" FromRole="CARD_TYPE" ToRole="TICKET_PRICE" />
+  </EntityType>
+  <EntityType Name="DEPARTMENT">
+    <Key>
+      <PropertyRef Name="DEP_ID" />
+    </Key>
+    <Property Name="DEP_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DEP_NAME" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="DEP_DESCRIPTION" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="DEP_STATUS" Type="Boolean" />
+    <NavigationProperty Name="EMPLOYEES" Relationship="Self.FK_EMPLOYEES_DEPARTMENT" FromRole="DEPARTMENT" ToRole="EMPLOYEES" />
+  </EntityType>
+  <EntityType Name="DETAIL_SALE">
+    <Key>
+      <PropertyRef Name="DTS_ID" />
+    </Key>
+    <Property Name="DTS_ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TS_ID" Type="Int64" />
+    <Property Name="CA_ID" Type="Int32" />
+    <Property Name="BAR_ID" Type="Int64" />
+    <Property Name="DTS_PRICE" Type="Int64" />
+    <Property Name="DTS_PAY" Type="Int64" />
+    <NavigationProperty Name="BARCODE" Relationship="Self.FK_DETAIL_SALE_BARCODE" FromRole="DETAIL_SALE" ToRole="BARCODE" />
+    <NavigationProperty Name="CARD_NO" Relationship="Self.FK_DETAIL_SALE_CARD_NO" FromRole="DETAIL_SALE" ToRole="CARD_NO" />
+    <NavigationProperty Name="TICKET_SALE" Relationship="Self.FK_DETAIL_SALE_TICKET_SALE" FromRole="DETAIL_SALE" ToRole="TICKET_SALE" />
+  </EntityType>
+  <EntityType Name="DEVICE">
+    <Key>
+      <PropertyRef Name="DEVICE_ID" />
+    </Key>
+    <Property Name="DEVICE_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DEVICE_NAME" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="DEVICE_CODE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="DT_ID" Type="Int32" />
+    <Property Name="ZONE_ID" Type="Int32" />
+    <Property Name="DEVICE_MAC" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="DEVICE_PORT" Type="Int32" />
+    <Property Name="DEVICE_DES" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="DEVICE_STATUS" Type="Boolean" />
+    <Property Name="DEVICE_IP" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="DEVICE_TYPE" Relationship="Self.FK_DEVICE_DEVICE_TYPE" FromRole="DEVICE" ToRole="DEVICE_TYPE" />
+    <NavigationProperty Name="ZONE" Relationship="Self.FK_DEVICE_ZONE" FromRole="DEVICE" ToRole="ZONE" />
+  </EntityType>
+  <EntityType Name="DEVICE_TYPE">
+    <Key>
+      <PropertyRef Name="DT_ID" />
+    </Key>
+    <Property Name="DT_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DT_NAME" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="DT_CODE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="DT_DES" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="DT_STATUS" Type="Boolean" />
+    <NavigationProperty Name="DEVICEs" Relationship="Self.FK_DEVICE_DEVICE_TYPE" FromRole="DEVICE_TYPE" ToRole="DEVICE" />
+  </EntityType>
+  <EntityType Name="DISCOUNT">
+    <Key>
+      <PropertyRef Name="DISC_ID" />
+    </Key>
+    <Property Name="DISC_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DISCT_ID" Type="Int32" />
+    <Property Name="HOL_ID" Type="Int32" />
+    <Property Name="TF_ID" Type="Int32" />
+    <Property Name="DISC_NAME" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="DISC_CODE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="DISC_VALUE" Type="Int32" />
+    <Property Name="DISC_DES" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="CREATE_DATE" Type="DateTime" Precision="3" />
+    <Property Name="DISC_START" Type="DateTime" Precision="3" />
+    <Property Name="DISC_END" Type="DateTime" Precision="3" />
+    <Property Name="DISC_STATUS" Type="Boolean" />
+    <Property Name="WD_ISWEEKEND" Type="Boolean" />
+    <NavigationProperty Name="DISCOUNT_TYPE" Relationship="Self.FK_DISCOUNT_DISCOUNT_TYPE" FromRole="DISCOUNT" ToRole="DISCOUNT_TYPE" />
+    <NavigationProperty Name="HOLIDAY" Relationship="Self.FK_DISCOUNT_HOLIDAY" FromRole="DISCOUNT" ToRole="HOLIDAY" />
+    <NavigationProperty Name="TICKET_SALE" Relationship="Self.FK_TICKET_SALE_DISCOUNT" FromRole="DISCOUNT" ToRole="TICKET_SALE" />
+  </EntityType>
+  <EntityType Name="DISCOUNT_TYPE">
+    <Key>
+      <PropertyRef Name="DISCT_ID" />
+    </Key>
+    <Property Name="DISCT_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DISCT_NAME" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="DISCT_CHECK" Type="Int32" />
+    <Property Name="DISCT_DES" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="DISCOUNTs" Relationship="Self.FK_DISCOUNT_DISCOUNT_TYPE" FromRole="DISCOUNT_TYPE" ToRole="DISCOUNT" />
+  </EntityType>
+  <EntityType Name="EMPLOYEE">
+    <Key>
+      <PropertyRef Name="EM_ID" />
+    </Key>
+    <Property Name="EM_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DEP_ID" Type="Int32" />
+    <Property Name="EM_NAME" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="EM_CODE" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="PHONE" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="IDENTITY_NUMBER" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="SEX" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="ADDRESS" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+    <Property Name="DESCRIPTION" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="IMAGE" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="EM_STATUS" Type="Boolean" />
+    <NavigationProperty Name="ACCOUNTS" Relationship="Self.FK_ACCOUNTS_EMPLOYEES" FromRole="EMPLOYEES" ToRole="ACCOUNTS" />
+    <NavigationProperty Name="DEPARTMENT" Relationship="Self.FK_EMPLOYEES_DEPARTMENT" FromRole="EMPLOYEES" ToRole="DEPARTMENT" />
+  </EntityType>
+  <EntityType Name="GAME_SPORT">
+    <Key>
+      <PropertyRef Name="GS_ID" />
+    </Key>
+    <Property Name="GS_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="GS_NAME" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="GS_LIMIT" Type="Int32" />
+    <Property Name="GS_DES" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="GS_STATUS" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="HOLIDAY">
+    <Key>
+      <PropertyRef Name="HOL_ID" />
+    </Key>
+    <Property Name="HOL_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="HOL_NAME" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="HOL_FROM" Type="String" MaxLength="5" FixedLength="true" Unicode="false" />
+    <Property Name="HOL_TO" Type="String" MaxLength="5" FixedLength="true" Unicode="false" />
+    <Property Name="HOL_STATUS" Type="Boolean" />
+    <NavigationProperty Name="DISCOUNTs" Relationship="Self.FK_DISCOUNT_HOLIDAY" FromRole="HOLIDAY" ToRole="DISCOUNT" />
+    <NavigationProperty Name="TICKET_PRICE" Relationship="Self.FK_TICKET_PRICE_HOLIDAY" FromRole="HOLIDAY" ToRole="TICKET_PRICE" />
+  </EntityType>
+  <EntityType Name="IO_INFO">
+    <Key>
+      <PropertyRef Name="IO_ID" />
+    </Key>
+    <Property Name="IO_ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IO_TIME" Type="DateTime" Precision="3" />
+    <Property Name="ZONE_ID" Type="Int32" />
+    <Property Name="CA_ID" Type="Int32" />
+    <Property Name="BAR_ID" Type="Int64" />
+    <NavigationProperty Name="BARCODE" Relationship="Self.FK_IO_INFO_BARCODE" FromRole="IO_INFO" ToRole="BARCODE" />
+    <NavigationProperty Name="CARD_NO" Relationship="Self.FK_IO_INFO_CARD_NO" FromRole="IO_INFO" ToRole="CARD_NO" />
+    <NavigationProperty Name="ZONE" Relationship="Self.FK_IO_INFO_ZONE" FromRole="IO_INFO" ToRole="ZONE" />
+  </EntityType>
+  <EntityType Name="MENULIST">
+    <Key>
+      <PropertyRef Name="MNU_ID" />
+    </Key>
+    <Property Name="MNU_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MNU_NAME" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="MNU_DISPLAY" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="MNU_PARENT" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="IS_MENU" Type="Boolean" />
+    <Property Name="URL" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="ICON" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="VISIBLECONTROLS" Relationship="Self.FK_VISIBLECONTROLS_MENULIST" FromRole="MENULIST" ToRole="VISIBLECONTROLS" />
+  </EntityType>
+  <EntityType Name="PRIVILE">
+    <Key>
+      <PropertyRef Name="PRI_ID" />
+    </Key>
+    <Property Name="PRI_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PRI_DESCRIPTION" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="PRI_STATUS" Type="Boolean" />
+    <NavigationProperty Name="ACCOUNTS" Relationship="Self.FK_ACCOUNTS_PRIVILES" FromRole="PRIVILES" ToRole="ACCOUNTS" />
+    <NavigationProperty Name="VISIBLECONTROLS" Relationship="Self.FK_VISIBLECONTROLS_PRIVILES" FromRole="PRIVILES" ToRole="VISIBLECONTROLS" />
+  </EntityType>
+  <EntityType Name="REDEEM">
+    <Key>
+      <PropertyRef Name="REDEEM_ID" />
+    </Key>
+    <Property Name="REDEEM_ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SN_ID" Type="Int64" />
+    <Property Name="REDEEM_VALUE" Type="Int32" />
+    <Property Name="REDEEM_MONEY" Type="Int32" />
+    <Property Name="REDEEM_STATUS" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="REDEEM_TRANSFORM">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="TRANS_NAME" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="TRANS_VALUE" Type="Int32" />
+  </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="TICKET_PRICE">
+    <Key>
+      <PropertyRef Name="PRICE_ID" />
+    </Key>
+    <Property Name="PRICE_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CT_ID" Type="Int32" />
+    <Property Name="TYPEID" Type="Int32" />
+    <Property Name="ZONE_ID" Type="Int32" />
+    <Property Name="TF_ID" Type="Int32" />
+    <Property Name="HOL_ID" Type="Int32" />
+    <Property Name="WD_ISWEEKEND" Type="Boolean" />
+    <Property Name="PRICE" Type="Int64" />
+    <Property Name="TEXT_PRICE" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+    <Property Name="UPDATE_DATE" Type="DateTime" Precision="3" />
+    <Property Name="ACC_ID" Type="Int32" />
+    <NavigationProperty Name="CARD_TYPE" Relationship="Self.FK_TICKET_PRICE_CARD_TYPE" FromRole="TICKET_PRICE" ToRole="CARD_TYPE" />
+    <NavigationProperty Name="HOLIDAY" Relationship="Self.FK_TICKET_PRICE_HOLIDAY" FromRole="TICKET_PRICE" ToRole="HOLIDAY" />
+    <NavigationProperty Name="TICKET_TYPE" Relationship="Self.FK_TICKET_PRICE_TICKET_TYPE" FromRole="TICKET_PRICE" ToRole="TICKET_TYPE" />
+    <NavigationProperty Name="TIME_FRAME" Relationship="Self.FK_TICKET_PRICE_TIME_FRAME" FromRole="TICKET_PRICE" ToRole="TIME_FRAME" />
+  </EntityType>
+  <EntityType Name="TICKET_SALE">
+    <Key>
+      <PropertyRef Name="TS_ID" />
+    </Key>
+    <Property Name="TS_ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TS_NO" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="PRICE" Type="Int64" />
+    <Property Name="PAY" Type="Int64" />
+    <Property Name="DISC_ID" Type="Int32" />
+    <Property Name="CREATE_DATE" Type="DateTime" Precision="3" />
+    <Property Name="DESCRIPTION" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="USER_ID" Type="Int32" />
+    <Property Name="DISCOUNT_MONEY" Type="Int32" />
+    <Property Name="REDEEM_ADD" Type="Int32" />
+    <Property Name="REDEEM_SUB" Type="Int32" />
+    <Property Name="REDEEM_SUB_MONEY" Type="Int32" />
+    <Property Name="ACC_ID" Type="Int32" />
+    <NavigationProperty Name="DETAIL_SALE" Relationship="Self.FK_DETAIL_SALE_TICKET_SALE" FromRole="TICKET_SALE" ToRole="DETAIL_SALE" />
+    <NavigationProperty Name="DISCOUNT" Relationship="Self.FK_TICKET_SALE_DISCOUNT" FromRole="TICKET_SALE" ToRole="DISCOUNT" />
+    <NavigationProperty Name="USER_INFO" Relationship="Self.FK_TICKET_SALE_USER_INFO" FromRole="TICKET_SALE" ToRole="USER_INFO" />
+  </EntityType>
+  <EntityType Name="TICKET_TYPE">
+    <Key>
+      <PropertyRef Name="TYPEID" />
+    </Key>
+    <Property Name="TYPEID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TYPENAME" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="TYPE_CODE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="TYPE_CHECK" Type="Int32" />
+    <Property Name="DESCRIPTIONS" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="BARCODEs" Relationship="Self.FK_BARCODE_TICKET_TYPE" FromRole="TICKET_TYPE" ToRole="BARCODE" />
+    <NavigationProperty Name="CARD_NO" Relationship="Self.FK_CARD_NO_TICKET_TYPE" FromRole="TICKET_TYPE" ToRole="CARD_NO" />
+    <NavigationProperty Name="TICKET_PRICE" Relationship="Self.FK_TICKET_PRICE_TICKET_TYPE" FromRole="TICKET_TYPE" ToRole="TICKET_PRICE" />
+  </EntityType>
+  <EntityType Name="TIME_FRAME">
+    <Key>
+      <PropertyRef Name="TF_ID" />
+    </Key>
+    <Property Name="TF_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TF_NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="TF_CHECK" Type="Int32" />
+    <Property Name="TF_FROM" Type="Time" Precision="0" />
+    <Property Name="TF_TO" Type="Time" Precision="0" />
+    <Property Name="TF_DES" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="TF_STATUS" Type="Boolean" />
+    <NavigationProperty Name="TICKET_PRICE" Relationship="Self.FK_TICKET_PRICE_TIME_FRAME" FromRole="TIME_FRAME" ToRole="TICKET_PRICE" />
+  </EntityType>
+  <EntityType Name="UNIT">
+    <Key>
+      <PropertyRef Name="UNIT_ID" />
+    </Key>
+    <Property Name="UNIT_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UNIT_CODE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UNIT_NAME" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="UNIT_DES" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="UNIT_STATUS" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="USER_INFO">
+    <Key>
+      <PropertyRef Name="USER_ID" />
+    </Key>
+    <Property Name="USER_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="USER_TYPEID" Type="Int32" />
+    <Property Name="USER_NAME" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="USER_CODE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PHONE" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="IDENTITY_NUMBER" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="SEX" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="USER_BIRTH" Type="DateTime" Precision="3" />
+    <Property Name="ADDRESS" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+    <Property Name="IMAGE" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="EMAIL" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="NOTE" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="USER_STATUS" Type="Boolean" />
+    <Property Name="REDEEM_POINTS" Type="Int32" />
+    <Property Name="CREATE_DATE" Type="DateTime" Precision="3" />
+    <Property Name="UPDATE_DATE" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="TICKET_SALE" Relationship="Self.FK_TICKET_SALE_USER_INFO" FromRole="USER_INFO" ToRole="TICKET_SALE" />
+    <NavigationProperty Name="USER_TYPE" Relationship="Self.FK_USER_INFO_USER_TYPE" FromRole="USER_INFO" ToRole="USER_TYPE" />
+  </EntityType>
+  <EntityType Name="USER_TYPE">
+    <Key>
+      <PropertyRef Name="USER_TYPEID" />
+    </Key>
+    <Property Name="USER_TYPEID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="USER_TYPENAME" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DESCRIPTION" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="USER_INFO" Relationship="Self.FK_USER_INFO_USER_TYPE" FromRole="USER_TYPE" ToRole="USER_INFO" />
+  </EntityType>
+  <EntityType Name="VISIBLECONTROL">
+    <Key>
+      <PropertyRef Name="VI_ID" />
+    </Key>
+    <Property Name="VI_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PRI_ID" Type="Int32" />
+    <Property Name="MNU_ID" Type="Int32" />
+    <NavigationProperty Name="MENULIST" Relationship="Self.FK_VISIBLECONTROLS_MENULIST" FromRole="VISIBLECONTROLS" ToRole="MENULIST" />
+    <NavigationProperty Name="PRIVILE" Relationship="Self.FK_VISIBLECONTROLS_PRIVILES" FromRole="VISIBLECONTROLS" ToRole="PRIVILES" />
+  </EntityType>
+  <EntityType Name="ZONE">
+    <Key>
+      <PropertyRef Name="ZONE_ID" />
+    </Key>
+    <Property Name="ZONE_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ZONE_NAME" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="ZONE_CODE" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="ZONE_DES" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="ZONE_STATUS" Type="Boolean" />
+    <NavigationProperty Name="BARCODEs" Relationship="Self.FK_BARCODE_ZONE" FromRole="ZONE" ToRole="BARCODE" />
+    <NavigationProperty Name="DEVICEs" Relationship="Self.FK_DEVICE_ZONE" FromRole="ZONE" ToRole="DEVICE" />
+    <NavigationProperty Name="IO_INFO" Relationship="Self.FK_IO_INFO_ZONE" FromRole="ZONE" ToRole="IO_INFO" />
+  </EntityType>
+  <Association Name="FK_ACCOUNTS_EMPLOYEES">
+    <End Role="EMPLOYEES" Type="Self.EMPLOYEE" Multiplicity="0..1" />
+    <End Role="ACCOUNTS" Type="Self.ACCOUNT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EMPLOYEES">
+        <PropertyRef Name="EM_ID" />
+      </Principal>
+      <Dependent Role="ACCOUNTS">
+        <PropertyRef Name="EM_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ACCOUNTS_PRIVILES">
+    <End Role="PRIVILES" Type="Self.PRIVILE" Multiplicity="0..1" />
+    <End Role="ACCOUNTS" Type="Self.ACCOUNT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PRIVILES">
+        <PropertyRef Name="PRI_ID" />
+      </Principal>
+      <Dependent Role="ACCOUNTS">
+        <PropertyRef Name="PRI_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_BARCODE_CARD_TYPE">
+    <End Role="CARD_TYPE" Type="Self.CARD_TYPE" Multiplicity="0..1" />
+    <End Role="BARCODE" Type="Self.BARCODE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CARD_TYPE">
+        <PropertyRef Name="CT_ID" />
+      </Principal>
+      <Dependent Role="BARCODE">
+        <PropertyRef Name="CT_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_BARCODE_TICKET_TYPE">
+    <End Role="TICKET_TYPE" Type="Self.TICKET_TYPE" Multiplicity="0..1" />
+    <End Role="BARCODE" Type="Self.BARCODE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TICKET_TYPE">
+        <PropertyRef Name="TYPEID" />
+      </Principal>
+      <Dependent Role="BARCODE">
+        <PropertyRef Name="TYPEID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_BARCODE_ZONE">
+    <End Role="ZONE" Type="Self.ZONE" Multiplicity="0..1" />
+    <End Role="BARCODE" Type="Self.BARCODE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ZONE">
+        <PropertyRef Name="ZONE_ID" />
+      </Principal>
+      <Dependent Role="BARCODE">
+        <PropertyRef Name="ZONE_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DETAIL_SALE_BARCODE">
+    <End Role="BARCODE" Type="Self.BARCODE" Multiplicity="0..1" />
+    <End Role="DETAIL_SALE" Type="Self.DETAIL_SALE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BARCODE">
+        <PropertyRef Name="BAR_ID" />
+      </Principal>
+      <Dependent Role="DETAIL_SALE">
+        <PropertyRef Name="BAR_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_IO_INFO_BARCODE">
+    <End Role="BARCODE" Type="Self.BARCODE" Multiplicity="0..1" />
+    <End Role="IO_INFO" Type="Self.IO_INFO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BARCODE">
+        <PropertyRef Name="BAR_ID" />
+      </Principal>
+      <Dependent Role="IO_INFO">
+        <PropertyRef Name="BAR_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CARD_NO_CARD_TYPE">
+    <End Role="CARD_TYPE" Type="Self.CARD_TYPE" Multiplicity="0..1" />
+    <End Role="CARD_NO" Type="Self.CARD_NO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CARD_TYPE">
+        <PropertyRef Name="CT_ID" />
+      </Principal>
+      <Dependent Role="CARD_NO">
+        <PropertyRef Name="CT_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CARD_NO_TICKET_TYPE">
+    <End Role="TICKET_TYPE" Type="Self.TICKET_TYPE" Multiplicity="0..1" />
+    <End Role="CARD_NO" Type="Self.CARD_NO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TICKET_TYPE">
+        <PropertyRef Name="TYPEID" />
+      </Principal>
+      <Dependent Role="CARD_NO">
+        <PropertyRef Name="TYPEID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DETAIL_SALE_CARD_NO">
+    <End Role="CARD_NO" Type="Self.CARD_NO" Multiplicity="0..1" />
+    <End Role="DETAIL_SALE" Type="Self.DETAIL_SALE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CARD_NO">
+        <PropertyRef Name="CA_ID" />
+      </Principal>
+      <Dependent Role="DETAIL_SALE">
+        <PropertyRef Name="CA_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_IO_INFO_CARD_NO">
+    <End Role="CARD_NO" Type="Self.CARD_NO" Multiplicity="0..1" />
+    <End Role="IO_INFO" Type="Self.IO_INFO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CARD_NO">
+        <PropertyRef Name="CA_ID" />
+      </Principal>
+      <Dependent Role="IO_INFO">
+        <PropertyRef Name="CA_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TICKET_PRICE_CARD_TYPE">
+    <End Role="CARD_TYPE" Type="Self.CARD_TYPE" Multiplicity="0..1" />
+    <End Role="TICKET_PRICE" Type="Self.TICKET_PRICE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CARD_TYPE">
+        <PropertyRef Name="CT_ID" />
+      </Principal>
+      <Dependent Role="TICKET_PRICE">
+        <PropertyRef Name="CT_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EMPLOYEES_DEPARTMENT">
+    <End Role="DEPARTMENT" Type="Self.DEPARTMENT" Multiplicity="0..1" />
+    <End Role="EMPLOYEES" Type="Self.EMPLOYEE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DEPARTMENT">
+        <PropertyRef Name="DEP_ID" />
+      </Principal>
+      <Dependent Role="EMPLOYEES">
+        <PropertyRef Name="DEP_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DETAIL_SALE_TICKET_SALE">
+    <End Role="TICKET_SALE" Type="Self.TICKET_SALE" Multiplicity="0..1" />
+    <End Role="DETAIL_SALE" Type="Self.DETAIL_SALE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TICKET_SALE">
+        <PropertyRef Name="TS_ID" />
+      </Principal>
+      <Dependent Role="DETAIL_SALE">
+        <PropertyRef Name="TS_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DEVICE_DEVICE_TYPE">
+    <End Role="DEVICE_TYPE" Type="Self.DEVICE_TYPE" Multiplicity="0..1" />
+    <End Role="DEVICE" Type="Self.DEVICE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DEVICE_TYPE">
+        <PropertyRef Name="DT_ID" />
+      </Principal>
+      <Dependent Role="DEVICE">
+        <PropertyRef Name="DT_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DEVICE_ZONE">
+    <End Role="ZONE" Type="Self.ZONE" Multiplicity="0..1" />
+    <End Role="DEVICE" Type="Self.DEVICE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ZONE">
+        <PropertyRef Name="ZONE_ID" />
+      </Principal>
+      <Dependent Role="DEVICE">
+        <PropertyRef Name="ZONE_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DISCOUNT_DISCOUNT_TYPE">
+    <End Role="DISCOUNT_TYPE" Type="Self.DISCOUNT_TYPE" Multiplicity="0..1" />
+    <End Role="DISCOUNT" Type="Self.DISCOUNT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DISCOUNT_TYPE">
+        <PropertyRef Name="DISCT_ID" />
+      </Principal>
+      <Dependent Role="DISCOUNT">
+        <PropertyRef Name="DISCT_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DISCOUNT_HOLIDAY">
+    <End Role="HOLIDAY" Type="Self.HOLIDAY" Multiplicity="0..1" />
+    <End Role="DISCOUNT" Type="Self.DISCOUNT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HOLIDAY">
+        <PropertyRef Name="HOL_ID" />
+      </Principal>
+      <Dependent Role="DISCOUNT">
+        <PropertyRef Name="HOL_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TICKET_SALE_DISCOUNT">
+    <End Role="DISCOUNT" Type="Self.DISCOUNT" Multiplicity="0..1" />
+    <End Role="TICKET_SALE" Type="Self.TICKET_SALE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DISCOUNT">
+        <PropertyRef Name="DISC_ID" />
+      </Principal>
+      <Dependent Role="TICKET_SALE">
+        <PropertyRef Name="DISC_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TICKET_PRICE_HOLIDAY">
+    <End Role="HOLIDAY" Type="Self.HOLIDAY" Multiplicity="0..1" />
+    <End Role="TICKET_PRICE" Type="Self.TICKET_PRICE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HOLIDAY">
+        <PropertyRef Name="HOL_ID" />
+      </Principal>
+      <Dependent Role="TICKET_PRICE">
+        <PropertyRef Name="HOL_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_IO_INFO_ZONE">
+    <End Role="ZONE" Type="Self.ZONE" Multiplicity="0..1" />
+    <End Role="IO_INFO" Type="Self.IO_INFO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ZONE">
+        <PropertyRef Name="ZONE_ID" />
+      </Principal>
+      <Dependent Role="IO_INFO">
+        <PropertyRef Name="ZONE_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_VISIBLECONTROLS_MENULIST">
+    <End Role="MENULIST" Type="Self.MENULIST" Multiplicity="0..1" />
+    <End Role="VISIBLECONTROLS" Type="Self.VISIBLECONTROL" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MENULIST">
+        <PropertyRef Name="MNU_ID" />
+      </Principal>
+      <Dependent Role="VISIBLECONTROLS">
+        <PropertyRef Name="MNU_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_VISIBLECONTROLS_PRIVILES">
+    <End Role="PRIVILES" Type="Self.PRIVILE" Multiplicity="0..1" />
+    <End Role="VISIBLECONTROLS" Type="Self.VISIBLECONTROL" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PRIVILES">
+        <PropertyRef Name="PRI_ID" />
+      </Principal>
+      <Dependent Role="VISIBLECONTROLS">
+        <PropertyRef Name="PRI_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TICKET_PRICE_TICKET_TYPE">
+    <End Role="TICKET_TYPE" Type="Self.TICKET_TYPE" Multiplicity="0..1" />
+    <End Role="TICKET_PRICE" Type="Self.TICKET_PRICE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TICKET_TYPE">
+        <PropertyRef Name="TYPEID" />
+      </Principal>
+      <Dependent Role="TICKET_PRICE">
+        <PropertyRef Name="TYPEID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TICKET_PRICE_TIME_FRAME">
+    <End Role="TIME_FRAME" Type="Self.TIME_FRAME" Multiplicity="0..1" />
+    <End Role="TICKET_PRICE" Type="Self.TICKET_PRICE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TIME_FRAME">
+        <PropertyRef Name="TF_ID" />
+      </Principal>
+      <Dependent Role="TICKET_PRICE">
+        <PropertyRef Name="TF_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TICKET_SALE_USER_INFO">
+    <End Role="USER_INFO" Type="Self.USER_INFO" Multiplicity="0..1" />
+    <End Role="TICKET_SALE" Type="Self.TICKET_SALE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USER_INFO">
+        <PropertyRef Name="USER_ID" />
+      </Principal>
+      <Dependent Role="TICKET_SALE">
+        <PropertyRef Name="USER_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_USER_INFO_USER_TYPE">
+    <End Role="USER_TYPE" Type="Self.USER_TYPE" Multiplicity="0..1" />
+    <End Role="USER_INFO" Type="Self.USER_INFO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USER_TYPE">
+        <PropertyRef Name="USER_TYPEID" />
+      </Principal>
+      <Dependent Role="USER_INFO">
+        <PropertyRef Name="USER_TYPEID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="TICKET_MANAGEREntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="ACCOUNTS" EntityType="Self.ACCOUNT" />
+    <EntitySet Name="BARCODEs" EntityType="Self.BARCODE" />
+    <EntitySet Name="CARD_NO" EntityType="Self.CARD_NO" />
+    <EntitySet Name="CARD_TYPE" EntityType="Self.CARD_TYPE" />
+    <EntitySet Name="DEPARTMENTs" EntityType="Self.DEPARTMENT" />
+    <EntitySet Name="DETAIL_SALE" EntityType="Self.DETAIL_SALE" />
+    <EntitySet Name="DEVICEs" EntityType="Self.DEVICE" />
+    <EntitySet Name="DEVICE_TYPE" EntityType="Self.DEVICE_TYPE" />
+    <EntitySet Name="DISCOUNTs" EntityType="Self.DISCOUNT" />
+    <EntitySet Name="DISCOUNT_TYPE" EntityType="Self.DISCOUNT_TYPE" />
+    <EntitySet Name="EMPLOYEES" EntityType="Self.EMPLOYEE" />
+    <EntitySet Name="GAME_SPORT" EntityType="Self.GAME_SPORT" />
+    <EntitySet Name="HOLIDAYs" EntityType="Self.HOLIDAY" />
+    <EntitySet Name="IO_INFO" EntityType="Self.IO_INFO" />
+    <EntitySet Name="MENULISTs" EntityType="Self.MENULIST" />
+    <EntitySet Name="PRIVILES" EntityType="Self.PRIVILE" />
+    <EntitySet Name="REDEEMs" EntityType="Self.REDEEM" />
+    <EntitySet Name="REDEEM_TRANSFORM" EntityType="Self.REDEEM_TRANSFORM" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+    <EntitySet Name="TICKET_PRICE" EntityType="Self.TICKET_PRICE" />
+    <EntitySet Name="TICKET_SALE" EntityType="Self.TICKET_SALE" />
+    <EntitySet Name="TICKET_TYPE" EntityType="Self.TICKET_TYPE" />
+    <EntitySet Name="TIME_FRAME" EntityType="Self.TIME_FRAME" />
+    <EntitySet Name="UNITs" EntityType="Self.UNIT" />
+    <EntitySet Name="USER_INFO" EntityType="Self.USER_INFO" />
+    <EntitySet Name="USER_TYPE" EntityType="Self.USER_TYPE" />
+    <EntitySet Name="VISIBLECONTROLS" EntityType="Self.VISIBLECONTROL" />
+    <EntitySet Name="ZONEs" EntityType="Self.ZONE" />
+    <AssociationSet Name="FK_ACCOUNTS_EMPLOYEES" Association="Self.FK_ACCOUNTS_EMPLOYEES">
+      <End Role="EMPLOYEES" EntitySet="EMPLOYEES" />
+      <End Role="ACCOUNTS" EntitySet="ACCOUNTS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ACCOUNTS_PRIVILES" Association="Self.FK_ACCOUNTS_PRIVILES">
+      <End Role="PRIVILES" EntitySet="PRIVILES" />
+      <End Role="ACCOUNTS" EntitySet="ACCOUNTS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_BARCODE_CARD_TYPE" Association="Self.FK_BARCODE_CARD_TYPE">
+      <End Role="CARD_TYPE" EntitySet="CARD_TYPE" />
+      <End Role="BARCODE" EntitySet="BARCODEs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_BARCODE_TICKET_TYPE" Association="Self.FK_BARCODE_TICKET_TYPE">
+      <End Role="TICKET_TYPE" EntitySet="TICKET_TYPE" />
+      <End Role="BARCODE" EntitySet="BARCODEs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_BARCODE_ZONE" Association="Self.FK_BARCODE_ZONE">
+      <End Role="ZONE" EntitySet="ZONEs" />
+      <End Role="BARCODE" EntitySet="BARCODEs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DETAIL_SALE_BARCODE" Association="Self.FK_DETAIL_SALE_BARCODE">
+      <End Role="BARCODE" EntitySet="BARCODEs" />
+      <End Role="DETAIL_SALE" EntitySet="DETAIL_SALE" />
+    </AssociationSet>
+    <AssociationSet Name="FK_IO_INFO_BARCODE" Association="Self.FK_IO_INFO_BARCODE">
+      <End Role="BARCODE" EntitySet="BARCODEs" />
+      <End Role="IO_INFO" EntitySet="IO_INFO" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CARD_NO_CARD_TYPE" Association="Self.FK_CARD_NO_CARD_TYPE">
+      <End Role="CARD_TYPE" EntitySet="CARD_TYPE" />
+      <End Role="CARD_NO" EntitySet="CARD_NO" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CARD_NO_TICKET_TYPE" Association="Self.FK_CARD_NO_TICKET_TYPE">
+      <End Role="TICKET_TYPE" EntitySet="TICKET_TYPE" />
+      <End Role="CARD_NO" EntitySet="CARD_NO" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DETAIL_SALE_CARD_NO" Association="Self.FK_DETAIL_SALE_CARD_NO">
+      <End Role="CARD_NO" EntitySet="CARD_NO" />
+      <End Role="DETAIL_SALE" EntitySet="DETAIL_SALE" />
+    </AssociationSet>
+    <AssociationSet Name="FK_IO_INFO_CARD_NO" Association="Self.FK_IO_INFO_CARD_NO">
+      <End Role="CARD_NO" EntitySet="CARD_NO" />
+      <End Role="IO_INFO" EntitySet="IO_INFO" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TICKET_PRICE_CARD_TYPE" Association="Self.FK_TICKET_PRICE_CARD_TYPE">
+      <End Role="CARD_TYPE" EntitySet="CARD_TYPE" />
+      <End Role="TICKET_PRICE" EntitySet="TICKET_PRICE" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EMPLOYEES_DEPARTMENT" Association="Self.FK_EMPLOYEES_DEPARTMENT">
+      <End Role="DEPARTMENT" EntitySet="DEPARTMENTs" />
+      <End Role="EMPLOYEES" EntitySet="EMPLOYEES" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DETAIL_SALE_TICKET_SALE" Association="Self.FK_DETAIL_SALE_TICKET_SALE">
+      <End Role="TICKET_SALE" EntitySet="TICKET_SALE" />
+      <End Role="DETAIL_SALE" EntitySet="DETAIL_SALE" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DEVICE_DEVICE_TYPE" Association="Self.FK_DEVICE_DEVICE_TYPE">
+      <End Role="DEVICE_TYPE" EntitySet="DEVICE_TYPE" />
+      <End Role="DEVICE" EntitySet="DEVICEs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DEVICE_ZONE" Association="Self.FK_DEVICE_ZONE">
+      <End Role="ZONE" EntitySet="ZONEs" />
+      <End Role="DEVICE" EntitySet="DEVICEs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DISCOUNT_DISCOUNT_TYPE" Association="Self.FK_DISCOUNT_DISCOUNT_TYPE">
+      <End Role="DISCOUNT_TYPE" EntitySet="DISCOUNT_TYPE" />
+      <End Role="DISCOUNT" EntitySet="DISCOUNTs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DISCOUNT_HOLIDAY" Association="Self.FK_DISCOUNT_HOLIDAY">
+      <End Role="HOLIDAY" EntitySet="HOLIDAYs" />
+      <End Role="DISCOUNT" EntitySet="DISCOUNTs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TICKET_SALE_DISCOUNT" Association="Self.FK_TICKET_SALE_DISCOUNT">
+      <End Role="DISCOUNT" EntitySet="DISCOUNTs" />
+      <End Role="TICKET_SALE" EntitySet="TICKET_SALE" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TICKET_PRICE_HOLIDAY" Association="Self.FK_TICKET_PRICE_HOLIDAY">
+      <End Role="HOLIDAY" EntitySet="HOLIDAYs" />
+      <End Role="TICKET_PRICE" EntitySet="TICKET_PRICE" />
+    </AssociationSet>
+    <AssociationSet Name="FK_IO_INFO_ZONE" Association="Self.FK_IO_INFO_ZONE">
+      <End Role="ZONE" EntitySet="ZONEs" />
+      <End Role="IO_INFO" EntitySet="IO_INFO" />
+    </AssociationSet>
+    <AssociationSet Name="FK_VISIBLECONTROLS_MENULIST" Association="Self.FK_VISIBLECONTROLS_MENULIST">
+      <End Role="MENULIST" EntitySet="MENULISTs" />
+      <End Role="VISIBLECONTROLS" EntitySet="VISIBLECONTROLS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_VISIBLECONTROLS_PRIVILES" Association="Self.FK_VISIBLECONTROLS_PRIVILES">
+      <End Role="PRIVILES" EntitySet="PRIVILES" />
+      <End Role="VISIBLECONTROLS" EntitySet="VISIBLECONTROLS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TICKET_PRICE_TICKET_TYPE" Association="Self.FK_TICKET_PRICE_TICKET_TYPE">
+      <End Role="TICKET_TYPE" EntitySet="TICKET_TYPE" />
+      <End Role="TICKET_PRICE" EntitySet="TICKET_PRICE" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TICKET_PRICE_TIME_FRAME" Association="Self.FK_TICKET_PRICE_TIME_FRAME">
+      <End Role="TIME_FRAME" EntitySet="TIME_FRAME" />
+      <End Role="TICKET_PRICE" EntitySet="TICKET_PRICE" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TICKET_SALE_USER_INFO" Association="Self.FK_TICKET_SALE_USER_INFO">
+      <End Role="USER_INFO" EntitySet="USER_INFO" />
+      <End Role="TICKET_SALE" EntitySet="TICKET_SALE" />
+    </AssociationSet>
+    <AssociationSet Name="FK_USER_INFO_USER_TYPE" Association="Self.FK_USER_INFO_USER_TYPE">
+      <End Role="USER_TYPE" EntitySet="USER_TYPE" />
+      <End Role="USER_INFO" EntitySet="USER_INFO" />
+    </AssociationSet>
+    <FunctionImport Name="accounts_ChangePassword">
+      <Parameter Name="ACC_ID" Mode="In" Type="Int32" />
+      <Parameter Name="ACC_PASSWORD" Mode="In" Type="String" />
+      <Parameter Name="newPassword" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="accounts_CheckLogin" ReturnType="Collection(TICKET_MANAGERModel.accounts_CheckLogin_Result)">
+      <Parameter Name="userName" Mode="In" Type="String" />
+      <Parameter Name="password" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="accounts_Delete">
+      <Parameter Name="ACC_ID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="accounts_GetACC_IDfromEM_ID" ReturnType="Collection(Int32)">
+      <Parameter Name="EM_ID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="accounts_GetAll" ReturnType="Collection(TICKET_MANAGERModel.accounts_GetAll_Result)" />
+    <FunctionImport Name="accounts_insert">
+      <Parameter Name="ACC_ID" Mode="In" Type="Int32" />
+      <Parameter Name="PRI_ID" Mode="In" Type="Int32" />
+      <Parameter Name="EM_ID" Mode="In" Type="Int32" />
+      <Parameter Name="ACC_USERNAME" Mode="In" Type="String" />
+      <Parameter Name="ACC_PASSWORD" Mode="In" Type="String" />
+      <Parameter Name="ACC_STATUS" Mode="In" Type="Boolean" />
+    </FunctionImport>
+    <FunctionImport Name="accounts_IsExistsAccount" ReturnType="Collection(Int32)">
+      <Parameter Name="em_ID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="accounts_IsExistsUserName" ReturnType="Collection(Int32)">
+      <Parameter Name="userName" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="accounts_ResetPass">
+      <Parameter Name="ACC_ID" Mode="In" Type="Int32" />
+      <Parameter Name="newPassword" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="accounts_update">
+      <Parameter Name="ACC_ID" Mode="In" Type="Int32" />
+      <Parameter Name="PRI_ID" Mode="In" Type="Int32" />
+      <Parameter Name="EM_ID" Mode="In" Type="Int32" />
+      <Parameter Name="ACC_USERNAME" Mode="In" Type="String" />
+      <Parameter Name="ACC_PASSWORD" Mode="In" Type="String" />
+      <Parameter Name="ACC_STATUS" Mode="In" Type="Boolean" />
+    </FunctionImport>
+    <FunctionImport Name="barcode_check_reset_number" ReturnType="Collection(Int32)">
+      <Parameter Name="GENDATE" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <FunctionImport Name="barcode_delete">
+      <Parameter Name="BAR_ID" Mode="In" Type="Int64" />
+    </FunctionImport>
+    <FunctionImport Name="barcode_get_max_number_of_date" ReturnType="Collection(Int32)">
+      <Parameter Name="APPLY_DATE" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <FunctionImport Name="barcode_GetTop5000desc" ReturnType="Collection(TICKET_MANAGERModel.barcode_GetTop5000desc_Result)" />
+    <FunctionImport Name="barcode_insert" ReturnType="Collection(Int64)">
+      <Parameter Name="BAR_ID" Mode="In" Type="Int64" />
+      <Parameter Name="CT_ID" Mode="In" Type="Int32" />
+      <Parameter Name="TYPEID" Mode="In" Type="Int32" />
+      <Parameter Name="ZONE_ID" Mode="In" Type="Int32" />
+      <Parameter Name="BAR_NO" Mode="In" Type="String" />
+      <Parameter Name="ACC_ID" Mode="In" Type="Int32" />
+      <Parameter Name="ACTIVE" Mode="In" Type="Boolean" />
+      <Parameter Name="USED" Mode="In" Type="Boolean" />
+      <Parameter Name="NUMBER" Mode="In" Type="Int32" />
+      <Parameter Name="APPLY_DATE" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <FunctionImport Name="barcode_IsExist" ReturnType="Collection(Int32)">
+      <Parameter Name="BAR_NO" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="barcode_isExistAndInfo" ReturnType="Collection(TICKET_MANAGERModel.barcode_isExistAndInfo_Result)">
+      <Parameter Name="BAR_NO" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="barcode_update">
+      <Parameter Name="BAR_ID" Mode="In" Type="Int64" />
+      <Parameter Name="ACTIVE" Mode="In" Type="Boolean" />
+      <Parameter Name="USED" Mode="In" Type="Boolean" />
+    </FunctionImport>
+    <FunctionImport Name="barcode_UpdateDamage">
+      <Parameter Name="BAR_ID" Mode="In" Type="Int64" />
+      <Parameter Name="DAMAGE" Mode="In" Type="Boolean" />
+    </FunctionImport>
+    <FunctionImport Name="common_GetDate" ReturnType="Collection(String)" />
+    <FunctionImport Name="common_GetDate_test" ReturnType="Collection(String)" />
+    <FunctionImport Name="department_Delete">
+      <Parameter Name="DEP_ID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="department_GetAll" ReturnType="Collection(TICKET_MANAGERModel.department_GetAll_Result)" />
+    <FunctionImport Name="department_GetAllVisible" ReturnType="Collection(TICKET_MANAGERModel.department_GetAllVisible_Result)" />
+    <FunctionImport Name="department_insert" ReturnType="Collection(Int32)">
+      <Parameter Name="DEP_ID" Mode="In" Type="Int32" />
+      <Parameter Name="DEP_NAME" Mode="In" Type="String" />
+      <Parameter Name="DEP_DESCRIPTION" Mode="In" Type="String" />
+      <Parameter Name="DEP_STATUS" Mode="In" Type="Boolean" />
+    </FunctionImport>
+    <FunctionImport Name="department_update">
+      <Parameter Name="DEP_ID" Mode="In" Type="Int32" />
+      <Parameter Name="DEP_NAME" Mode="In" Type="String" />
+      <Parameter Name="DEP_DESCRIPTION" Mode="In" Type="String" />
+      <Parameter Name="DEP_STATUS" Mode="In" Type="Boolean" />
+    </FunctionImport>
+    <FunctionImport Name="detail_sale_delete">
+      <Parameter Name="DTS_ID" Mode="In" Type="Int64" />
+    </FunctionImport>
+    <FunctionImport Name="detail_sale_getAll" ReturnType="Collection(TICKET_MANAGERModel.detail_sale_getAll_Result)" />
+    <FunctionImport Name="detail_sale_GetByTS" ReturnType="Collection(TICKET_MANAGERModel.detail_sale_GetByTS_Result)">
+      <Parameter Name="TS_ID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="detail_sale_insert" ReturnType="Collection(Int64)">
+      <Parameter Name="DTS_ID" Mode="In" Type="Int64" />
+      <Parameter Name="TS_ID" Mode="In" Type="Int64" />
+      <Parameter Name="CA_ID" Mode="In" Type="Int32" />
+      <Parameter Name="BAR_ID" Mode="In" Type="Int64" />
+      <Parameter Name="DTS_PRICE" Mode="In" Type="Int64" />
+      <Parameter Name="DTS_PAY" Mode="In" Type="Int64" />
+    </FunctionImport>
+    <FunctionImport Name="detail_sale_update">
+      <Parameter Name="DTS_ID" Mode="In" Type="Int64" />
+      <Parameter Name="TS_ID" Mode="In" Type="Int64" />
+      <Parameter Name="CA_ID" Mode="In" Type="Int32" />
+      <Parameter Name="BAR_ID" Mode="In" Type="Int64" />
+      <Parameter Name="DTS_PRICE" Mode="In" Type="Int64" />
+      <Parameter Name="DTS_PAY" Mode="In" Type="Int64" />
+    </FunctionImport>
+    <FunctionImport Name="device_Delete">
+      <Parameter Name="DEVICE_ID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="device_GetAll" ReturnType="Collection(TICKET_MANAGERModel.device_GetAll_Result)" />
+    <FunctionImport Name="device_GetAll_Visible" ReturnType="Collection(TICKET_MANAGERModel.device_GetAll_Visible_Result)" />
+    <FunctionImport Name="device_insert" ReturnType="Collection(Int32)">
+      <Parameter Name="DEVICE_ID" Mode="In" Type="Int32" />
+      <Parameter Name="DEVICE_NAME" Mode="In" Type="String" />
+      <Parameter Name="DEVICE_CODE" Mode="In" Type="String" />
+      <Parameter Name="DT_ID" Mode="In" Type="Int32" />
+      <Parameter Name="ZONE_ID" Mode="In" Type="Int32" />
+      <Parameter Name="DEVICE_MAC" Mode="In" Type="String" />
+      <Parameter Name="DEVICE_IP" Mode="In" Type="String" />
+      <Parameter Name="DEVICE_PORT" Mode="In" Type="Int32" />
+      <Parameter Name="DEVICE_DES" Mode="In" Type="String" />
+      <Parameter Name="DEVICE_STATUS" Mode="In" Type="Boolean" />
+    </FunctionImport>
+    <FunctionImport Name="device_IsExist" ReturnType="Collection(Int32)">
+      <Parameter Name="DEVICE_CODE" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="device_type_Delete">
+      <Parameter Name="DT_ID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="device_type_GetAll" ReturnType="Collection(TICKET_MANAGERModel.device_type_GetAll_Result)" />
+    <FunctionImport Name="device_type_GetAllVisible" ReturnType="Collection(TICKET_MANAGERModel.device_type_GetAllVisible_Result)" />
+    <FunctionImport Name="device_type_insert" ReturnType="Collection(Int32)">
+      <Parameter Name="DT_ID" Mode="In" Type="Int32" />
+      <Parameter Name="DT_NAME" Mode="In" Type="String" />
+      <Parameter Name="DT_CODE" Mode="In" Type="String" />
+      <Parameter Name="DT_DES" Mode="In" Type="String" />
+      <Parameter Name="DT_STATUS" Mode="In" Type="Boolean" />
+    </FunctionImport>
+    <FunctionImport Name="device_type_IsExist" ReturnType="Collection(Int32)">
+      <Parameter Name="DT_CODE" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="device_type_update">
+      <Parameter Name="DT_ID" Mode="In" Type="Int32" />
+      <Parameter Name="DT_NAME" Mode="In" Type="String" />
+      <Parameter Name="DT_CODE" Mode="In" Type="String" />
+      <Parameter Name="DT_DES" Mode="In" Type="String" />
+      <Parameter Name="DT_STATUS" Mode="In" Type="Boolean" />
+    </FunctionImport>
+    <FunctionImport Name="device_update">
+      <Parameter Name="DEVICE_ID" Mode="In" Type="Int32" />
+      <Parameter Name="DEVICE_NAME" Mode="In" Type="String" />
+      <Parameter Name="DEVICE_CODE" Mode="In" Type="String" />
+      <Parameter Name="DT_ID" Mode="In" Type="Int32" />
+      <Parameter Name="ZONE_ID" Mode="In" Type="Int32" />
+      <Parameter Name="DEVICE_IP" Mode="In" Type="String" />
+      <Parameter Name="DEVICE_MAC" Mode="In" Type="String" />
+      <Parameter Name="DEVICE_PORT" Mode="In" Type="Int32" />
+      <Parameter Name="DEVICE_DES" Mode="In" Type="String" />
+      <Parameter Name="DEVICE_STATUS" Mode="In" Type="Boolean" />
+    </FunctionImport>
+    <FunctionImport Name="discount_delete">
+      <Parameter Name="DISC_ID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="discount_FindByHol" ReturnType="Collection(TICKET_MANAGERModel.discount_FindByHol_Result)">
+      <Parameter Name="HOL_ID" Mode="In" Type="Int32" />
+      <Parameter Name="TF_ID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="discount_FindByWeek" ReturnType="Collection(TICKET_MANAGERModel.discount_FindByWeek_Result)">
+      <Parameter Name="WD_ISWEEKEND" Mode="In" Type="Boolean" />
+      <Parameter Name="TF_ID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="discount_GetAll" ReturnType="Collection(TICKET_MANAGERModel.discount_GetAll_Result)" />
+    <FunctionImport Name="discount_GetAllVisible" ReturnType="Collection(TICKET_MANAGERModel.discount_GetAllVisible_Result)" />
+    <FunctionImport Name="discount_GetInfoById" ReturnType="Collection(TICKET_MANAGERModel.discount_GetInfoById_Result)">
+      <Parameter Name="DISC_ID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="discount_GetTypeById" ReturnType="Collection(Int32)">
+      <Parameter Name="DISC_ID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="discount_insert" ReturnType="Collection(Int32)">
+      <Parameter Name="DISC_ID" Mode="In" Type="Int32" />
+      <Parameter Name="DISCT_ID" Mode="In" Type="Int32" />
+      <Parameter Name="HOL_ID" Mode="In" Type="Int32" />
+      <Parameter Name="TF_ID" Mode="In" Type="Int32" />
+      <Parameter Name="DISC_NAME" Mode="In" Type="String" />
+      <Parameter Name="DISC_CODE" Mode="In" Type="String" />
+      <Parameter Name="WD_ISWEEKEND" Mode="In" Type="Boolean" />
+      <Parameter Name="DISC_VALUE" Mode="In" Type="Int32" />
+      <Parameter Name="DISC_DES" Mode="In" Type="String" />
+      <Parameter Name="CREATE_DATE" Mode="In" Type="DateTime" />
+      <Parameter Name="DISC_START" Mode="In" Type="DateTime" />
+      <Parameter Name="DISC_END" Mode="In" Type="DateTime" />
+      <Parameter Name="DISC_STATUS" Mode="In" Type="Boolean" />
+    </FunctionImport>
+    <FunctionImport Name="discount_IsExist" ReturnType="Collection(Int32)">
+      <Parameter Name="DISC_CODE" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="discount_isExistsType" ReturnType="Collection(Int32)">
+      <Parameter Name="DISCT_ID" Mode="In" Type="Int32" />
+      <Parameter Name="HOL_ID" Mode="In" Type="Int32" />
+      <Parameter Name="TF_ID" Mode="In" Type="Int32" />
+      <Parameter Name="WD_ISWEEKEND" Mode="In" Type="Boolean" />
+    </FunctionImport>
+    <FunctionImport Name="discount_type_delete">
+      <Parameter Name="DISCT_ID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="discount_type_GetAll" ReturnType="Collection(TICKET_MANAGERModel.discount_type_GetAll_Result)" />
+    <FunctionImport Name="discount_type_insert" ReturnType="Collection(Int32)">
+      <Parameter Name="DISCT_ID" Mode="In" Type="Int32" />
+      <Parameter Name="DISCT_NAME" Mode="In" Type="String" />
+      <Parameter Name="DISCT_CHECK" Mode="In" Type="Int32" />
+      <Parameter Name="DISCT_DES" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="discount_type_update">
+      <Parameter Name="DISCT_ID" Mode="In" Type="Int32" />
+      <Parameter Name="DISCT_NAME" Mode="In" Type="String" />
+      <Parameter Name="DISCT_CHECK" Mode="In" Type="Int32" />
+      <Parameter Name="DISCT_DES" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="discount_update">
+      <Parameter Name="DISC_ID" Mode="In" Type="Int32" />
+      <Parameter Name="DISCT_ID" Mode="In" Type="Int32" />
+      <Parameter Name="HOL_ID" Mode="In" Type="Int32" />
+      <Parameter Name="TF_ID" Mode="In" Type="Int32" />
+      <Parameter Name="WD_ISWEEKEND" Mode="In" Type="Boolean" />
+    </FunctionImport>
+    <FunctionImport Name="employees_Delete">
+      <Parameter Name="EM_ID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="employees_FindInfoByAccId" ReturnType="Collection(TICKET_MANAGERModel.employees_FindInfoByAccId_Result)">
+      <Parameter Name="ACC_ID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="employees_GetAll" ReturnType="Collection(TICKET_MANAGERModel.employees_GetAll_Result)" />
+    <FunctionImport Name="employees_GetAll_Visible" ReturnType="Collection(TICKET_MANAGERModel.employees_GetAll_Visible_Result)" />
+    <FunctionImport Name="employees_GetLastestID" ReturnType="Collection(Int32)">
+      <Parameter Name="EM_NAME" Mode="In" Type="String" />
+      <Parameter Name="PHONE" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="employees_insert" ReturnType="Collection(Int32)">
+      <Parameter Name="EM_ID" Mode="In" Type="Int32" />
+      <Parameter Name="DEP_ID" Mode="In" Type="Int32" />
+      <Parameter Name="EM_NAME" Mode="In" Type="String" />
+      <Parameter Name="EM_CODE" Mode="In" Type="String" />
+      <Parameter Name="PHONE" Mode="In" Type="String" />
+      <Parameter Name="IDENTITY_NUMBER" Mode="In" Type="String" />
+      <Parameter Name="SEX" Mode="In" Type="String" />
+      <Parameter Name="ADDRESS" Mode="In" Type="String" />
+      <Parameter Name="DESCRIPTION" Mode="In" Type="String" />
+      <Parameter Name="IMAGE" Mode="In" Type="Binary" />
+      <Parameter Name="EM_STATUS" Mode="In" Type="Boolean" />
+    </FunctionImport>
+    <FunctionImport Name="employees_IsExist" ReturnType="Collection(Int32)">
+      <Parameter Name="EM_CODE" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="employees_update">
+      <Parameter Name="EM_ID" Mode="In" Type="Int32" />
+      <Parameter Name="DEP_ID" Mode="In" Type="Int32" />
+      <Parameter Name="EM_NAME" Mode="In" Type="String" />
+      <Parameter Name="EM_CODE" Mode="In" Type="String" />
+      <Parameter Name="PHONE" Mode="In" Type="String" />
+      <Parameter Name="IDENTITY_NUMBER" Mode="In" Type="String" />
+      <Parameter Name="SEX" Mode="In" Type="String" />
+      <Parameter Name="ADDRESS" Mode="In" Type="String" />
+      <Parameter Name="DESCRIPTION" Mode="In" Type="String" />
+      <Parameter Name="IMAGE" Mode="In" Type="Binary" />
+      <Parameter Name="EM_STATUS" Mode="In" Type="Boolean" />
+    </FunctionImport>
+    <FunctionImport Name="GetXMLDemo" ReturnType="Collection(String)" />
+    <FunctionImport Name="GetXMLDemo1" ReturnType="Collection(String)" />
+    <FunctionImport Name="GetXMLDemo2" ReturnType="Collection(String)" />
+    <FunctionImport Name="holiday_Available" ReturnType="Collection(TICKET_MANAGERModel.holiday_Available_Result)" />
+    <FunctionImport Name="holiday_delete">
+      <Parameter Name="HOL_ID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="holiday_findHoliday" ReturnType="Collection(Int32)">
+      <Parameter Name="VALUE" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="holiday_GetAll" ReturnType="Collection(TICKET_MANAGERModel.holiday_GetAll_Result)" />
+    <FunctionImport Name="holiday_GetAllVisible" ReturnType="Collection(TICKET_MANAGERModel.holiday_GetAllVisible_Result)" />
+    <FunctionImport Name="holiday_insert" ReturnType="Collection(Int32)">
+      <Parameter Name="HOL_ID" Mode="In" Type="Int32" />
+      <Parameter Name="HOL_NAME" Mode="In" Type="String" />
+      <Parameter Name="HOL_FROM" Mode="In" Type="String" />
+      <Parameter Name="HOL_TO" Mode="In" Type="String" />
+      <Parameter Name="HOL_STATUS" Mode="In" Type="Boolean" />
+    </FunctionImport>
+    <FunctionImport Name="holiday_IsExist" ReturnType="Collection(Int32)">
+      <Parameter Name="HOL_NAME" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="holiday_update">
+      <Parameter Name="HOL_ID" Mode="In" Type="Int32" />
+      <Parameter Name="HOL_NAME" Mode="In" Type="String" />
+      <Parameter Name="HOL_FROM" Mode="In" Type="String" />
+      <Parameter Name="HOL_TO" Mode="In" Type="String" />
+      <Parameter Name="HOL_STATUS" Mode="In" Type="Boolean" />
+    </FunctionImport>
+    <FunctionImport Name="paging_barcodes" ReturnType="Collection(TICKET_MANAGERModel.paging_barcodes_Result)">
+      <Parameter Name="PageNumber" Mode="In" Type="Int32" />
+      <Parameter Name="PageSize" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="paging_detail_sales" ReturnType="Collection(TICKET_MANAGERModel.paging_detail_sales_Result)">
+      <Parameter Name="PageNumber" Mode="In" Type="Int32" />
+      <Parameter Name="PageSize" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="paging_io_info" ReturnType="Collection(TICKET_MANAGERModel.paging_io_info_Result)">
+      <Parameter Name="PageNumber" Mode="In" Type="Int32" />
+      <Parameter Name="PageSize" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="paging_sale_no">
+      <Parameter Name="PageNumber" Mode="In" Type="Int32" />
+      <Parameter Name="PageSize" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="priviles_Delete">
+      <Parameter Name="PRI_ID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="priviles_GetAll" ReturnType="Collection(TICKET_MANAGERModel.priviles_GetAll_Result)" />
+    <FunctionImport Name="priviles_GetAll_Visible" ReturnType="Collection(TICKET_MANAGERModel.priviles_GetAll_Visible_Result)" />
+    <FunctionImport Name="priviles_insert" ReturnType="Collection(Int32)">
+      <Parameter Name="PRI_ID" Mode="In" Type="Int32" />
+      <Parameter Name="PRI_DESCRIPTION" Mode="In" Type="String" />
+      <Parameter Name="PRI_STATUS" Mode="In" Type="Boolean" />
+    </FunctionImport>
+    <FunctionImport Name="priviles_IsExists" ReturnType="Collection(Int32)">
+      <Parameter Name="PRI_ID" Mode="In" Type="Int32" />
+      <Parameter Name="PRI_DESCRIPTION" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="priviles_update">
+      <Parameter Name="PRI_ID" Mode="In" Type="Int32" />
+      <Parameter Name="PRI_DESCRIPTION" Mode="In" Type="String" />
+      <Parameter Name="PRI_STATUS" Mode="In" Type="Boolean" />
+    </FunctionImport>
+    <FunctionImport Name="redeem_add_formula_GetAll" />
+    <FunctionImport Name="redeem_formula_GetAll" />
+    <FunctionImport Name="redeem_transform_get" ReturnType="Collection(Int32)">
+      <Parameter Name="id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="redeem_transform_update">
+      <Parameter Name="id" Mode="In" Type="Int32" />
+      <Parameter Name="value" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="select_account" ReturnType="Collection(TICKET_MANAGERModel.select_account_Result)">
+      <Parameter Name="ACC_ID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_alterdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_creatediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_dropdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(TICKET_MANAGERModel.sp_helpdiagramdefinition_Result)">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagrams" ReturnType="Collection(TICKET_MANAGERModel.sp_helpdiagrams_Result)">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_renamediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="new_diagramname" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_upgraddiagrams" />
+    <FunctionImport Name="statistic_barcode" ReturnType="Collection(TICKET_MANAGERModel.statistic_barcode_Result)">
+      <Parameter Name="number" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="statistic_department" ReturnType="Collection(TICKET_MANAGERModel.statistic_department_Result)" />
+    <FunctionImport Name="statistic_device_all" ReturnType="Collection(TICKET_MANAGERModel.statistic_device_all_Result)" />
+    <FunctionImport Name="statistic_DoanhThu_TongThucThu" ReturnType="Collection(Int64)">
+      <Parameter Name="START_DATE" Mode="In" Type="DateTime" />
+      <Parameter Name="END_DATE" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <FunctionImport Name="statistic_DoanhThuTheoKhuVuc" ReturnType="Collection(TICKET_MANAGERModel.statistic_DoanhThuTheoKhuVuc_Result)">
+      <Parameter Name="START_DATE" Mode="In" Type="DateTime" />
+      <Parameter Name="END_DATE" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <FunctionImport Name="statistic_DoanhThuTheoLoaiVe" ReturnType="Collection(TICKET_MANAGERModel.statistic_DoanhThuTheoLoaiVe_Result)">
+      <Parameter Name="START_DATE" Mode="In" Type="DateTime" />
+      <Parameter Name="END_DATE" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <FunctionImport Name="statistic_DoanhThuTheoNhanVien" ReturnType="Collection(TICKET_MANAGERModel.statistic_DoanhThuTheoNhanVien_Result)">
+      <Parameter Name="START_DATE" Mode="In" Type="DateTime" />
+      <Parameter Name="END_DATE" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <FunctionImport Name="statistic_DoanhThuTheoNhanVien1" ReturnType="Collection(TICKET_MANAGERModel.statistic_DoanhThuTheoNhanVien1_Result)">
+      <Parameter Name="START_DATE" Mode="In" Type="DateTime" />
+      <Parameter Name="END_DATE" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <FunctionImport Name="statistic_DoanhThuTheoThoiGian" ReturnType="Collection(TICKET_MANAGERModel.statistic_DoanhThuTheoThoiGian_Result)">
+      <Parameter Name="START_DATE" Mode="In" Type="DateTime" />
+      <Parameter Name="END_DATE" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <FunctionImport Name="statistic_employee" ReturnType="Collection(TICKET_MANAGERModel.statistic_employee_Result)">
+      <Parameter Name="STATUS" Mode="In" Type="Boolean" />
+    </FunctionImport>
+    <FunctionImport Name="statistic_employees" ReturnType="Collection(TICKET_MANAGERModel.statistic_employees_Result)" />
+    <FunctionImport Name="statistic_test_xemhoadon" ReturnType="Collection(TICKET_MANAGERModel.statistic_test_xemhoadon_Result)">
+      <Parameter Name="TS_NO" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="statistic_ThongKeKhauTru">
+      <Parameter Name="From" Mode="In" Type="String" />
+      <Parameter Name="To" Mode="In" Type="String" />
+      <Parameter Name="IS_WEEKEND" Mode="In" Type="Int32" />
+      <Parameter Name="IS_HOLIDAY" Mode="In" Type="Int32" />
+      <Parameter Name="strSQL" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="statistic_ticket_damage" ReturnType="Collection(TICKET_MANAGERModel.statistic_ticket_damage_Result)">
+      <Parameter Name="END_APPLY_DATE" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <FunctionImport Name="statistic_ticket_not_active" ReturnType="Collection(TICKET_MANAGERModel.statistic_ticket_not_active_Result)">
+      <Parameter Name="END_APPLY_DATE" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <FunctionImport Name="statistic_ticket_printed" ReturnType="Collection(TICKET_MANAGERModel.statistic_ticket_printed_Result)">
+      <Parameter Name="TYPE_CODE" Mode="In" Type="String" />
+      <Parameter Name="ZONE_CODE" Mode="In" Type="String" />
+      <Parameter Name="EM_CODE" Mode="In" Type="String" />
+      <Parameter Name="START_CREATE_DATE" Mode="In" Type="DateTime" />
+      <Parameter Name="END_CREATE_DATE" Mode="In" Type="DateTime" />
+      <Parameter Name="START_APPLY_DATE" Mode="In" Type="DateTime" />
+      <Parameter Name="END_APPLY_DATE" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <FunctionImport Name="statistic_ticket_sale" ReturnType="Collection(TICKET_MANAGERModel.statistic_ticket_sale_Result)">
+      <Parameter Name="TYPE_CODE" Mode="In" Type="String" />
+      <Parameter Name="ZONE_CODE" Mode="In" Type="String" />
+      <Parameter Name="EM_CODE" Mode="In" Type="String" />
+      <Parameter Name="START_CREATE_DATE" Mode="In" Type="DateTime" />
+      <Parameter Name="END_CREATE_DATE" Mode="In" Type="DateTime" />
+      <Parameter Name="START_APPLY_DATE" Mode="In" Type="DateTime" />
+      <Parameter Name="END_APPLY_DATE" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <FunctionImport Name="statistic_ticket_sale2" ReturnType="Collection(TICKET_MANAGERModel.statistic_ticket_sale2_Result)">
+      <Parameter Name="START_DATE" Mode="In" Type="DateTime" />
+      <Parameter Name="END_DATE" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <FunctionImport Name="statistic_ticket_sale3" ReturnType="Collection(TICKET_MANAGERModel.statistic_ticket_sale3_Result)">
+      <Parameter Name="START_DATE" Mode="In" Type="DateTime" />
+      <Parameter Name="END_DATE" Mode="In" Type="DateTime" />
+      <Parameter Name="EM_ID" Mode="In" Type="Int32" />
+      <Parameter Name="ZONE_ID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="statistic_ticketByType" ReturnType="Collection(TICKET_MANAGERModel.statistic_ticketByType_Result)">
+      <Parameter Name="START_DATE" Mode="In" Type="DateTime" />
+      <Parameter Name="END_DATE" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <FunctionImport Name="statistic_ticketTotalSold" ReturnType="Collection(TICKET_MANAGERModel.statistic_ticketTotalSold_Result)">
+      <Parameter Name="START_DATE" Mode="In" Type="DateTime" />
+      <Parameter Name="END_DATE" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <FunctionImport Name="statistic_ticketUsedFree" ReturnType="Collection(TICKET_MANAGERModel.statistic_ticketUsedFree_Result)">
+      <Parameter Name="START_DATE" Mode="In" Type="DateTime" />
+      <Parameter Name="END_DATE" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <FunctionImport Name="statistic_user_info" ReturnType="Collection(TICKET_MANAGERModel.statistic_user_info_Result)" />
+    <FunctionImport Name="statistic_VeKhachDangKy" ReturnType="Collection(TICKET_MANAGERModel.statistic_VeKhachDangKy_Result)">
+      <Parameter Name="START_DATE" Mode="In" Type="DateTime" />
+      <Parameter Name="END_DATE" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <FunctionImport Name="statistic_VeKhachVangLai" ReturnType="Collection(TICKET_MANAGERModel.statistic_VeKhachVangLai_Result)">
+      <Parameter Name="START_DATE" Mode="In" Type="DateTime" />
+      <Parameter Name="END_DATE" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <FunctionImport Name="statistic_zone" ReturnType="Collection(TICKET_MANAGERModel.statistic_zone_Result)" />
+    <FunctionImport Name="ticket_price_FindPricebyHol" ReturnType="Collection(Int64)">
+      <Parameter Name="TYPEID" Mode="In" Type="Int32" />
+      <Parameter Name="ZONE_ID" Mode="In" Type="Int32" />
+      <Parameter Name="TF_ID" Mode="In" Type="Int32" />
+      <Parameter Name="HOL_ID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="ticket_price_FindPricebyIsWeekend" ReturnType="Collection(Int64)">
+      <Parameter Name="TYPEID" Mode="In" Type="Int32" />
+      <Parameter Name="ZONE_ID" Mode="In" Type="Int32" />
+      <Parameter Name="TF_ID" Mode="In" Type="Int32" />
+      <Parameter Name="WD_ISWEEKEND" Mode="In" Type="Boolean" />
+    </FunctionImport>
+    <FunctionImport Name="ticket_price_GetAll" ReturnType="Collection(TICKET_MANAGERModel.ticket_price_GetAll_Result)" />
+    <FunctionImport Name="ticket_price_insert" ReturnType="Collection(Int32)">
+      <Parameter Name="PRICE_ID" Mode="In" Type="Int32" />
+      <Parameter Name="CT_ID" Mode="In" Type="Int32" />
+      <Parameter Name="TYPEID" Mode="In" Type="Int32" />
+      <Parameter Name="ZONE_ID" Mode="In" Type="Int32" />
+      <Parameter Name="TF_ID" Mode="In" Type="Int32" />
+      <Parameter Name="HOL_ID" Mode="In" Type="Int32" />
+      <Parameter Name="WD_ISWEEKEND" Mode="In" Type="Boolean" />
+      <Parameter Name="PRICE" Mode="In" Type="Int64" />
+      <Parameter Name="TEXT_PRICE" Mode="In" Type="String" />
+      <Parameter Name="ACC_ID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="ticket_price_IsExistPrice" ReturnType="Collection(TICKET_MANAGERModel.ticket_price_IsExistPrice_Result)">
+      <Parameter Name="TYPEID" Mode="In" Type="Int32" />
+      <Parameter Name="ZONE_ID" Mode="In" Type="Int32" />
+      <Parameter Name="TF_ID" Mode="In" Type="Int32" />
+      <Parameter Name="HOL_ID" Mode="In" Type="Int32" />
+      <Parameter Name="WD_ISWEEKEND" Mode="In" Type="Boolean" />
+    </FunctionImport>
+    <FunctionImport Name="ticket_price_update">
+      <Parameter Name="PRICE_ID" Mode="In" Type="Int32" />
+      <Parameter Name="CT_ID" Mode="In" Type="Int32" />
+      <Parameter Name="TYPEID" Mode="In" Type="Int32" />
+      <Parameter Name="ZONE_ID" Mode="In" Type="Int32" />
+      <Parameter Name="TF_ID" Mode="In" Type="Int32" />
+      <Parameter Name="HOL_ID" Mode="In" Type="Int32" />
+      <Parameter Name="WD_ISWEEKEND" Mode="In" Type="Boolean" />
+      <Parameter Name="PRICE" Mode="In" Type="Int64" />
+      <Parameter Name="TEXT_PRICE" Mode="In" Type="String" />
+      <Parameter Name="ACC_ID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="ticket_sale_Child2" ReturnType="Collection(TICKET_MANAGERModel.ticket_sale_Child2_Result)">
+      <Parameter Name="From" Mode="In" Type="String" />
+      <Parameter Name="To" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="ticket_sale_ChildTop5000Desc" ReturnType="Collection(TICKET_MANAGERModel.ticket_sale_ChildTop5000Desc_Result)" />
+    <FunctionImport Name="ticket_sale_delete">
+      <Parameter Name="TS_ID" Mode="In" Type="Int64" />
+    </FunctionImport>
+    <FunctionImport Name="ticket_sale_getAll" ReturnType="Collection(TICKET_MANAGERModel.ticket_sale_getAll_Result)" />
+    <FunctionImport Name="ticket_sale_getBillbyTS_ID" ReturnType="Collection(TICKET_MANAGERModel.ticket_sale_getBillbyTS_ID_Result)">
+      <Parameter Name="TS_ID" Mode="In" Type="Int64" />
+    </FunctionImport>
+    <FunctionImport Name="ticket_sale_insert" ReturnType="Collection(Int64)">
+      <Parameter Name="TS_ID" Mode="In" Type="Int64" />
+      <Parameter Name="TS_NO" Mode="In" Type="String" />
+      <Parameter Name="PRICE" Mode="In" Type="Int64" />
+      <Parameter Name="PAY" Mode="In" Type="Int64" />
+      <Parameter Name="DISC_ID" Mode="In" Type="Int32" />
+      <Parameter Name="DESCRIPTION" Mode="In" Type="String" />
+      <Parameter Name="USER_ID" Mode="In" Type="Int32" />
+      <Parameter Name="DISCOUNT_MONEY" Mode="In" Type="Int32" />
+      <Parameter Name="REDEEM_ADD" Mode="In" Type="Int32" />
+      <Parameter Name="REDEEM_SUB" Mode="In" Type="Int32" />
+      <Parameter Name="REDEEM_SUB_MONEY" Mode="In" Type="Int32" />
+      <Parameter Name="ACC_ID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="ticket_sale_Parent" ReturnType="Collection(TICKET_MANAGERModel.ticket_sale_Parent_Result)">
+      <Parameter Name="From" Mode="In" Type="DateTime" />
+      <Parameter Name="To" Mode="In" Type="DateTime" />
+      <Parameter Name="TS_NO" Mode="In" Type="String" />
+      <Parameter Name="DISC_CODE" Mode="In" Type="String" />
+      <Parameter Name="EM_CODE" Mode="In" Type="String" />
+      <Parameter Name="USER_CODE" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="ticket_sale_Parent2">
+      <Parameter Name="DISC_ID" Mode="In" Type="Int32" />
+      <Parameter Name="TS_NO" Mode="In" Type="String" />
+      <Parameter Name="EM_ID" Mode="In" Type="Int32" />
+      <Parameter Name="USER_ID" Mode="In" Type="Int32" />
+      <Parameter Name="From" Mode="In" Type="String" />
+      <Parameter Name="To" Mode="In" Type="String" />
+      <Parameter Name="strSQL" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="ticket_sale_ParentTop5000Desc" ReturnType="Collection(TICKET_MANAGERModel.ticket_sale_ParentTop5000Desc_Result)" />
+    <FunctionImport Name="ticket_sale_update">
+      <Parameter Name="TS_ID" Mode="In" Type="Int64" />
+      <Parameter Name="TS_NO" Mode="In" Type="String" />
+      <Parameter Name="PRICE" Mode="In" Type="Int64" />
+      <Parameter Name="PAY" Mode="In" Type="Int64" />
+      <Parameter Name="DISC_ID" Mode="In" Type="Int32" />
+      <Parameter Name="DESCRIPTION" Mode="In" Type="String" />
+      <Parameter Name="USER_ID" Mode="In" Type="Int32" />
+      <Parameter Name="REDEEM_ADD" Mode="In" Type="Int32" />
+      <Parameter Name="REDEEM_SUB" Mode="In" Type="Int32" />
+      <Parameter Name="REDEEM_SUB_MONEY" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="ticket_type_Delete">
+      <Parameter Name="TYPEID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="ticket_type_GetAll" ReturnType="Collection(TICKET_MANAGERModel.ticket_type_GetAll_Result)" />
+    <FunctionImport Name="ticket_type_GetTypeNamebyId" ReturnType="Collection(String)">
+      <Parameter Name="TYPEID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="ticket_type_insert" ReturnType="Collection(Int32)">
+      <Parameter Name="TYPEID" Mode="In" Type="Int32" />
+      <Parameter Name="TYPENAME" Mode="In" Type="String" />
+      <Parameter Name="TYPE_CODE" Mode="In" Type="String" />
+      <Parameter Name="TYPE_CHECK" Mode="In" Type="Int32" />
+      <Parameter Name="DESCRIPTIONS" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="ticket_type_IsExistTYPE_CODE" ReturnType="Collection(Int32)">
+      <Parameter Name="TYPEID" Mode="In" Type="Int32" />
+      <Parameter Name="TYPE_CODE" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="ticket_type_IsExistTYPENAME" ReturnType="Collection(Int32)">
+      <Parameter Name="TYPEID" Mode="In" Type="Int32" />
+      <Parameter Name="TYPENAME" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="ticket_type_update">
+      <Parameter Name="TYPEID" Mode="In" Type="Int32" />
+      <Parameter Name="TYPENAME" Mode="In" Type="String" />
+      <Parameter Name="TYPE_CODE" Mode="In" Type="String" />
+      <Parameter Name="TYPE_CHECK" Mode="In" Type="Int32" />
+      <Parameter Name="DESCRIPTIONS" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="time_frame_delete">
+      <Parameter Name="TF_ID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="time_frame_GetAll" ReturnType="Collection(TICKET_MANAGERModel.time_frame_GetAll_Result)" />
+    <FunctionImport Name="time_frame_GetAllVisible" ReturnType="Collection(TICKET_MANAGERModel.time_frame_GetAllVisible_Result)" />
+    <FunctionImport Name="time_frame_GetIdByCheck" ReturnType="Collection(Int32)">
+      <Parameter Name="TF_CHECK" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="time_frame_GetIDbyLifeTime" ReturnType="Collection(Int32)" />
+    <FunctionImport Name="time_frame_GetNotAllDay" ReturnType="Collection(TICKET_MANAGERModel.time_frame_GetNotAllDay_Result)" />
+    <FunctionImport Name="time_frame_GetRowById" ReturnType="Collection(TICKET_MANAGERModel.time_frame_GetRowById_Result)">
+      <Parameter Name="TF_ID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="time_frame_insert" ReturnType="Collection(Int32)">
+      <Parameter Name="TF_ID" Mode="In" Type="Int32" />
+      <Parameter Name="TF_NAME" Mode="In" Type="String" />
+      <Parameter Name="TF_CHECK" Mode="In" Type="Int32" />
+      <Parameter Name="TF_FROM" Mode="In" Type="Time" />
+      <Parameter Name="TF_TO" Mode="In" Type="Time" />
+      <Parameter Name="TF_DES" Mode="In" Type="String" />
+      <Parameter Name="TF_STATUS" Mode="In" Type="Boolean" />
+    </FunctionImport>
+    <FunctionImport Name="time_frame_IsExist" ReturnType="Collection(Int32)">
+      <Parameter Name="TF_NAME" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="time_frame_IsExistInDAY" ReturnType="Collection(Int32)">
+      <Parameter Name="VALUE" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="time_frame_kiemTraTrungKhungGio" ReturnType="Collection(String)">
+      <Parameter Name="TF_ID" Mode="In" Type="Int32" />
+      <Parameter Name="TF_TO" Mode="In" Type="Time" />
+      <Parameter Name="TF_FROM" Mode="In" Type="Time" />
+    </FunctionImport>
+    <FunctionImport Name="time_frame_update">
+      <Parameter Name="TF_ID" Mode="In" Type="Int32" />
+      <Parameter Name="TF_NAME" Mode="In" Type="String" />
+      <Parameter Name="TF_CHECK" Mode="In" Type="Int32" />
+      <Parameter Name="TF_FROM" Mode="In" Type="Time" />
+      <Parameter Name="TF_TO" Mode="In" Type="Time" />
+      <Parameter Name="TF_DES" Mode="In" Type="String" />
+      <Parameter Name="TF_STATUS" Mode="In" Type="Boolean" />
+    </FunctionImport>
+    <FunctionImport Name="update_cardno">
+      <Parameter Name="CA_ID" Mode="In" Type="Int32" />
+      <Parameter Name="USER_ID" Mode="In" Type="Int32" />
+      <Parameter Name="CA_NO" Mode="In" Type="String" />
+      <Parameter Name="CA_NUMBER" Mode="In" Type="String" />
+      <Parameter Name="CT_ID" Mode="In" Type="Int32" />
+      <Parameter Name="TYPEID" Mode="In" Type="Int32" />
+      <Parameter Name="CA_STATUS" Mode="In" Type="Boolean" />
+      <Parameter Name="CA_ACTIVE" Mode="In" Type="Boolean" />
+      <Parameter Name="DESCRIPTION" Mode="In" Type="String" />
+      <Parameter Name="APPLY_DATE" Mode="In" Type="DateTime" />
+      <Parameter Name="EXPRIED_DATE" Mode="In" Type="DateTime" />
+      <Parameter Name="CA_DAMAGED" Mode="In" Type="Boolean" />
+      <Parameter Name="CA_LOST" Mode="In" Type="Boolean" />
+      <Parameter Name="USING" Mode="In" Type="Boolean" />
+      <Parameter Name="ALLOW_SYNCHRONIZED" Mode="In" Type="Boolean" />
+      <Parameter Name="ZONE_LIST" Mode="In" Type="String" />
+      <Parameter Name="ACC_ID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="update_cardtype">
+      <Parameter Name="CT_ID" Mode="In" Type="Int32" />
+      <Parameter Name="CT_NAME" Mode="In" Type="String" />
+      <Parameter Name="CT_CODE" Mode="In" Type="String" />
+      <Parameter Name="CT_DESCRIPTION" Mode="In" Type="String" />
+      <Parameter Name="CT_STATUS" Mode="In" Type="Boolean" />
+    </FunctionImport>
+    <FunctionImport Name="update_device">
+      <Parameter Name="DEVICE_ID" Mode="In" Type="Int32" />
+      <Parameter Name="DEVICE_NAME" Mode="In" Type="String" />
+      <Parameter Name="DEVICE_CODE" Mode="In" Type="String" />
+      <Parameter Name="DT_ID" Mode="In" Type="Int32" />
+      <Parameter Name="CONTROLLER_ID" Mode="In" Type="Int32" />
+      <Parameter Name="DEVICE_MAC" Mode="In" Type="String" />
+      <Parameter Name="DEVICE_PORT" Mode="In" Type="Int32" />
+      <Parameter Name="DEVICE_DES" Mode="In" Type="String" />
+      <Parameter Name="DEVICE_STATUS" Mode="In" Type="Boolean" />
+    </FunctionImport>
+    <FunctionImport Name="update_game_sport">
+      <Parameter Name="GS_ID" Mode="In" Type="Int32" />
+      <Parameter Name="GS_NAME" Mode="In" Type="String" />
+      <Parameter Name="GS_LIMIT" Mode="In" Type="Int32" />
+      <Parameter Name="GS_DES" Mode="In" Type="String" />
+      <Parameter Name="GS_STATUS" Mode="In" Type="Boolean" />
+    </FunctionImport>
+    <FunctionImport Name="update_io_info">
+      <Parameter Name="IO_ID" Mode="In" Type="Int64" />
+      <Parameter Name="IO_TIME" Mode="In" Type="DateTime" />
+      <Parameter Name="CONTROLLER_ID" Mode="In" Type="Int32" />
+      <Parameter Name="CA_ID" Mode="In" Type="Int32" />
+      <Parameter Name="BAR_ID" Mode="In" Type="Int64" />
+      <Parameter Name="TFA_ID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="update_menulist">
+      <Parameter Name="MNU_ID" Mode="In" Type="Int32" />
+      <Parameter Name="MNU_NAME" Mode="In" Type="String" />
+      <Parameter Name="MNU_DISPLAY" Mode="In" Type="String" />
+      <Parameter Name="MNU_PARENT" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="update_redeem">
+      <Parameter Name="REDEEM_ID" Mode="In" Type="Int64" />
+      <Parameter Name="SN_ID" Mode="In" Type="Int64" />
+      <Parameter Name="REDEEM_VALUE" Mode="In" Type="Int32" />
+      <Parameter Name="REDEEM_MONEY" Mode="In" Type="Int32" />
+      <Parameter Name="REDEEM_STATUS" Mode="In" Type="Boolean" />
+    </FunctionImport>
+    <FunctionImport Name="update_redeem_add_formula">
+      <Parameter Name="RAF_ID" Mode="In" Type="Int32" />
+      <Parameter Name="RAF_NAME" Mode="In" Type="String" />
+      <Parameter Name="RAF_MONEY" Mode="In" Type="Int32" />
+      <Parameter Name="RAF_VALUE" Mode="In" Type="Int32" />
+      <Parameter Name="RAF_ACTIVE" Mode="In" Type="Boolean" />
+      <Parameter Name="RAF_UPDATE_DATE" Mode="In" Type="DateTime" />
+      <Parameter Name="ACC_ID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="update_redeem_formula">
+      <Parameter Name="RF_ID" Mode="In" Type="Int32" />
+      <Parameter Name="RF_NAME" Mode="In" Type="String" />
+      <Parameter Name="RF_REDVALUE" Mode="In" Type="Int32" />
+      <Parameter Name="RF_MONEY" Mode="In" Type="Int32" />
+      <Parameter Name="RF_ACTIVE" Mode="In" Type="Boolean" />
+      <Parameter Name="RF_UPDATE_DATE" Mode="In" Type="DateTime" />
+      <Parameter Name="ACC_ID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="update_sale_no">
+      <Parameter Name="SN_ID" Mode="In" Type="Int64" />
+      <Parameter Name="SN_NO" Mode="In" Type="String" />
+      <Parameter Name="DESCRIPTION" Mode="In" Type="String" />
+      <Parameter Name="USER_ID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="update_time_frame_active">
+      <Parameter Name="TFA_ID" Mode="In" Type="Int32" />
+      <Parameter Name="TFA_NAME" Mode="In" Type="String" />
+      <Parameter Name="TFA_FROM" Mode="In" Type="Time" />
+      <Parameter Name="TFA_TO" Mode="In" Type="Time" />
+      <Parameter Name="TFA_DES" Mode="In" Type="String" />
+      <Parameter Name="TFA_STATUS" Mode="In" Type="Boolean" />
+    </FunctionImport>
+    <FunctionImport Name="update_unit">
+      <Parameter Name="UNIT_ID" Mode="In" Type="Int32" />
+      <Parameter Name="UNIT_CODE" Mode="In" Type="String" />
+      <Parameter Name="UNIT_NAME" Mode="In" Type="String" />
+      <Parameter Name="UNIT_DES" Mode="In" Type="String" />
+      <Parameter Name="UNIT_STATUS" Mode="In" Type="Boolean" />
+    </FunctionImport>
+    <FunctionImport Name="update_user_info">
+      <Parameter Name="USER_ID" Mode="In" Type="Int32" />
+      <Parameter Name="USER_TYPEID" Mode="In" Type="Int32" />
+      <Parameter Name="GS_ID" Mode="In" Type="Int32" />
+      <Parameter Name="USER_NAME" Mode="In" Type="String" />
+      <Parameter Name="USER_CODE" Mode="In" Type="String" />
+      <Parameter Name="PHONE" Mode="In" Type="String" />
+      <Parameter Name="IDENTITY_NUMBER" Mode="In" Type="String" />
+      <Parameter Name="SEX" Mode="In" Type="String" />
+      <Parameter Name="USER_BIRTH" Mode="In" Type="DateTime" />
+      <Parameter Name="ADDRESS" Mode="In" Type="String" />
+      <Parameter Name="IMAGE" Mode="In" Type="Binary" />
+      <Parameter Name="EMAIL" Mode="In" Type="String" />
+      <Parameter Name="NOTE" Mode="In" Type="String" />
+      <Parameter Name="USER_STATUS" Mode="In" Type="Boolean" />
+      <Parameter Name="REDEEM_POINTS" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="update_user_type">
+      <Parameter Name="USER_TYPEID" Mode="In" Type="Int32" />
+      <Parameter Name="USER_TYPENAME" Mode="In" Type="String" />
+      <Parameter Name="DESCRIPTION" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="update_weekdays">
+      <Parameter Name="WD_ID" Mode="In" Type="Int32" />
+      <Parameter Name="WD_CHECK" Mode="In" Type="Int32" />
+      <Parameter Name="WD_NAME" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="user_info_UpdatePoint">
+      <Parameter Name="USER_ID" Mode="In" Type="Int32" />
+      <Parameter Name="REDEEM_POINTS" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="user_type_GetAll" ReturnType="Collection(TICKET_MANAGERModel.user_type_GetAll_Result)" />
+    <FunctionImport Name="userInfo_Delete">
+      <Parameter Name="USER_ID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="userInfo_FindInfobyCode" ReturnType="Collection(TICKET_MANAGERModel.userInfo_FindInfobyCode_Result)">
+      <Parameter Name="USER_CODE" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="userInfo_FindInfobyId" ReturnType="Collection(TICKET_MANAGERModel.userInfo_FindInfobyId_Result)">
+      <Parameter Name="USER_ID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="userInfo_FindInfobyPhone" ReturnType="Collection(TICKET_MANAGERModel.userInfo_FindInfobyPhone_Result)">
+      <Parameter Name="PHONE" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="userInfo_GetAll" ReturnType="Collection(TICKET_MANAGERModel.userInfo_GetAll_Result)" />
+    <FunctionImport Name="userInfo_GetAllVisible" ReturnType="Collection(TICKET_MANAGERModel.userInfo_GetAllVisible_Result)" />
+    <FunctionImport Name="userInfo_insert" ReturnType="Collection(Int32)">
+      <Parameter Name="USER_ID" Mode="In" Type="Int32" />
+      <Parameter Name="USER_TYPEID" Mode="In" Type="Int32" />
+      <Parameter Name="USER_NAME" Mode="In" Type="String" />
+      <Parameter Name="USER_CODE" Mode="In" Type="String" />
+      <Parameter Name="PHONE" Mode="In" Type="String" />
+      <Parameter Name="IDENTITY_NUMBER" Mode="In" Type="String" />
+      <Parameter Name="SEX" Mode="In" Type="String" />
+      <Parameter Name="USER_BIRTH" Mode="In" Type="DateTime" />
+      <Parameter Name="ADDRESS" Mode="In" Type="String" />
+      <Parameter Name="EMAIL" Mode="In" Type="String" />
+      <Parameter Name="IMAGE" Mode="In" Type="Binary" />
+      <Parameter Name="NOTE" Mode="In" Type="String" />
+      <Parameter Name="USER_STATUS" Mode="In" Type="Boolean" />
+      <Parameter Name="REDEEM_POINTS" Mode="In" Type="Int32" />
+      <Parameter Name="CREATE_DATE" Mode="In" Type="DateTime" />
+      <Parameter Name="UPDATE_DATE" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <FunctionImport Name="userInfo_IsExist" ReturnType="Collection(Int32)">
+      <Parameter Name="USER_CODE" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="userInfo_IsExistPhone" ReturnType="Collection(Int32)">
+      <Parameter Name="NUMBER_PHONE" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="userInfo_update">
+      <Parameter Name="USER_ID" Mode="In" Type="Int32" />
+      <Parameter Name="USER_TYPEID" Mode="In" Type="Int32" />
+      <Parameter Name="USER_NAME" Mode="In" Type="String" />
+      <Parameter Name="USER_CODE" Mode="In" Type="String" />
+      <Parameter Name="PHONE" Mode="In" Type="String" />
+      <Parameter Name="IDENTITY_NUMBER" Mode="In" Type="String" />
+      <Parameter Name="SEX" Mode="In" Type="String" />
+      <Parameter Name="USER_BIRTH" Mode="In" Type="DateTime" />
+      <Parameter Name="ADDRESS" Mode="In" Type="String" />
+      <Parameter Name="IMAGE" Mode="In" Type="Binary" />
+      <Parameter Name="EMAIL" Mode="In" Type="String" />
+      <Parameter Name="NOTE" Mode="In" Type="String" />
+      <Parameter Name="USER_STATUS" Mode="In" Type="Boolean" />
+      <Parameter Name="REDEEM_POINTS" Mode="In" Type="Int32" />
+      <Parameter Name="CREATE_DATE" Mode="In" Type="DateTime" />
+      <Parameter Name="UPDATE_DATE" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <FunctionImport Name="userInfo_updateRedeemPoints">
+      <Parameter Name="POINTS" Mode="In" Type="Int32" />
+      <Parameter Name="USER_ID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="visiblecontrols_DeleteByPRI_ID">
+      <Parameter Name="PRI_ID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="visiblecontrols_insert">
+      <Parameter Name="VI_ID" Mode="In" Type="Int32" />
+      <Parameter Name="PRI_ID" Mode="In" Type="Int32" />
+      <Parameter Name="MNU_ID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="visiblecontrols_update">
+      <Parameter Name="VI_ID" Mode="In" Type="Int32" />
+      <Parameter Name="PRI_ID" Mode="In" Type="Int32" />
+      <Parameter Name="MNU_ID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="weekdays_GetAll" />
+    <FunctionImport Name="zone_delete">
+      <Parameter Name="ZONE_ID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="zone_GetAll" ReturnType="Collection(TICKET_MANAGERModel.zone_GetAll_Result)" />
+    <FunctionImport Name="zone_GetAll_Visible" ReturnType="Collection(TICKET_MANAGERModel.zone_GetAll_Visible_Result)" />
+    <FunctionImport Name="zone_GetZoneNamebyId" ReturnType="Collection(String)">
+      <Parameter Name="ZONE_ID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="zone_insert" ReturnType="Collection(Int32)">
+      <Parameter Name="ZONE_ID" Mode="In" Type="Int32" />
+      <Parameter Name="ZONE_NAME" Mode="In" Type="String" />
+      <Parameter Name="ZONE_CODE" Mode="In" Type="String" />
+      <Parameter Name="ZONE_DES" Mode="In" Type="String" />
+      <Parameter Name="ZONE_STATUS" Mode="In" Type="Boolean" />
+    </FunctionImport>
+    <FunctionImport Name="zone_IsExist" ReturnType="Collection(Int32)">
+      <Parameter Name="ZONE_CODE" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="zone_update">
+      <Parameter Name="ZONE_ID" Mode="In" Type="Int32" />
+      <Parameter Name="ZONE_NAME" Mode="In" Type="String" />
+      <Parameter Name="ZONE_CODE" Mode="In" Type="String" />
+      <Parameter Name="ZONE_DES" Mode="In" Type="String" />
+      <Parameter Name="ZONE_STATUS" Mode="In" Type="Boolean" />
+    </FunctionImport>
+  </EntityContainer>
+  <ComplexType Name="accounts_CheckLogin_Result">
+    <Property Type="Int32" Name="PRI_ID" Nullable="false" />
+    <Property Type="String" Name="PRI_DESCRIPTION" Nullable="true" MaxLength="200" />
+    <Property Type="Boolean" Name="PRI_STATUS" Nullable="true" />
+    <Property Type="String" Name="EM_NAME" Nullable="true" MaxLength="100" />
+    <Property Type="Int32" Name="EM_ID" Nullable="false" />
+    <Property Type="Boolean" Name="EM_STATUS" Nullable="true" />
+    <Property Type="Boolean" Name="ACC_STATUS" Nullable="true" />
+    <Property Type="Int32" Name="ACC_ID" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="accounts_GetAll_Result">
+    <Property Type="Int32" Name="ACC_ID" Nullable="false" />
+    <Property Type="Int32" Name="PRI_ID" Nullable="false" />
+    <Property Type="Int32" Name="EM_ID" Nullable="false" />
+    <Property Type="String" Name="EM_NAME" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="ACC_USERNAME" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="PRI_DESCRIPTION" Nullable="true" MaxLength="200" />
+    <Property Type="Boolean" Name="ACC_STATUS" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="barcode_GetTop5000desc_Result">
+    <Property Type="Int64" Name="BAR_ID" Nullable="false" />
+    <Property Type="Int32" Name="CT_ID" Nullable="true" />
+    <Property Type="Int32" Name="TYPEID" Nullable="true" />
+    <Property Type="Int32" Name="ZONE_ID" Nullable="true" />
+    <Property Type="String" Name="BAR_NO" Nullable="true" MaxLength="200" />
+    <Property Type="Int32" Name="NUMBER" Nullable="false" />
+    <Property Type="DateTime" Name="CREATE_DATE" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="APPLY_DATE" Nullable="true" Precision="23" />
+    <Property Type="Int32" Name="ACC_ID" Nullable="true" />
+    <Property Type="Boolean" Name="ACTIVE" Nullable="true" />
+    <Property Type="Boolean" Name="USED" Nullable="true" />
+    <Property Type="Boolean" Name="DAMAGE" Nullable="true" />
+    <Property Type="String" Name="TYPENAME" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="ZONE_NAME" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="EM_NAME" Nullable="true" MaxLength="100" />
+  </ComplexType>
+  <ComplexType Name="barcode_isExistAndInfo_Result">
+    <Property Type="Int64" Name="BAR_ID" Nullable="false" />
+    <Property Type="Int32" Name="CT_ID" Nullable="true" />
+    <Property Type="Int32" Name="TYPEID" Nullable="true" />
+    <Property Type="Int32" Name="ZONE_ID" Nullable="true" />
+    <Property Type="Boolean" Name="ACTIVE" Nullable="true" />
+    <Property Type="Boolean" Name="USED" Nullable="true" />
+    <Property Type="Boolean" Name="DAMAGE" Nullable="true" />
+    <Property Type="String" Name="APPLY_DATE" Nullable="true" MaxLength="30" />
+  </ComplexType>
+  <ComplexType Name="department_GetAll_Result">
+    <Property Type="Int32" Name="DEP_ID" Nullable="false" />
+    <Property Type="String" Name="DEP_NAME" Nullable="true" MaxLength="200" />
+    <Property Type="String" Name="DEP_DESCRIPTION" Nullable="true" MaxLength="200" />
+    <Property Type="Boolean" Name="DEP_STATUS" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="department_GetAllVisible_Result">
+    <Property Type="Int32" Name="DEP_ID" Nullable="false" />
+    <Property Type="String" Name="DEP_NAME" Nullable="true" MaxLength="200" />
+    <Property Type="String" Name="DEP_DESCRIPTION" Nullable="true" MaxLength="200" />
+    <Property Type="Boolean" Name="DEP_STATUS" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="detail_sale_getAll_Result">
+    <Property Type="Int64" Name="DTS_ID" Nullable="false" />
+    <Property Type="Int64" Name="TS_ID" Nullable="true" />
+    <Property Type="String" Name="TS_NO" Nullable="true" MaxLength="100" />
+    <Property Type="Int32" Name="CA_ID" Nullable="true" />
+    <Property Type="Int64" Name="BAR_ID" Nullable="true" />
+    <Property Type="Int64" Name="DTS_PRICE" Nullable="true" />
+    <Property Type="Int64" Name="DTS_PAY" Nullable="true" />
+    <Property Type="String" Name="BAR_NO" Nullable="true" MaxLength="200" />
+    <Property Type="Int32" Name="ZONE_ID" Nullable="true" />
+    <Property Type="String" Name="ZONE_NAME" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="ZONE_CODE" Nullable="true" MaxLength="100" />
+    <Property Type="Int32" Name="TYPEID" Nullable="true" />
+    <Property Type="String" Name="TYPENAME" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="TYPE_CODE" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="CT_ID" Nullable="true" />
+    <Property Type="String" Name="CT_NAME" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="CT_CODE" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="detail_sale_GetByTS_Result">
+    <Property Type="Int64" Name="TS_ID" Nullable="true" />
+    <Property Type="Int64" Name="DTS_ID" Nullable="false" />
+    <Property Type="String" Name="BAR_NO" Nullable="true" MaxLength="200" />
+    <Property Type="String" Name="ZONE_NAME" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="TYPENAME" Nullable="true" MaxLength="100" />
+    <Property Type="Int64" Name="DTS_PRICE" Nullable="true" />
+    <Property Type="Int64" Name="DTS_PAY" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="device_GetAll_Result">
+    <Property Type="Int32" Name="DEVICE_ID" Nullable="false" />
+    <Property Type="String" Name="DEVICE_NAME" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="DEVICE_CODE" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="DT_ID" Nullable="true" />
+    <Property Type="Int32" Name="ZONE_ID" Nullable="true" />
+    <Property Type="String" Name="DEVICE_MAC" Nullable="true" MaxLength="30" />
+    <Property Type="Int32" Name="DEVICE_PORT" Nullable="true" />
+    <Property Type="String" Name="DEVICE_DES" Nullable="true" MaxLength="200" />
+    <Property Type="Boolean" Name="DEVICE_STATUS" Nullable="true" />
+    <Property Type="String" Name="DEVICE_IP" Nullable="true" MaxLength="32" />
+    <Property Type="String" Name="DT_NAME" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="DT_CODE" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="ZONE_NAME" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="ZONE_CODE" Nullable="true" MaxLength="100" />
+  </ComplexType>
+  <ComplexType Name="device_GetAll_Visible_Result">
+    <Property Type="Int32" Name="DEVICE_ID" Nullable="false" />
+    <Property Type="String" Name="DEVICE_NAME" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="DEVICE_CODE" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="DT_ID" Nullable="true" />
+    <Property Type="Int32" Name="ZONE_ID" Nullable="true" />
+    <Property Type="String" Name="DEVICE_MAC" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="DEVICE_IP" Nullable="true" MaxLength="32" />
+    <Property Type="Int32" Name="DEVICE_PORT" Nullable="true" />
+    <Property Type="String" Name="DEVICE_DES" Nullable="true" MaxLength="200" />
+    <Property Type="Boolean" Name="DEVICE_STATUS" Nullable="true" />
+    <Property Type="String" Name="DT_NAME" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="DT_CODE" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="ZONE_NAME" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="ZONE_CODE" Nullable="true" MaxLength="100" />
+  </ComplexType>
+  <ComplexType Name="device_type_GetAll_Result">
+    <Property Type="Int32" Name="DT_ID" Nullable="false" />
+    <Property Type="String" Name="DT_NAME" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="DT_CODE" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="DT_DES" Nullable="true" MaxLength="200" />
+    <Property Type="Boolean" Name="DT_STATUS" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="device_type_GetAllVisible_Result">
+    <Property Type="Int32" Name="DT_ID" Nullable="false" />
+    <Property Type="String" Name="DT_NAME" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="DT_CODE" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="DT_DES" Nullable="true" MaxLength="200" />
+    <Property Type="Boolean" Name="DT_STATUS" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="discount_FindByHol_Result">
+    <Property Type="Int32" Name="DISC_ID" Nullable="false" />
+    <Property Type="Int32" Name="DISCT_ID" Nullable="true" />
+    <Property Type="String" Name="DISC_NAME" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="DISC_CODE" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="DISC_VALUE" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="discount_FindByWeek_Result">
+    <Property Type="Int32" Name="DISC_ID" Nullable="false" />
+    <Property Type="Int32" Name="DISCT_ID" Nullable="true" />
+    <Property Type="String" Name="DISC_NAME" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="DISC_CODE" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="DISC_VALUE" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="discount_GetAll_Result">
+    <Property Type="Int32" Name="DISC_ID" Nullable="false" />
+    <Property Type="Int32" Name="DISCT_ID" Nullable="true" />
+    <Property Type="Int32" Name="HOL_ID" Nullable="true" />
+    <Property Type="Int32" Name="TF_ID" Nullable="true" />
+    <Property Type="String" Name="DISC_NAME" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="DISC_CODE" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="DISC_VALUE" Nullable="true" />
+    <Property Type="String" Name="DISC_DES" Nullable="true" MaxLength="200" />
+    <Property Type="DateTime" Name="CREATE_DATE" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="DISC_START" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="DISC_END" Nullable="true" Precision="23" />
+    <Property Type="Boolean" Name="DISC_STATUS" Nullable="true" />
+    <Property Type="Boolean" Name="WD_ISWEEKEND" Nullable="true" />
+    <Property Type="String" Name="DISCT_NAME" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="HOL_NAME" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="TF_NAME" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="discount_GetAllVisible_Result">
+    <Property Type="Int32" Name="DISC_ID" Nullable="false" />
+    <Property Type="Int32" Name="DISCT_ID" Nullable="true" />
+    <Property Type="Int32" Name="HOL_ID" Nullable="true" />
+    <Property Type="Int32" Name="TF_ID" Nullable="true" />
+    <Property Type="String" Name="DISC_NAME" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="DISC_CODE" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="DISC_VALUE" Nullable="true" />
+    <Property Type="String" Name="DISC_DES" Nullable="true" MaxLength="200" />
+    <Property Type="DateTime" Name="CREATE_DATE" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="DISC_START" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="DISC_END" Nullable="true" Precision="23" />
+    <Property Type="Boolean" Name="DISC_STATUS" Nullable="true" />
+    <Property Type="Boolean" Name="WD_ISWEEKEND" Nullable="true" />
+    <Property Type="String" Name="DISCT_NAME" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="HOL_NAME" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="TF_NAME" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="discount_GetInfoById_Result">
+    <Property Type="Int32" Name="DISC_ID" Nullable="false" />
+    <Property Type="Int32" Name="DISCT_ID" Nullable="true" />
+    <Property Type="Int32" Name="HOL_ID" Nullable="true" />
+    <Property Type="Int32" Name="TF_ID" Nullable="true" />
+    <Property Type="String" Name="DISC_NAME" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="DISC_CODE" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="DISC_VALUE" Nullable="true" />
+    <Property Type="String" Name="DISC_DES" Nullable="true" MaxLength="200" />
+    <Property Type="DateTime" Name="CREATE_DATE" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="DISC_START" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="DISC_END" Nullable="true" Precision="23" />
+    <Property Type="Boolean" Name="DISC_STATUS" Nullable="true" />
+    <Property Type="Boolean" Name="WD_ISWEEKEND" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="discount_type_GetAll_Result">
+    <Property Type="Int32" Name="DISCT_ID" Nullable="false" />
+    <Property Type="String" Name="DISCT_NAME" Nullable="true" MaxLength="100" />
+    <Property Type="Int32" Name="DISCT_CHECK" Nullable="true" />
+    <Property Type="String" Name="DISCT_DES" Nullable="true" MaxLength="200" />
+  </ComplexType>
+  <ComplexType Name="employees_FindInfoByAccId_Result">
+    <Property Type="String" Name="EM_NAME" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="EM_CODE" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="PHONE" Nullable="true" MaxLength="15" />
+  </ComplexType>
+  <ComplexType Name="employees_GetAll_Result">
+    <Property Type="Int32" Name="EM_ID" Nullable="false" />
+    <Property Type="String" Name="EM_NAME" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="EM_CODE" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="PHONE" Nullable="true" MaxLength="15" />
+    <Property Type="String" Name="IDENTITY_NUMBER" Nullable="true" MaxLength="15" />
+    <Property Type="String" Name="DESCRIPTION" Nullable="true" MaxLength="200" />
+    <Property Type="String" Name="SEX" Nullable="false" MaxLength="3" />
+    <Property Type="String" Name="ADDRESS" Nullable="true" MaxLength="400" />
+    <Property Type="Boolean" Name="EM_STATUS" Nullable="true" />
+    <Property Type="Binary" Name="IMAGE" Nullable="true" MaxLength="Max" />
+    <Property Type="Int32" Name="DEP_ID" Nullable="false" />
+    <Property Type="String" Name="DEP_NAME" Nullable="true" MaxLength="200" />
+  </ComplexType>
+  <ComplexType Name="employees_GetAll_Visible_Result">
+    <Property Type="Int32" Name="EM_ID" Nullable="false" />
+    <Property Type="String" Name="EM_NAME" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="EM_CODE" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="PHONE" Nullable="true" MaxLength="15" />
+    <Property Type="String" Name="IDENTITY_NUMBER" Nullable="true" MaxLength="15" />
+    <Property Type="String" Name="DESCRIPTION" Nullable="true" MaxLength="200" />
+    <Property Type="String" Name="SEX" Nullable="false" MaxLength="3" />
+    <Property Type="String" Name="ADDRESS" Nullable="true" MaxLength="400" />
+    <Property Type="Boolean" Name="EM_STATUS" Nullable="true" />
+    <Property Type="Binary" Name="IMAGE" Nullable="true" MaxLength="Max" />
+    <Property Type="Int32" Name="DEP_ID" Nullable="false" />
+    <Property Type="String" Name="DEP_NAME" Nullable="true" MaxLength="200" />
+  </ComplexType>
+  <ComplexType Name="holiday_Available_Result">
+    <Property Type="Int32" Name="HOL_ID" Nullable="false" />
+    <Property Type="String" Name="HOL_NAME" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="HOL_FROM" Nullable="true" MaxLength="5" />
+    <Property Type="String" Name="HOL_TO" Nullable="true" MaxLength="5" />
+    <Property Type="Boolean" Name="HOL_STATUS" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="holiday_GetAll_Result">
+    <Property Type="Int32" Name="HOL_ID" Nullable="false" />
+    <Property Type="String" Name="HOL_NAME" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="HOL_FROM" Nullable="true" MaxLength="5" />
+    <Property Type="String" Name="HOL_TO" Nullable="true" MaxLength="5" />
+    <Property Type="Boolean" Name="HOL_STATUS" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="holiday_GetAllVisible_Result">
+    <Property Type="Int32" Name="HOL_ID" Nullable="false" />
+    <Property Type="String" Name="HOL_NAME" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="HOL_FROM" Nullable="true" MaxLength="5" />
+    <Property Type="String" Name="HOL_TO" Nullable="true" MaxLength="5" />
+    <Property Type="Boolean" Name="HOL_STATUS" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="paging_barcodes_Result">
+    <Property Type="Int64" Name="BAR_ID" Nullable="false" />
+    <Property Type="Int32" Name="CT_ID" Nullable="true" />
+    <Property Type="Int32" Name="TYPEID" Nullable="true" />
+    <Property Type="Int32" Name="ZONE_ID" Nullable="true" />
+    <Property Type="String" Name="BAR_NO" Nullable="true" MaxLength="200" />
+    <Property Type="Int32" Name="NUMBER" Nullable="false" />
+    <Property Type="DateTime" Name="CREATE_DATE" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="APPLY_DATE" Nullable="true" Precision="23" />
+    <Property Type="Int32" Name="ACC_ID" Nullable="true" />
+    <Property Type="Boolean" Name="ACTIVE" Nullable="true" />
+    <Property Type="Boolean" Name="USED" Nullable="true" />
+    <Property Type="Boolean" Name="DAMAGE" Nullable="true" />
+    <Property Type="Int64" Name="rownum" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="paging_detail_sales_Result">
+    <Property Type="Int64" Name="DTS_ID" Nullable="false" />
+    <Property Type="Int64" Name="TS_ID" Nullable="true" />
+    <Property Type="Int32" Name="CA_ID" Nullable="true" />
+    <Property Type="Int64" Name="BAR_ID" Nullable="true" />
+    <Property Type="Int64" Name="DTS_PRICE" Nullable="true" />
+    <Property Type="Int64" Name="DTS_PAY" Nullable="true" />
+    <Property Type="Int64" Name="rownum" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="paging_io_info_Result">
+    <Property Type="Int64" Name="IO_ID" Nullable="false" />
+    <Property Type="DateTime" Name="IO_TIME" Nullable="true" Precision="23" />
+    <Property Type="Int32" Name="ZONE_ID" Nullable="true" />
+    <Property Type="Int32" Name="CA_ID" Nullable="true" />
+    <Property Type="Int64" Name="BAR_ID" Nullable="true" />
+    <Property Type="Int64" Name="rownum" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="priviles_GetAll_Result">
+    <Property Type="Int32" Name="PRI_ID" Nullable="false" />
+    <Property Type="String" Name="PRI_DESCRIPTION" Nullable="true" MaxLength="200" />
+    <Property Type="Boolean" Name="PRI_STATUS" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="priviles_GetAll_Visible_Result">
+    <Property Type="Int32" Name="PRI_ID" Nullable="false" />
+    <Property Type="String" Name="PRI_DESCRIPTION" Nullable="true" MaxLength="200" />
+    <Property Type="Boolean" Name="PRI_STATUS" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="select_account_Result">
+    <Property Type="Int32" Name="ACC_ID" Nullable="false" />
+    <Property Type="Int32" Name="PRI_ID" Nullable="true" />
+    <Property Type="Int32" Name="EM_ID" Nullable="true" />
+    <Property Type="String" Name="ACC_USERNAME" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="ACC_PASSWORD" Nullable="true" MaxLength="200" />
+    <Property Type="Boolean" Name="ACC_STATUS" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="sp_helpdiagramdefinition_Result">
+    <Property Type="Int32" Name="version" Nullable="true" />
+    <Property Type="Binary" Name="definition" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="sp_helpdiagrams_Result">
+    <Property Type="String" Name="Database" Nullable="true" MaxLength="128" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="128" />
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
+    <Property Type="Int32" Name="OwnerID" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="statistic_barcode_Result">
+    <Property Type="Int64" Name="BAR_ID" Nullable="false" />
+    <Property Type="Int32" Name="CT_ID" Nullable="true" />
+    <Property Type="Int32" Name="TYPEID" Nullable="true" />
+    <Property Type="Int32" Name="ZONE_ID" Nullable="true" />
+    <Property Type="String" Name="BAR_NO" Nullable="true" MaxLength="200" />
+    <Property Type="Int32" Name="NUMBER" Nullable="false" />
+    <Property Type="DateTime" Name="CREATE_DATE" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="APPLY_DATE" Nullable="true" Precision="23" />
+    <Property Type="Int32" Name="ACC_ID" Nullable="true" />
+    <Property Type="Boolean" Name="ACTIVE" Nullable="true" />
+    <Property Type="Boolean" Name="USED" Nullable="true" />
+    <Property Type="Boolean" Name="DAMAGE" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="statistic_department_Result">
+    <Property Type="String" Name="DEP_NAME" Nullable="true" MaxLength="200" />
+    <Property Type="String" Name="DEP_DESCRIPTION" Nullable="true" MaxLength="200" />
+  </ComplexType>
+  <ComplexType Name="statistic_device_all_Result">
+    <Property Type="Int32" Name="DEVICE_ID" Nullable="false" />
+    <Property Type="String" Name="DEVICE_NAME" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="DEVICE_CODE" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="DEVICE_MAC" Nullable="true" MaxLength="30" />
+    <Property Type="Int32" Name="DEVICE_PORT" Nullable="true" />
+    <Property Type="String" Name="DEVICE_DES" Nullable="true" MaxLength="200" />
+    <Property Type="String" Name="DEVICE_IP" Nullable="true" MaxLength="32" />
+    <Property Type="String" Name="DT_NAME" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="DT_CODE" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="ZONE_NAME" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="ZONE_CODE" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="strDEVICE_STATUS" Nullable="true" MaxLength="15" />
+  </ComplexType>
+  <ComplexType Name="statistic_DoanhThuTheoKhuVuc_Result">
+    <Property Type="String" Name="ZONE_NAME" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="TYPENAME" Nullable="true" MaxLength="100" />
+    <Property Type="Int32" Name="SUM_NUMBER_BAR" Nullable="true" />
+    <Property Type="Int64" Name="SUM_PAY" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="statistic_DoanhThuTheoLoaiVe_Result">
+    <Property Type="String" Name="ZONE_NAME" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="TYPENAME" Nullable="true" MaxLength="100" />
+    <Property Type="Int32" Name="SUM_NUMBER_BAR" Nullable="true" />
+    <Property Type="Int64" Name="SUM_PAY" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="statistic_DoanhThuTheoNhanVien_Result">
+    <Property Type="Int32" Name="EM_ID" Nullable="false" />
+    <Property Type="String" Name="EM_NAME" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="TYPENAME" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="ZONE_NAME" Nullable="true" MaxLength="100" />
+    <Property Type="Int32" Name="COUNT" Nullable="true" />
+    <Property Type="Int64" Name="PAY" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="statistic_DoanhThuTheoNhanVien1_Result">
+    <Property Type="String" Name="TS_NO" Nullable="true" MaxLength="100" />
+    <Property Type="Int64" Name="PAY" Nullable="true" />
+    <Property Type="DateTime" Name="CREATE_DATE" Nullable="true" Precision="23" />
+    <Property Type="String" Name="EM_NAME" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="USER_NAME" Nullable="true" MaxLength="100" />
+  </ComplexType>
+  <ComplexType Name="statistic_DoanhThuTheoThoiGian_Result">
+    <Property Type="String" Name="TYPENAME" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="ZONE_NAME" Nullable="true" MaxLength="100" />
+    <Property Type="Int32" Name="COUNT" Nullable="true" />
+    <Property Type="Int64" Name="TOTAL_PAY" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="statistic_employee_Result">
+    <Property Type="String" Name="EM_NAME" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="EM_CODE" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="IDENTITY_NUMBER" Nullable="true" MaxLength="15" />
+    <Property Type="String" Name="ADDRESS" Nullable="true" MaxLength="400" />
+    <Property Type="String" Name="DEP_NAME" Nullable="true" MaxLength="200" />
+    <Property Type="String" Name="PHONE" Nullable="true" MaxLength="15" />
+    <Property Type="String" Name="SEX" Nullable="false" MaxLength="3" />
+    <Property Type="String" Name="STATUS" Nullable="false" MaxLength="15" />
+  </ComplexType>
+  <ComplexType Name="statistic_employees_Result">
+    <Property Type="Int32" Name="EM_ID" Nullable="false" />
+    <Property Type="Int32" Name="DEP_ID" Nullable="false" />
+    <Property Type="String" Name="DEP_NAME" Nullable="true" MaxLength="200" />
+    <Property Type="String" Name="EM_NAME" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="EM_CODE" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="PHONE" Nullable="true" MaxLength="15" />
+    <Property Type="String" Name="IDENTITY_NUMBER" Nullable="true" MaxLength="15" />
+    <Property Type="String" Name="SEX" Nullable="true" MaxLength="1" />
+    <Property Type="String" Name="ADDRESS" Nullable="true" MaxLength="400" />
+    <Property Type="String" Name="DESCRIPTION" Nullable="true" MaxLength="200" />
+    <Property Type="Boolean" Name="EM_STATUS" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="statistic_test_xemhoadon_Result">
+    <Property Type="String" Name="USER_NAME" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="PHONE" Nullable="true" MaxLength="15" />
+    <Property Type="Int64" Name="PAY" Nullable="true" />
+    <Property Type="String" Name="TS_NO" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="CREATE_DATE" Nullable="true" MaxLength="30" />
+  </ComplexType>
+  <ComplexType Name="statistic_ticket_damage_Result">
+    <Property Type="Int64" Name="BAR_ID" Nullable="false" />
+    <Property Type="String" Name="CT_NAME" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="TYPENAME" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="ZONE_NAME" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="BAR_NO" Nullable="true" MaxLength="200" />
+    <Property Type="Int32" Name="NUMBER" Nullable="false" />
+    <Property Type="DateTime" Name="CREATE_DATE" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="APPLY_DATE" Nullable="true" Precision="23" />
+    <Property Type="String" Name="ACC_USERNAME" Nullable="true" MaxLength="20" />
+    <Property Type="Boolean" Name="ACTIVE" Nullable="true" />
+    <Property Type="Boolean" Name="USED" Nullable="true" />
+    <Property Type="Boolean" Name="DAMAGE" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="statistic_ticket_not_active_Result">
+    <Property Type="Int64" Name="BAR_ID" Nullable="false" />
+    <Property Type="String" Name="CT_NAME" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="TYPENAME" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="ZONE_NAME" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="BAR_NO" Nullable="true" MaxLength="200" />
+    <Property Type="Int32" Name="NUMBER" Nullable="false" />
+    <Property Type="DateTime" Name="CREATE_DATE" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="APPLY_DATE" Nullable="true" Precision="23" />
+    <Property Type="String" Name="ACC_USERNAME" Nullable="true" MaxLength="20" />
+    <Property Type="Boolean" Name="ACTIVE" Nullable="true" />
+    <Property Type="Boolean" Name="USED" Nullable="true" />
+    <Property Type="Boolean" Name="DAMAGE" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="statistic_ticket_printed_Result">
+    <Property Type="Int64" Name="BAR_ID" Nullable="false" />
+    <Property Type="String" Name="TYPENAME" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="ZONE_NAME" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="BAR_NO" Nullable="true" MaxLength="200" />
+    <Property Type="Int32" Name="NUMBER" Nullable="false" />
+    <Property Type="String" Name="CREATE_DATE" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="APPLY_DATE" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="ACC_USERNAME" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="EM_NAME" Nullable="true" MaxLength="100" />
+    <Property Type="Boolean" Name="ACTIVE" Nullable="true" />
+    <Property Type="Boolean" Name="USED" Nullable="true" />
+    <Property Type="Boolean" Name="DAMAGE" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="statistic_ticket_sale_Result">
+    <Property Type="Int64" Name="BAR_ID" Nullable="false" />
+    <Property Type="String" Name="CT_NAME" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="TYPENAME" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="ZONE_NAME" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="BAR_NO" Nullable="true" MaxLength="200" />
+    <Property Type="Int32" Name="NUMBER" Nullable="false" />
+    <Property Type="String" Name="CREATE_DATE" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="APPLY_DATE" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="ACC_USERNAME" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="EM_NAME" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="TS_NO" Nullable="true" MaxLength="100" />
+    <Property Type="Boolean" Name="ACTIVE" Nullable="true" />
+    <Property Type="Boolean" Name="USED" Nullable="true" />
+    <Property Type="Boolean" Name="DAMAGE" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="statistic_ticket_sale2_Result">
+    <Property Type="String" Name="USER_NAME" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="BAR_NO" Nullable="true" MaxLength="200" />
+    <Property Type="String" Name="TS_NO" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="CREATE_DATE" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="TYPENAME" Nullable="true" MaxLength="100" />
+    <Property Type="Int64" Name="DTS_PRICE" Nullable="true" />
+    <Property Type="Int64" Name="DTS_PAY" Nullable="true" />
+    <Property Type="String" Name="EM_NAME" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="ZONE_NAME" Nullable="true" MaxLength="100" />
+    <Property Type="Int64" Name="PRICE" Nullable="true" />
+    <Property Type="Int64" Name="PAY" Nullable="true" />
+    <Property Type="Int32" Name="EM_ID" Nullable="false" />
+    <Property Type="Int32" Name="ZONE_ID" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="statistic_ticket_sale3_Result">
+    <Property Type="String" Name="USER_NAME" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="BAR_NO" Nullable="true" MaxLength="200" />
+    <Property Type="String" Name="TS_NO" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="CREATE_DATE" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="TYPENAME" Nullable="true" MaxLength="100" />
+    <Property Type="Int64" Name="DTS_PRICE" Nullable="true" />
+    <Property Type="Int64" Name="DTS_PAY" Nullable="true" />
+    <Property Type="Int64" Name="PRICE" Nullable="true" />
+    <Property Type="Int64" Name="PAY" Nullable="true" />
+    <Property Type="String" Name="EM_NAME" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="ZONE_NAME" Nullable="true" MaxLength="100" />
+  </ComplexType>
+  <ComplexType Name="statistic_ticketByType_Result">
+    <Property Type="Int64" Name="BAR_ID" Nullable="false" />
+    <Property Type="String" Name="BAR_NO" Nullable="true" MaxLength="200" />
+    <Property Type="DateTime" Name="APPLY_DATE" Nullable="true" Precision="23" />
+    <Property Type="String" Name="TYPENAME" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="ZONE_NAME" Nullable="true" MaxLength="100" />
+  </ComplexType>
+  <ComplexType Name="statistic_ticketTotalSold_Result">
+    <Property Type="String" Name="TYPENAME" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="ZONE_NAME" Nullable="true" MaxLength="100" />
+    <Property Type="Int32" Name="TOTAL" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="statistic_ticketUsedFree_Result">
+    <Property Type="Int64" Name="BAR_ID" Nullable="false" />
+    <Property Type="String" Name="BAR_NO" Nullable="true" MaxLength="200" />
+    <Property Type="DateTime" Name="APPLY_DATE" Nullable="true" Precision="23" />
+    <Property Type="String" Name="TYPENAME" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="ZONE_NAME" Nullable="true" MaxLength="100" />
+  </ComplexType>
+  <ComplexType Name="statistic_user_info_Result">
+    <Property Type="Int32" Name="USER_ID" Nullable="false" />
+    <Property Type="String" Name="USER_NAME" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="SEX" Nullable="false" MaxLength="3" />
+    <Property Type="String" Name="PHONE" Nullable="true" MaxLength="15" />
+    <Property Type="String" Name="IDENTITY_NUMBER" Nullable="true" MaxLength="15" />
+    <Property Type="String" Name="ADDRESS" Nullable="true" MaxLength="400" />
+    <Property Type="String" Name="USER_STATUS" Nullable="false" MaxLength="15" />
+  </ComplexType>
+  <ComplexType Name="statistic_VeKhachDangKy_Result">
+    <Property Type="Int64" Name="BAR_ID" Nullable="false" />
+    <Property Type="String" Name="BAR_NO" Nullable="true" MaxLength="200" />
+    <Property Type="DateTime" Name="APPLY_DATE" Nullable="true" Precision="23" />
+    <Property Type="String" Name="USER_NAME" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="TS_NO" Nullable="true" MaxLength="100" />
+    <Property Type="Int32" Name="ACC_ID" Nullable="true" />
+    <Property Type="String" Name="EM_NAME" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="TYPENAME" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="ZONE_NAME" Nullable="true" MaxLength="100" />
+  </ComplexType>
+  <ComplexType Name="statistic_VeKhachVangLai_Result">
+    <Property Type="Int64" Name="BAR_ID" Nullable="false" />
+    <Property Type="String" Name="BAR_NO" Nullable="true" MaxLength="200" />
+    <Property Type="DateTime" Name="APPLY_DATE" Nullable="true" Precision="23" />
+    <Property Type="String" Name="TS_NO" Nullable="true" MaxLength="100" />
+    <Property Type="Int32" Name="ACC_ID" Nullable="true" />
+    <Property Type="String" Name="EM_NAME" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="TYPENAME" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="ZONE_NAME" Nullable="true" MaxLength="100" />
+  </ComplexType>
+  <ComplexType Name="statistic_zone_Result">
+    <Property Type="String" Name="ZONE_NAME" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="ZONE_CODE" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="ZONE_DES" Nullable="true" MaxLength="200" />
+    <Property Type="String" Name="ZONE_STATUS" Nullable="false" MaxLength="15" />
+  </ComplexType>
+  <ComplexType Name="ticket_price_GetAll_Result">
+    <Property Type="Int32" Name="PRICE_ID" Nullable="false" />
+    <Property Type="Int32" Name="CT_ID" Nullable="true" />
+    <Property Type="Int32" Name="TYPEID" Nullable="true" />
+    <Property Type="Int32" Name="ZONE_ID" Nullable="true" />
+    <Property Type="Int32" Name="TF_ID" Nullable="true" />
+    <Property Type="Int32" Name="HOL_ID" Nullable="true" />
+    <Property Type="Boolean" Name="WD_ISWEEKEND" Nullable="true" />
+    <Property Type="Int64" Name="PRICE" Nullable="true" />
+    <Property Type="String" Name="TEXT_PRICE" Nullable="true" MaxLength="400" />
+    <Property Type="DateTime" Name="UPDATE_DATE" Nullable="true" Precision="23" />
+    <Property Type="Int32" Name="ACC_ID" Nullable="true" />
+    <Property Type="String" Name="ISWEEKEND" Nullable="true" MaxLength="14" />
+    <Property Type="String" Name="TYPENAME" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="ZONE_NAME" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="TF_NAME" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="HOL_NAME" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="EM_NAME" Nullable="true" MaxLength="100" />
+  </ComplexType>
+  <ComplexType Name="ticket_price_IsExistPrice_Result">
+    <Property Type="Int32" Name="PRICE_ID" Nullable="false" />
+    <Property Type="Int64" Name="PRICE" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="ticket_sale_Child2_Result">
+    <Property Type="Int64" Name="TS_ID" Nullable="true" />
+    <Property Type="Int64" Name="DTS_ID" Nullable="false" />
+    <Property Type="Int64" Name="DTS_PRICE" Nullable="true" />
+    <Property Type="String" Name="BAR_NO" Nullable="true" MaxLength="200" />
+    <Property Type="String" Name="TYPENAME" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="ZONE_NAME" Nullable="true" MaxLength="100" />
+  </ComplexType>
+  <ComplexType Name="ticket_sale_ChildTop5000Desc_Result">
+    <Property Type="Int64" Name="DTS_ID" Nullable="false" />
+    <Property Type="Int64" Name="TS_ID" Nullable="true" />
+    <Property Type="Int64" Name="BAR_ID" Nullable="true" />
+    <Property Type="Int64" Name="DTS_PRICE" Nullable="true" />
+    <Property Type="Int64" Name="DTS_PAY" Nullable="true" />
+    <Property Type="String" Name="BAR_NO" Nullable="true" MaxLength="200" />
+    <Property Type="String" Name="TYPENAME" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="ZONE_NAME" Nullable="true" MaxLength="100" />
+  </ComplexType>
+  <ComplexType Name="ticket_sale_getAll_Result">
+    <Property Type="Int64" Name="TS_ID" Nullable="false" />
+    <Property Type="String" Name="TS_NO" Nullable="true" MaxLength="100" />
+    <Property Type="Int64" Name="PRICE" Nullable="true" />
+    <Property Type="Int64" Name="PAY" Nullable="true" />
+    <Property Type="Int32" Name="DISC_ID" Nullable="true" />
+    <Property Type="String" Name="DISC_CODE" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="CREATE_DATE" Nullable="true" Precision="23" />
+    <Property Type="String" Name="DESCRIPTION" Nullable="true" MaxLength="200" />
+    <Property Type="Int32" Name="USER_ID" Nullable="true" />
+    <Property Type="String" Name="USER_NAME" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="USER_CODE" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="ticket_sale_getBillbyTS_ID_Result">
+    <Property Type="String" Name="TICKET_TYPE_ZONE" Nullable="true" MaxLength="203" />
+    <Property Type="Int32" Name="NUMBER_OF_TICKET" Nullable="true" />
+    <Property Type="Int64" Name="PRICE" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="ticket_sale_Parent_Result">
+    <Property Type="Int64" Name="TS_ID" Nullable="false" />
+    <Property Type="String" Name="TS_NO" Nullable="true" MaxLength="100" />
+    <Property Type="Int64" Name="PRICE" Nullable="true" />
+    <Property Type="Int64" Name="PAY" Nullable="true" />
+    <Property Type="Int32" Name="DISC_ID" Nullable="true" />
+    <Property Type="DateTime" Name="CREATE_DATE" Nullable="true" Precision="23" />
+    <Property Type="String" Name="DESCRIPTION" Nullable="true" MaxLength="200" />
+    <Property Type="Int32" Name="USER_ID" Nullable="true" />
+    <Property Type="Int32" Name="REDEEM_ADD" Nullable="true" />
+    <Property Type="Int32" Name="REDEEM_SUB" Nullable="true" />
+    <Property Type="Int32" Name="REDEEM_SUB_MONEY" Nullable="true" />
+    <Property Type="Int32" Name="ACC_ID" Nullable="true" />
+    <Property Type="String" Name="DISC_NAME" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="DISC_CODE" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="USER_NAME" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="EM_NAME" Nullable="true" MaxLength="100" />
+  </ComplexType>
+  <ComplexType Name="ticket_sale_ParentTop5000Desc_Result">
+    <Property Type="Int64" Name="TS_ID" Nullable="false" />
+    <Property Type="String" Name="TS_NO" Nullable="true" MaxLength="100" />
+    <Property Type="Int64" Name="PRICE" Nullable="true" />
+    <Property Type="Int64" Name="PAY" Nullable="true" />
+    <Property Type="Int32" Name="DISC_ID" Nullable="true" />
+    <Property Type="DateTime" Name="CREATE_DATE" Nullable="true" Precision="23" />
+    <Property Type="String" Name="DESCRIPTION" Nullable="true" MaxLength="200" />
+    <Property Type="Int32" Name="USER_ID" Nullable="true" />
+    <Property Type="Int32" Name="REDEEM_ADD" Nullable="true" />
+    <Property Type="Int32" Name="REDEEM_SUB" Nullable="true" />
+    <Property Type="Int32" Name="REDEEM_SUB_MONEY" Nullable="true" />
+    <Property Type="Int32" Name="ACC_ID" Nullable="true" />
+    <Property Type="String" Name="DISC_NAME" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="DISC_CODE" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="USER_NAME" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="EM_NAME" Nullable="true" MaxLength="100" />
+    <Property Type="Int32" Name="DISCOUNT_MONEY" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="ticket_type_GetAll_Result">
+    <Property Type="Int32" Name="TYPEID" Nullable="false" />
+    <Property Type="String" Name="TYPENAME" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="TYPE_CODE" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="TYPE_CHECK_NAME" Nullable="true" MaxLength="9" />
+    <Property Type="Int32" Name="TYPE_CHECK" Nullable="true" />
+    <Property Type="String" Name="DESCRIPTIONS" Nullable="true" MaxLength="200" />
+  </ComplexType>
+  <ComplexType Name="time_frame_GetAll_Result">
+    <Property Type="Int32" Name="TF_ID" Nullable="false" />
+    <Property Type="String" Name="TF_NAME" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="TF_CHECK" Nullable="true" />
+    <Property Type="Time" Name="TF_FROM" Nullable="true" />
+    <Property Type="Time" Name="TF_TO" Nullable="true" />
+    <Property Type="String" Name="TF_DES" Nullable="true" MaxLength="100" />
+    <Property Type="Boolean" Name="TF_STATUS" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="time_frame_GetAllVisible_Result">
+    <Property Type="Int32" Name="TF_ID" Nullable="false" />
+    <Property Type="String" Name="TF_NAME" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="TF_CHECK" Nullable="true" />
+    <Property Type="Time" Name="TF_FROM" Nullable="true" />
+    <Property Type="Time" Name="TF_TO" Nullable="true" />
+    <Property Type="String" Name="TF_DES" Nullable="true" MaxLength="100" />
+    <Property Type="Boolean" Name="TF_STATUS" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="time_frame_GetNotAllDay_Result">
+    <Property Type="Int32" Name="TF_ID" Nullable="false" />
+    <Property Type="String" Name="TF_NAME" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="TF_CHECK" Nullable="true" />
+    <Property Type="Time" Name="TF_FROM" Nullable="true" />
+    <Property Type="Time" Name="TF_TO" Nullable="true" />
+    <Property Type="String" Name="TF_DES" Nullable="true" MaxLength="100" />
+    <Property Type="Boolean" Name="TF_STATUS" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="time_frame_GetRowById_Result">
+    <Property Type="Time" Name="TF_FROM" Nullable="true" />
+    <Property Type="Time" Name="TF_TO" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="user_type_GetAll_Result">
+    <Property Type="Int32" Name="USER_TYPEID" Nullable="false" />
+    <Property Type="String" Name="USER_TYPENAME" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="DESCRIPTION" Nullable="true" MaxLength="100" />
+  </ComplexType>
+  <ComplexType Name="userInfo_FindInfobyCode_Result">
+    <Property Type="Int32" Name="USER_ID" Nullable="false" />
+    <Property Type="String" Name="USER_NAME" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="PHONE" Nullable="true" MaxLength="15" />
+    <Property Type="String" Name="SEX" Nullable="false" MaxLength="3" />
+    <Property Type="String" Name="USER_CODE" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="USER_BIRTH" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="ADDRESS" Nullable="true" MaxLength="400" />
+    <Property Type="Int32" Name="REDEEM_POINTS" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="userInfo_FindInfobyId_Result">
+    <Property Type="Int32" Name="USER_ID" Nullable="false" />
+    <Property Type="String" Name="USER_NAME" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="PHONE" Nullable="true" MaxLength="15" />
+    <Property Type="String" Name="SEX" Nullable="false" MaxLength="3" />
+    <Property Type="String" Name="USER_CODE" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="USER_BIRTH" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="ADDRESS" Nullable="true" MaxLength="400" />
+    <Property Type="Int32" Name="REDEEM_POINTS" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="userInfo_FindInfobyPhone_Result">
+    <Property Type="Int32" Name="USER_ID" Nullable="false" />
+    <Property Type="String" Name="USER_NAME" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="USER_CODE" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="SEX" Nullable="false" MaxLength="3" />
+    <Property Type="String" Name="USER_BIRTH" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="ADDRESS" Nullable="true" MaxLength="400" />
+    <Property Type="String" Name="PHONE" Nullable="true" MaxLength="15" />
+    <Property Type="Int32" Name="REDEEM_POINTS" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="userInfo_GetAll_Result">
+    <Property Type="Int32" Name="USER_ID" Nullable="false" />
+    <Property Type="Int32" Name="USER_TYPEID" Nullable="true" />
+    <Property Type="String" Name="USER_TYPENAME" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="USER_NAME" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="USER_CODE" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="PHONE" Nullable="true" MaxLength="15" />
+    <Property Type="String" Name="IDENTITY_NUMBER" Nullable="true" MaxLength="15" />
+    <Property Type="String" Name="SEX" Nullable="false" MaxLength="3" />
+    <Property Type="String" Name="USER_BIRTH" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="ADDRESS" Nullable="true" MaxLength="400" />
+    <Property Type="Binary" Name="IMAGE" Nullable="true" MaxLength="Max" />
+    <Property Type="String" Name="EMAIL" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="NOTE" Nullable="true" MaxLength="200" />
+    <Property Type="Boolean" Name="USER_STATUS" Nullable="true" />
+    <Property Type="Int32" Name="REDEEM_POINTS" Nullable="true" />
+    <Property Type="DateTime" Name="CREATE_DATE" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="UPDATE_DATE" Nullable="true" Precision="23" />
+  </ComplexType>
+  <ComplexType Name="userInfo_GetAllVisible_Result">
+    <Property Type="Int32" Name="USER_ID" Nullable="false" />
+    <Property Type="Int32" Name="USER_TYPEID" Nullable="true" />
+    <Property Type="String" Name="USER_TYPENAME" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="USER_NAME" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="USER_CODE" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="PHONE" Nullable="true" MaxLength="15" />
+    <Property Type="String" Name="IDENTITY_NUMBER" Nullable="true" MaxLength="15" />
+    <Property Type="String" Name="SEX" Nullable="false" MaxLength="3" />
+    <Property Type="String" Name="USER_BIRTH" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="ADDRESS" Nullable="true" MaxLength="400" />
+    <Property Type="Binary" Name="IMAGE" Nullable="true" MaxLength="Max" />
+    <Property Type="String" Name="EMAIL" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="NOTE" Nullable="true" MaxLength="200" />
+    <Property Type="Boolean" Name="USER_STATUS" Nullable="true" />
+    <Property Type="Int32" Name="REDEEM_POINTS" Nullable="true" />
+    <Property Type="DateTime" Name="CREATE_DATE" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="UPDATE_DATE" Nullable="true" Precision="23" />
+  </ComplexType>
+  <ComplexType Name="zone_GetAll_Result">
+    <Property Type="Int32" Name="ZONE_ID" Nullable="false" />
+    <Property Type="String" Name="ZONE_NAME" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="ZONE_CODE" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="ZONE_DES" Nullable="true" MaxLength="200" />
+    <Property Type="Boolean" Name="ZONE_STATUS" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="zone_GetAll_Visible_Result">
+    <Property Type="Int32" Name="ZONE_ID" Nullable="false" />
+    <Property Type="String" Name="ZONE_NAME" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="ZONE_CODE" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="ZONE_DES" Nullable="true" MaxLength="200" />
+    <Property Type="Boolean" Name="ZONE_STATUS" Nullable="true" />
+  </ComplexType>
+</Schema>

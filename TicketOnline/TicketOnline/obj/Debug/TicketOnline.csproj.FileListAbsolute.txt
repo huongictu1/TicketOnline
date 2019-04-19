@@ -1,0 +1,62 @@
+G:\mini project\TicketOnline\TicketOnline\bin\sb-admin-2.Web.dll.config
+G:\mini project\TicketOnline\TicketOnline\bin\sb-admin-2.Web.dll
+G:\mini project\TicketOnline\TicketOnline\bin\sb-admin-2.Web.pdb
+G:\mini project\TicketOnline\TicketOnline\bin\Antlr3.Runtime.dll
+G:\mini project\TicketOnline\TicketOnline\bin\Microsoft.Web.Infrastructure.dll
+G:\mini project\TicketOnline\TicketOnline\bin\Newtonsoft.Json.dll
+G:\mini project\TicketOnline\TicketOnline\bin\System.Web.Helpers.dll
+G:\mini project\TicketOnline\TicketOnline\bin\System.Web.Mvc.dll
+G:\mini project\TicketOnline\TicketOnline\bin\System.Web.Optimization.dll
+G:\mini project\TicketOnline\TicketOnline\bin\System.Web.Razor.dll
+G:\mini project\TicketOnline\TicketOnline\bin\System.Web.WebPages.Deployment.dll
+G:\mini project\TicketOnline\TicketOnline\bin\System.Web.WebPages.dll
+G:\mini project\TicketOnline\TicketOnline\bin\System.Web.WebPages.Razor.dll
+G:\mini project\TicketOnline\TicketOnline\bin\WebGrease.dll
+G:\mini project\TicketOnline\TicketOnline\bin\System.Web.Helpers.xml
+G:\mini project\TicketOnline\TicketOnline\bin\System.Web.Mvc.xml
+G:\mini project\TicketOnline\TicketOnline\bin\System.Web.Optimization.xml
+G:\mini project\TicketOnline\TicketOnline\bin\System.Web.Razor.xml
+G:\mini project\TicketOnline\TicketOnline\bin\System.Web.WebPages.xml
+G:\mini project\TicketOnline\TicketOnline\bin\System.Web.WebPages.Deployment.xml
+G:\mini project\TicketOnline\TicketOnline\bin\System.Web.WebPages.Razor.xml
+G:\mini project\TicketOnline\TicketOnline\bin\Antlr3.Runtime.pdb
+G:\mini project\TicketOnline\TicketOnline\bin\Newtonsoft.Json.xml
+G:\mini project\TicketOnline\TicketOnline\obj\Debug\TicketOnline.csprojResolveAssemblyReference.cache
+G:\mini project\TicketOnline\TicketOnline\obj\Debug\sb-admin-2.Web.dll
+G:\mini project\TicketOnline\TicketOnline\obj\Debug\sb-admin-2.Web.pdb
+G:\mini project\TicketOnline\TicketOnline\bin\EntityFramework.dll
+G:\mini project\TicketOnline\TicketOnline\bin\EntityFramework.SqlServer.dll
+G:\mini project\TicketOnline\TicketOnline\bin\EntityFramework.xml
+G:\mini project\TicketOnline\TicketOnline\bin\EntityFramework.SqlServer.xml
+C:\Users\huong\Downloads\TicketOnline\TicketOnline\TicketOnline\bin\sb-admin-2.Web.dll.config
+C:\Users\huong\Downloads\TicketOnline\TicketOnline\TicketOnline\bin\sb-admin-2.Web.dll
+C:\Users\huong\Downloads\TicketOnline\TicketOnline\TicketOnline\bin\sb-admin-2.Web.pdb
+C:\Users\huong\Downloads\TicketOnline\TicketOnline\TicketOnline\bin\Antlr3.Runtime.dll
+C:\Users\huong\Downloads\TicketOnline\TicketOnline\TicketOnline\bin\EntityFramework.dll
+C:\Users\huong\Downloads\TicketOnline\TicketOnline\TicketOnline\bin\EntityFramework.SqlServer.dll
+C:\Users\huong\Downloads\TicketOnline\TicketOnline\TicketOnline\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\huong\Downloads\TicketOnline\TicketOnline\TicketOnline\bin\Newtonsoft.Json.dll
+C:\Users\huong\Downloads\TicketOnline\TicketOnline\TicketOnline\bin\System.Web.Helpers.dll
+C:\Users\huong\Downloads\TicketOnline\TicketOnline\TicketOnline\bin\System.Web.Mvc.dll
+C:\Users\huong\Downloads\TicketOnline\TicketOnline\TicketOnline\bin\System.Web.Optimization.dll
+C:\Users\huong\Downloads\TicketOnline\TicketOnline\TicketOnline\bin\System.Web.Razor.dll
+C:\Users\huong\Downloads\TicketOnline\TicketOnline\TicketOnline\bin\System.Web.WebPages.Deployment.dll
+C:\Users\huong\Downloads\TicketOnline\TicketOnline\TicketOnline\bin\System.Web.WebPages.dll
+C:\Users\huong\Downloads\TicketOnline\TicketOnline\TicketOnline\bin\System.Web.WebPages.Razor.dll
+C:\Users\huong\Downloads\TicketOnline\TicketOnline\TicketOnline\bin\WebGrease.dll
+C:\Users\huong\Downloads\TicketOnline\TicketOnline\TicketOnline\bin\EntityFramework.xml
+C:\Users\huong\Downloads\TicketOnline\TicketOnline\TicketOnline\bin\EntityFramework.SqlServer.xml
+C:\Users\huong\Downloads\TicketOnline\TicketOnline\TicketOnline\bin\System.Web.Helpers.xml
+C:\Users\huong\Downloads\TicketOnline\TicketOnline\TicketOnline\bin\System.Web.Mvc.xml
+C:\Users\huong\Downloads\TicketOnline\TicketOnline\TicketOnline\bin\System.Web.Optimization.xml
+C:\Users\huong\Downloads\TicketOnline\TicketOnline\TicketOnline\bin\System.Web.Razor.xml
+C:\Users\huong\Downloads\TicketOnline\TicketOnline\TicketOnline\bin\System.Web.WebPages.xml
+C:\Users\huong\Downloads\TicketOnline\TicketOnline\TicketOnline\bin\System.Web.WebPages.Deployment.xml
+C:\Users\huong\Downloads\TicketOnline\TicketOnline\TicketOnline\bin\System.Web.WebPages.Razor.xml
+C:\Users\huong\Downloads\TicketOnline\TicketOnline\TicketOnline\bin\Antlr3.Runtime.pdb
+C:\Users\huong\Downloads\TicketOnline\TicketOnline\TicketOnline\bin\Newtonsoft.Json.xml
+C:\Users\huong\Downloads\TicketOnline\TicketOnline\TicketOnline\obj\Debug\TicketOnline.csprojAssemblyReference.cache
+C:\Users\huong\Downloads\TicketOnline\TicketOnline\TicketOnline\obj\Debug\TicketOnline.csproj.CoreCompileInputs.cache
+C:\Users\huong\Downloads\TicketOnline\TicketOnline\TicketOnline\obj\Debug\TicketOnline.csproj.CopyComplete
+C:\Users\huong\Downloads\TicketOnline\TicketOnline\TicketOnline\obj\Debug\sb-admin-2.Web.dll
+C:\Users\huong\Downloads\TicketOnline\TicketOnline\TicketOnline\obj\Debug\sb-admin-2.Web.pdb

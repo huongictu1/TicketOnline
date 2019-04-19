@@ -1,0 +1,1700 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="TICKET_MANAGERModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="ACCOUNTS">
+    <Key>
+      <PropertyRef Name="ACC_ID" />
+    </Key>
+    <Property Name="ACC_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PRI_ID" Type="int" />
+    <Property Name="EM_ID" Type="int" />
+    <Property Name="ACC_USERNAME" Type="varchar" MaxLength="20" />
+    <Property Name="ACC_PASSWORD" Type="nvarchar" MaxLength="200" />
+    <Property Name="ACC_STATUS" Type="bit" />
+  </EntityType>
+  <EntityType Name="BARCODE">
+    <Key>
+      <PropertyRef Name="BAR_ID" />
+    </Key>
+    <Property Name="BAR_ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CT_ID" Type="int" />
+    <Property Name="TYPEID" Type="int" />
+    <Property Name="ZONE_ID" Type="int" />
+    <Property Name="BAR_NO" Type="varchar" MaxLength="200" />
+    <Property Name="NUMBER" Type="int" Nullable="false" />
+    <Property Name="CREATE_DATE" Type="datetime" />
+    <Property Name="APPLY_DATE" Type="datetime" />
+    <Property Name="ACC_ID" Type="int" />
+    <Property Name="ACTIVE" Type="bit" />
+    <Property Name="USED" Type="bit" />
+    <Property Name="DAMAGE" Type="bit" />
+  </EntityType>
+  <EntityType Name="CARD_NO">
+    <Key>
+      <PropertyRef Name="CA_ID" />
+    </Key>
+    <Property Name="CA_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="USER_ID" Type="int" />
+    <Property Name="CA_NO" Type="varchar" MaxLength="50" />
+    <Property Name="CA_NUMBER" Type="varchar" MaxLength="50" />
+    <Property Name="CT_ID" Type="int" />
+    <Property Name="TYPEID" Type="int" />
+    <Property Name="CREATE_DATE" Type="datetime" />
+    <Property Name="UPDATE_DATE" Type="datetime" />
+    <Property Name="CA_STATUS" Type="bit" />
+    <Property Name="CA_ACTIVE" Type="bit" />
+    <Property Name="DESCRIPTION" Type="nvarchar" MaxLength="200" />
+    <Property Name="APPLY_DATE" Type="datetime" />
+    <Property Name="EXPRIED_DATE" Type="datetime" />
+    <Property Name="CA_DAMAGED" Type="bit" />
+    <Property Name="CA_LOST" Type="bit" />
+    <Property Name="USING" Type="bit" />
+    <Property Name="ALLOW_SYNCHRONIZED" Type="bit" />
+    <Property Name="ZONE_LIST" Type="varchar" MaxLength="100" />
+    <Property Name="ACC_ID" Type="int" />
+  </EntityType>
+  <EntityType Name="CARD_TYPE">
+    <Key>
+      <PropertyRef Name="CT_ID" />
+    </Key>
+    <Property Name="CT_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CT_NAME" Type="nvarchar" MaxLength="100" />
+    <Property Name="CT_CODE" Type="varchar" MaxLength="50" />
+    <Property Name="CT_DESCRIPTION" Type="nvarchar" MaxLength="200" />
+    <Property Name="CT_STATUS" Type="bit" />
+  </EntityType>
+  <EntityType Name="DEPARTMENT">
+    <Key>
+      <PropertyRef Name="DEP_ID" />
+    </Key>
+    <Property Name="DEP_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DEP_NAME" Type="nvarchar" MaxLength="200" />
+    <Property Name="DEP_DESCRIPTION" Type="nvarchar" MaxLength="200" />
+    <Property Name="DEP_STATUS" Type="bit" />
+  </EntityType>
+  <EntityType Name="DETAIL_SALE">
+    <Key>
+      <PropertyRef Name="DTS_ID" />
+    </Key>
+    <Property Name="DTS_ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TS_ID" Type="bigint" />
+    <Property Name="CA_ID" Type="int" />
+    <Property Name="BAR_ID" Type="bigint" />
+    <Property Name="DTS_PRICE" Type="bigint" />
+    <Property Name="DTS_PAY" Type="bigint" />
+  </EntityType>
+  <EntityType Name="DEVICE">
+    <Key>
+      <PropertyRef Name="DEVICE_ID" />
+    </Key>
+    <Property Name="DEVICE_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DEVICE_NAME" Type="nvarchar" MaxLength="100" />
+    <Property Name="DEVICE_CODE" Type="varchar" MaxLength="50" />
+    <Property Name="DT_ID" Type="int" />
+    <Property Name="ZONE_ID" Type="int" />
+    <Property Name="DEVICE_MAC" Type="varchar" MaxLength="30" />
+    <Property Name="DEVICE_PORT" Type="int" />
+    <Property Name="DEVICE_DES" Type="nvarchar" MaxLength="200" />
+    <Property Name="DEVICE_STATUS" Type="bit" />
+    <Property Name="DEVICE_IP" Type="varchar" MaxLength="32" />
+  </EntityType>
+  <EntityType Name="DEVICE_TYPE">
+    <Key>
+      <PropertyRef Name="DT_ID" />
+    </Key>
+    <Property Name="DT_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DT_NAME" Type="nvarchar" MaxLength="100" />
+    <Property Name="DT_CODE" Type="varchar" MaxLength="50" />
+    <Property Name="DT_DES" Type="nvarchar" MaxLength="200" />
+    <Property Name="DT_STATUS" Type="bit" />
+  </EntityType>
+  <EntityType Name="DISCOUNT">
+    <Key>
+      <PropertyRef Name="DISC_ID" />
+    </Key>
+    <Property Name="DISC_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DISCT_ID" Type="int" />
+    <Property Name="HOL_ID" Type="int" />
+    <Property Name="TF_ID" Type="int" />
+    <Property Name="DISC_NAME" Type="nvarchar" MaxLength="100" />
+    <Property Name="DISC_CODE" Type="varchar" MaxLength="50" />
+    <Property Name="DISC_VALUE" Type="int" />
+    <Property Name="DISC_DES" Type="nvarchar" MaxLength="200" />
+    <Property Name="CREATE_DATE" Type="datetime" />
+    <Property Name="DISC_START" Type="datetime" />
+    <Property Name="DISC_END" Type="datetime" />
+    <Property Name="DISC_STATUS" Type="bit" />
+    <Property Name="WD_ISWEEKEND" Type="bit" />
+  </EntityType>
+  <EntityType Name="DISCOUNT_TYPE">
+    <Key>
+      <PropertyRef Name="DISCT_ID" />
+    </Key>
+    <Property Name="DISCT_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DISCT_NAME" Type="nvarchar" MaxLength="100" />
+    <Property Name="DISCT_CHECK" Type="int" />
+    <Property Name="DISCT_DES" Type="nvarchar" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="EMPLOYEES">
+    <Key>
+      <PropertyRef Name="EM_ID" />
+    </Key>
+    <Property Name="EM_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DEP_ID" Type="int" />
+    <Property Name="EM_NAME" Type="nvarchar" MaxLength="100" />
+    <Property Name="EM_CODE" Type="nvarchar" MaxLength="20" />
+    <Property Name="PHONE" Type="varchar" MaxLength="15" />
+    <Property Name="IDENTITY_NUMBER" Type="varchar" MaxLength="15" />
+    <Property Name="SEX" Type="char" MaxLength="1" />
+    <Property Name="ADDRESS" Type="nvarchar" MaxLength="400" />
+    <Property Name="DESCRIPTION" Type="nvarchar" MaxLength="200" />
+    <Property Name="IMAGE" Type="image" />
+    <Property Name="EM_STATUS" Type="bit" />
+  </EntityType>
+  <EntityType Name="GAME_SPORT">
+    <Key>
+      <PropertyRef Name="GS_ID" />
+    </Key>
+    <Property Name="GS_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="GS_NAME" Type="nvarchar" MaxLength="100" />
+    <Property Name="GS_LIMIT" Type="int" />
+    <Property Name="GS_DES" Type="nvarchar" MaxLength="200" />
+    <Property Name="GS_STATUS" Type="bit" />
+  </EntityType>
+  <EntityType Name="HOLIDAY">
+    <Key>
+      <PropertyRef Name="HOL_ID" />
+    </Key>
+    <Property Name="HOL_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="HOL_NAME" Type="nvarchar" MaxLength="100" />
+    <Property Name="HOL_FROM" Type="char" MaxLength="5" />
+    <Property Name="HOL_TO" Type="char" MaxLength="5" />
+    <Property Name="HOL_STATUS" Type="bit" />
+  </EntityType>
+  <EntityType Name="IO_INFO">
+    <Key>
+      <PropertyRef Name="IO_ID" />
+    </Key>
+    <Property Name="IO_ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IO_TIME" Type="datetime" />
+    <Property Name="ZONE_ID" Type="int" />
+    <Property Name="CA_ID" Type="int" />
+    <Property Name="BAR_ID" Type="bigint" />
+  </EntityType>
+  <EntityType Name="MENULIST">
+    <Key>
+      <PropertyRef Name="MNU_ID" />
+    </Key>
+    <Property Name="MNU_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MNU_NAME" Type="nvarchar" MaxLength="100" />
+    <Property Name="MNU_DISPLAY" Type="nvarchar" MaxLength="150" />
+    <Property Name="MNU_PARENT" Type="nvarchar" MaxLength="100" />
+    <Property Name="IS_MENU" Type="bit" />
+    <Property Name="URL" Type="varchar" MaxLength="100" />
+    <Property Name="ICON" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="PRIVILES">
+    <Key>
+      <PropertyRef Name="PRI_ID" />
+    </Key>
+    <Property Name="PRI_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PRI_DESCRIPTION" Type="nvarchar" MaxLength="200" />
+    <Property Name="PRI_STATUS" Type="bit" />
+  </EntityType>
+  <EntityType Name="REDEEM">
+    <Key>
+      <PropertyRef Name="REDEEM_ID" />
+    </Key>
+    <Property Name="REDEEM_ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SN_ID" Type="bigint" />
+    <Property Name="REDEEM_VALUE" Type="int" />
+    <Property Name="REDEEM_MONEY" Type="int" />
+    <Property Name="REDEEM_STATUS" Type="bit" />
+  </EntityType>
+  <EntityType Name="REDEEM_TRANSFORM">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="TRANS_NAME" Type="nvarchar" MaxLength="100" />
+    <Property Name="TRANS_VALUE" Type="int" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="TICKET_PRICE">
+    <Key>
+      <PropertyRef Name="PRICE_ID" />
+    </Key>
+    <Property Name="PRICE_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CT_ID" Type="int" />
+    <Property Name="TYPEID" Type="int" />
+    <Property Name="ZONE_ID" Type="int" />
+    <Property Name="TF_ID" Type="int" />
+    <Property Name="HOL_ID" Type="int" />
+    <Property Name="WD_ISWEEKEND" Type="bit" />
+    <Property Name="PRICE" Type="bigint" />
+    <Property Name="TEXT_PRICE" Type="nvarchar" MaxLength="400" />
+    <Property Name="UPDATE_DATE" Type="datetime" />
+    <Property Name="ACC_ID" Type="int" />
+  </EntityType>
+  <EntityType Name="TICKET_SALE">
+    <Key>
+      <PropertyRef Name="TS_ID" />
+    </Key>
+    <Property Name="TS_ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TS_NO" Type="varchar" MaxLength="100" />
+    <Property Name="PRICE" Type="bigint" />
+    <Property Name="PAY" Type="bigint" />
+    <Property Name="DISC_ID" Type="int" />
+    <Property Name="CREATE_DATE" Type="datetime" />
+    <Property Name="DESCRIPTION" Type="nvarchar" MaxLength="200" />
+    <Property Name="USER_ID" Type="int" />
+    <Property Name="DISCOUNT_MONEY" Type="int" />
+    <Property Name="REDEEM_ADD" Type="int" />
+    <Property Name="REDEEM_SUB" Type="int" />
+    <Property Name="REDEEM_SUB_MONEY" Type="int" />
+    <Property Name="ACC_ID" Type="int" />
+  </EntityType>
+  <EntityType Name="TICKET_TYPE">
+    <Key>
+      <PropertyRef Name="TYPEID" />
+    </Key>
+    <Property Name="TYPEID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TYPENAME" Type="nvarchar" MaxLength="100" />
+    <Property Name="TYPE_CODE" Type="varchar" MaxLength="50" />
+    <Property Name="TYPE_CHECK" Type="int" />
+    <Property Name="DESCRIPTIONS" Type="nvarchar" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="TIME_FRAME">
+    <Key>
+      <PropertyRef Name="TF_ID" />
+    </Key>
+    <Property Name="TF_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TF_NAME" Type="nvarchar" MaxLength="50" />
+    <Property Name="TF_CHECK" Type="int" />
+    <Property Name="TF_FROM" Type="time" Precision="0" />
+    <Property Name="TF_TO" Type="time" Precision="0" />
+    <Property Name="TF_DES" Type="nvarchar" MaxLength="100" />
+    <Property Name="TF_STATUS" Type="bit" />
+  </EntityType>
+  <EntityType Name="UNIT">
+    <Key>
+      <PropertyRef Name="UNIT_ID" />
+    </Key>
+    <Property Name="UNIT_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UNIT_CODE" Type="varchar" MaxLength="50" />
+    <Property Name="UNIT_NAME" Type="nvarchar" MaxLength="100" />
+    <Property Name="UNIT_DES" Type="nvarchar" MaxLength="200" />
+    <Property Name="UNIT_STATUS" Type="bit" />
+  </EntityType>
+  <EntityType Name="USER_INFO">
+    <Key>
+      <PropertyRef Name="USER_ID" />
+    </Key>
+    <Property Name="USER_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="USER_TYPEID" Type="int" />
+    <Property Name="USER_NAME" Type="nvarchar" MaxLength="100" />
+    <Property Name="USER_CODE" Type="varchar" MaxLength="50" />
+    <Property Name="PHONE" Type="varchar" MaxLength="15" />
+    <Property Name="IDENTITY_NUMBER" Type="varchar" MaxLength="15" />
+    <Property Name="SEX" Type="char" MaxLength="1" />
+    <Property Name="USER_BIRTH" Type="datetime" />
+    <Property Name="ADDRESS" Type="nvarchar" MaxLength="400" />
+    <Property Name="IMAGE" Type="image" />
+    <Property Name="EMAIL" Type="varchar" MaxLength="50" />
+    <Property Name="NOTE" Type="nvarchar" MaxLength="200" />
+    <Property Name="USER_STATUS" Type="bit" />
+    <Property Name="REDEEM_POINTS" Type="int" />
+    <Property Name="CREATE_DATE" Type="datetime" />
+    <Property Name="UPDATE_DATE" Type="datetime" />
+  </EntityType>
+  <EntityType Name="USER_TYPE">
+    <Key>
+      <PropertyRef Name="USER_TYPEID" />
+    </Key>
+    <Property Name="USER_TYPEID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="USER_TYPENAME" Type="nvarchar" MaxLength="50" />
+    <Property Name="DESCRIPTION" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="VISIBLECONTROLS">
+    <Key>
+      <PropertyRef Name="VI_ID" />
+    </Key>
+    <Property Name="VI_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PRI_ID" Type="int" />
+    <Property Name="MNU_ID" Type="int" />
+  </EntityType>
+  <EntityType Name="ZONE">
+    <Key>
+      <PropertyRef Name="ZONE_ID" />
+    </Key>
+    <Property Name="ZONE_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ZONE_NAME" Type="nvarchar" MaxLength="100" />
+    <Property Name="ZONE_CODE" Type="varchar" MaxLength="100" />
+    <Property Name="ZONE_DES" Type="nvarchar" MaxLength="200" />
+    <Property Name="ZONE_STATUS" Type="bit" />
+  </EntityType>
+  <Association Name="FK_ACCOUNTS_EMPLOYEES">
+    <End Role="EMPLOYEES" Type="Self.EMPLOYEES" Multiplicity="0..1" />
+    <End Role="ACCOUNTS" Type="Self.ACCOUNTS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EMPLOYEES">
+        <PropertyRef Name="EM_ID" />
+      </Principal>
+      <Dependent Role="ACCOUNTS">
+        <PropertyRef Name="EM_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ACCOUNTS_PRIVILES">
+    <End Role="PRIVILES" Type="Self.PRIVILES" Multiplicity="0..1" />
+    <End Role="ACCOUNTS" Type="Self.ACCOUNTS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PRIVILES">
+        <PropertyRef Name="PRI_ID" />
+      </Principal>
+      <Dependent Role="ACCOUNTS">
+        <PropertyRef Name="PRI_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_BARCODE_CARD_TYPE">
+    <End Role="CARD_TYPE" Type="Self.CARD_TYPE" Multiplicity="0..1" />
+    <End Role="BARCODE" Type="Self.BARCODE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CARD_TYPE">
+        <PropertyRef Name="CT_ID" />
+      </Principal>
+      <Dependent Role="BARCODE">
+        <PropertyRef Name="CT_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_BARCODE_TICKET_TYPE">
+    <End Role="TICKET_TYPE" Type="Self.TICKET_TYPE" Multiplicity="0..1" />
+    <End Role="BARCODE" Type="Self.BARCODE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TICKET_TYPE">
+        <PropertyRef Name="TYPEID" />
+      </Principal>
+      <Dependent Role="BARCODE">
+        <PropertyRef Name="TYPEID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_BARCODE_ZONE">
+    <End Role="ZONE" Type="Self.ZONE" Multiplicity="0..1" />
+    <End Role="BARCODE" Type="Self.BARCODE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ZONE">
+        <PropertyRef Name="ZONE_ID" />
+      </Principal>
+      <Dependent Role="BARCODE">
+        <PropertyRef Name="ZONE_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CARD_NO_CARD_TYPE">
+    <End Role="CARD_TYPE" Type="Self.CARD_TYPE" Multiplicity="0..1" />
+    <End Role="CARD_NO" Type="Self.CARD_NO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CARD_TYPE">
+        <PropertyRef Name="CT_ID" />
+      </Principal>
+      <Dependent Role="CARD_NO">
+        <PropertyRef Name="CT_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CARD_NO_TICKET_TYPE">
+    <End Role="TICKET_TYPE" Type="Self.TICKET_TYPE" Multiplicity="0..1" />
+    <End Role="CARD_NO" Type="Self.CARD_NO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TICKET_TYPE">
+        <PropertyRef Name="TYPEID" />
+      </Principal>
+      <Dependent Role="CARD_NO">
+        <PropertyRef Name="TYPEID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DETAIL_SALE_BARCODE">
+    <End Role="BARCODE" Type="Self.BARCODE" Multiplicity="0..1" />
+    <End Role="DETAIL_SALE" Type="Self.DETAIL_SALE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BARCODE">
+        <PropertyRef Name="BAR_ID" />
+      </Principal>
+      <Dependent Role="DETAIL_SALE">
+        <PropertyRef Name="BAR_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DETAIL_SALE_CARD_NO">
+    <End Role="CARD_NO" Type="Self.CARD_NO" Multiplicity="0..1" />
+    <End Role="DETAIL_SALE" Type="Self.DETAIL_SALE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CARD_NO">
+        <PropertyRef Name="CA_ID" />
+      </Principal>
+      <Dependent Role="DETAIL_SALE">
+        <PropertyRef Name="CA_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DETAIL_SALE_TICKET_SALE">
+    <End Role="TICKET_SALE" Type="Self.TICKET_SALE" Multiplicity="0..1" />
+    <End Role="DETAIL_SALE" Type="Self.DETAIL_SALE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TICKET_SALE">
+        <PropertyRef Name="TS_ID" />
+      </Principal>
+      <Dependent Role="DETAIL_SALE">
+        <PropertyRef Name="TS_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DEVICE_DEVICE_TYPE">
+    <End Role="DEVICE_TYPE" Type="Self.DEVICE_TYPE" Multiplicity="0..1" />
+    <End Role="DEVICE" Type="Self.DEVICE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DEVICE_TYPE">
+        <PropertyRef Name="DT_ID" />
+      </Principal>
+      <Dependent Role="DEVICE">
+        <PropertyRef Name="DT_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DEVICE_ZONE">
+    <End Role="ZONE" Type="Self.ZONE" Multiplicity="0..1" />
+    <End Role="DEVICE" Type="Self.DEVICE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ZONE">
+        <PropertyRef Name="ZONE_ID" />
+      </Principal>
+      <Dependent Role="DEVICE">
+        <PropertyRef Name="ZONE_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DISCOUNT_DISCOUNT_TYPE">
+    <End Role="DISCOUNT_TYPE" Type="Self.DISCOUNT_TYPE" Multiplicity="0..1" />
+    <End Role="DISCOUNT" Type="Self.DISCOUNT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DISCOUNT_TYPE">
+        <PropertyRef Name="DISCT_ID" />
+      </Principal>
+      <Dependent Role="DISCOUNT">
+        <PropertyRef Name="DISCT_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DISCOUNT_HOLIDAY">
+    <End Role="HOLIDAY" Type="Self.HOLIDAY" Multiplicity="0..1" />
+    <End Role="DISCOUNT" Type="Self.DISCOUNT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HOLIDAY">
+        <PropertyRef Name="HOL_ID" />
+      </Principal>
+      <Dependent Role="DISCOUNT">
+        <PropertyRef Name="HOL_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EMPLOYEES_DEPARTMENT">
+    <End Role="DEPARTMENT" Type="Self.DEPARTMENT" Multiplicity="0..1" />
+    <End Role="EMPLOYEES" Type="Self.EMPLOYEES" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DEPARTMENT">
+        <PropertyRef Name="DEP_ID" />
+      </Principal>
+      <Dependent Role="EMPLOYEES">
+        <PropertyRef Name="DEP_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_IO_INFO_BARCODE">
+    <End Role="BARCODE" Type="Self.BARCODE" Multiplicity="0..1" />
+    <End Role="IO_INFO" Type="Self.IO_INFO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BARCODE">
+        <PropertyRef Name="BAR_ID" />
+      </Principal>
+      <Dependent Role="IO_INFO">
+        <PropertyRef Name="BAR_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_IO_INFO_CARD_NO">
+    <End Role="CARD_NO" Type="Self.CARD_NO" Multiplicity="0..1" />
+    <End Role="IO_INFO" Type="Self.IO_INFO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CARD_NO">
+        <PropertyRef Name="CA_ID" />
+      </Principal>
+      <Dependent Role="IO_INFO">
+        <PropertyRef Name="CA_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_IO_INFO_ZONE">
+    <End Role="ZONE" Type="Self.ZONE" Multiplicity="0..1" />
+    <End Role="IO_INFO" Type="Self.IO_INFO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ZONE">
+        <PropertyRef Name="ZONE_ID" />
+      </Principal>
+      <Dependent Role="IO_INFO">
+        <PropertyRef Name="ZONE_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TICKET_PRICE_CARD_TYPE">
+    <End Role="CARD_TYPE" Type="Self.CARD_TYPE" Multiplicity="0..1" />
+    <End Role="TICKET_PRICE" Type="Self.TICKET_PRICE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CARD_TYPE">
+        <PropertyRef Name="CT_ID" />
+      </Principal>
+      <Dependent Role="TICKET_PRICE">
+        <PropertyRef Name="CT_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TICKET_PRICE_HOLIDAY">
+    <End Role="HOLIDAY" Type="Self.HOLIDAY" Multiplicity="0..1" />
+    <End Role="TICKET_PRICE" Type="Self.TICKET_PRICE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HOLIDAY">
+        <PropertyRef Name="HOL_ID" />
+      </Principal>
+      <Dependent Role="TICKET_PRICE">
+        <PropertyRef Name="HOL_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TICKET_PRICE_TICKET_TYPE">
+    <End Role="TICKET_TYPE" Type="Self.TICKET_TYPE" Multiplicity="0..1" />
+    <End Role="TICKET_PRICE" Type="Self.TICKET_PRICE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TICKET_TYPE">
+        <PropertyRef Name="TYPEID" />
+      </Principal>
+      <Dependent Role="TICKET_PRICE">
+        <PropertyRef Name="TYPEID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TICKET_PRICE_TIME_FRAME">
+    <End Role="TIME_FRAME" Type="Self.TIME_FRAME" Multiplicity="0..1" />
+    <End Role="TICKET_PRICE" Type="Self.TICKET_PRICE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TIME_FRAME">
+        <PropertyRef Name="TF_ID" />
+      </Principal>
+      <Dependent Role="TICKET_PRICE">
+        <PropertyRef Name="TF_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TICKET_SALE_DISCOUNT">
+    <End Role="DISCOUNT" Type="Self.DISCOUNT" Multiplicity="0..1" />
+    <End Role="TICKET_SALE" Type="Self.TICKET_SALE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DISCOUNT">
+        <PropertyRef Name="DISC_ID" />
+      </Principal>
+      <Dependent Role="TICKET_SALE">
+        <PropertyRef Name="DISC_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TICKET_SALE_USER_INFO">
+    <End Role="USER_INFO" Type="Self.USER_INFO" Multiplicity="0..1" />
+    <End Role="TICKET_SALE" Type="Self.TICKET_SALE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USER_INFO">
+        <PropertyRef Name="USER_ID" />
+      </Principal>
+      <Dependent Role="TICKET_SALE">
+        <PropertyRef Name="USER_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_USER_INFO_USER_TYPE">
+    <End Role="USER_TYPE" Type="Self.USER_TYPE" Multiplicity="0..1" />
+    <End Role="USER_INFO" Type="Self.USER_INFO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USER_TYPE">
+        <PropertyRef Name="USER_TYPEID" />
+      </Principal>
+      <Dependent Role="USER_INFO">
+        <PropertyRef Name="USER_TYPEID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_VISIBLECONTROLS_MENULIST">
+    <End Role="MENULIST" Type="Self.MENULIST" Multiplicity="0..1" />
+    <End Role="VISIBLECONTROLS" Type="Self.VISIBLECONTROLS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MENULIST">
+        <PropertyRef Name="MNU_ID" />
+      </Principal>
+      <Dependent Role="VISIBLECONTROLS">
+        <PropertyRef Name="MNU_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_VISIBLECONTROLS_PRIVILES">
+    <End Role="PRIVILES" Type="Self.PRIVILES" Multiplicity="0..1" />
+    <End Role="VISIBLECONTROLS" Type="Self.VISIBLECONTROLS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PRIVILES">
+        <PropertyRef Name="PRI_ID" />
+      </Principal>
+      <Dependent Role="VISIBLECONTROLS">
+        <PropertyRef Name="PRI_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="accounts_ChangePassword" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ACC_ID" Type="int" Mode="In" />
+    <Parameter Name="ACC_PASSWORD" Type="nvarchar" Mode="In" />
+    <Parameter Name="newPassword" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="accounts_CheckLogin" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="userName" Type="nvarchar" Mode="In" />
+    <Parameter Name="password" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="accounts_Delete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ACC_ID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="accounts_GetACC_IDfromEM_ID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="EM_ID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="accounts_GetAll" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="accounts_insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ACC_ID" Type="int" Mode="In" />
+    <Parameter Name="PRI_ID" Type="int" Mode="In" />
+    <Parameter Name="EM_ID" Type="int" Mode="In" />
+    <Parameter Name="ACC_USERNAME" Type="varchar" Mode="In" />
+    <Parameter Name="ACC_PASSWORD" Type="nvarchar" Mode="In" />
+    <Parameter Name="ACC_STATUS" Type="bit" Mode="In" />
+  </Function>
+  <Function Name="accounts_IsExistsAccount" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="em_ID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="accounts_IsExistsUserName" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="userName" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="accounts_ResetPass" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ACC_ID" Type="int" Mode="In" />
+    <Parameter Name="newPassword" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="accounts_update" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ACC_ID" Type="int" Mode="In" />
+    <Parameter Name="PRI_ID" Type="int" Mode="In" />
+    <Parameter Name="EM_ID" Type="int" Mode="In" />
+    <Parameter Name="ACC_USERNAME" Type="varchar" Mode="In" />
+    <Parameter Name="ACC_PASSWORD" Type="nvarchar" Mode="In" />
+    <Parameter Name="ACC_STATUS" Type="bit" Mode="In" />
+  </Function>
+  <Function Name="barcode_check_reset_number" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="GENDATE" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="barcode_delete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="BAR_ID" Type="bigint" Mode="In" />
+  </Function>
+  <Function Name="barcode_get_max_number_of_date" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="APPLY_DATE" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="barcode_GetTop5000desc" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="barcode_insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="BAR_ID" Type="bigint" Mode="In" />
+    <Parameter Name="CT_ID" Type="int" Mode="In" />
+    <Parameter Name="TYPEID" Type="int" Mode="In" />
+    <Parameter Name="ZONE_ID" Type="int" Mode="In" />
+    <Parameter Name="BAR_NO" Type="varchar" Mode="In" />
+    <Parameter Name="ACC_ID" Type="int" Mode="In" />
+    <Parameter Name="ACTIVE" Type="bit" Mode="In" />
+    <Parameter Name="USED" Type="bit" Mode="In" />
+    <Parameter Name="NUMBER" Type="int" Mode="In" />
+    <Parameter Name="APPLY_DATE" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="barcode_IsExist" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="BAR_NO" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="barcode_isExistAndInfo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="BAR_NO" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="barcode_update" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="BAR_ID" Type="bigint" Mode="In" />
+    <Parameter Name="ACTIVE" Type="bit" Mode="In" />
+    <Parameter Name="USED" Type="bit" Mode="In" />
+  </Function>
+  <Function Name="barcode_UpdateDamage" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="BAR_ID" Type="bigint" Mode="In" />
+    <Parameter Name="DAMAGE" Type="bit" Mode="In" />
+  </Function>
+  <Function Name="common_GetDate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="common_GetDate_test" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="department_Delete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="DEP_ID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="department_GetAll" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="department_GetAllVisible" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="department_insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="DEP_ID" Type="int" Mode="In" />
+    <Parameter Name="DEP_NAME" Type="nvarchar" Mode="In" />
+    <Parameter Name="DEP_DESCRIPTION" Type="nvarchar" Mode="In" />
+    <Parameter Name="DEP_STATUS" Type="bit" Mode="In" />
+  </Function>
+  <Function Name="department_update" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="DEP_ID" Type="int" Mode="In" />
+    <Parameter Name="DEP_NAME" Type="nvarchar" Mode="In" />
+    <Parameter Name="DEP_DESCRIPTION" Type="nvarchar" Mode="In" />
+    <Parameter Name="DEP_STATUS" Type="bit" Mode="In" />
+  </Function>
+  <Function Name="detail_sale_delete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="DTS_ID" Type="bigint" Mode="In" />
+  </Function>
+  <Function Name="detail_sale_getAll" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="detail_sale_GetByTS" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="TS_ID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="detail_sale_insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="DTS_ID" Type="bigint" Mode="In" />
+    <Parameter Name="TS_ID" Type="bigint" Mode="In" />
+    <Parameter Name="CA_ID" Type="int" Mode="In" />
+    <Parameter Name="BAR_ID" Type="bigint" Mode="In" />
+    <Parameter Name="DTS_PRICE" Type="bigint" Mode="In" />
+    <Parameter Name="DTS_PAY" Type="bigint" Mode="In" />
+  </Function>
+  <Function Name="detail_sale_update" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="DTS_ID" Type="bigint" Mode="In" />
+    <Parameter Name="TS_ID" Type="bigint" Mode="In" />
+    <Parameter Name="CA_ID" Type="int" Mode="In" />
+    <Parameter Name="BAR_ID" Type="bigint" Mode="In" />
+    <Parameter Name="DTS_PRICE" Type="bigint" Mode="In" />
+    <Parameter Name="DTS_PAY" Type="bigint" Mode="In" />
+  </Function>
+  <Function Name="device_Delete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="DEVICE_ID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="device_GetAll" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="device_GetAll_Visible" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="device_insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="DEVICE_ID" Type="int" Mode="In" />
+    <Parameter Name="DEVICE_NAME" Type="nvarchar" Mode="In" />
+    <Parameter Name="DEVICE_CODE" Type="varchar" Mode="In" />
+    <Parameter Name="DT_ID" Type="int" Mode="In" />
+    <Parameter Name="ZONE_ID" Type="int" Mode="In" />
+    <Parameter Name="DEVICE_MAC" Type="varchar" Mode="In" />
+    <Parameter Name="DEVICE_IP" Type="varchar" Mode="In" />
+    <Parameter Name="DEVICE_PORT" Type="int" Mode="In" />
+    <Parameter Name="DEVICE_DES" Type="nvarchar" Mode="In" />
+    <Parameter Name="DEVICE_STATUS" Type="bit" Mode="In" />
+  </Function>
+  <Function Name="device_IsExist" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="DEVICE_CODE" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="device_type_Delete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="DT_ID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="device_type_GetAll" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="device_type_GetAllVisible" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="device_type_insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="DT_ID" Type="int" Mode="In" />
+    <Parameter Name="DT_NAME" Type="nvarchar" Mode="In" />
+    <Parameter Name="DT_CODE" Type="varchar" Mode="In" />
+    <Parameter Name="DT_DES" Type="nvarchar" Mode="In" />
+    <Parameter Name="DT_STATUS" Type="bit" Mode="In" />
+  </Function>
+  <Function Name="device_type_IsExist" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="DT_CODE" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="device_type_update" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="DT_ID" Type="int" Mode="In" />
+    <Parameter Name="DT_NAME" Type="nvarchar" Mode="In" />
+    <Parameter Name="DT_CODE" Type="varchar" Mode="In" />
+    <Parameter Name="DT_DES" Type="nvarchar" Mode="In" />
+    <Parameter Name="DT_STATUS" Type="bit" Mode="In" />
+  </Function>
+  <Function Name="device_update" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="DEVICE_ID" Type="int" Mode="In" />
+    <Parameter Name="DEVICE_NAME" Type="nvarchar" Mode="In" />
+    <Parameter Name="DEVICE_CODE" Type="varchar" Mode="In" />
+    <Parameter Name="DT_ID" Type="int" Mode="In" />
+    <Parameter Name="ZONE_ID" Type="int" Mode="In" />
+    <Parameter Name="DEVICE_IP" Type="varchar" Mode="In" />
+    <Parameter Name="DEVICE_MAC" Type="varchar" Mode="In" />
+    <Parameter Name="DEVICE_PORT" Type="int" Mode="In" />
+    <Parameter Name="DEVICE_DES" Type="nvarchar" Mode="In" />
+    <Parameter Name="DEVICE_STATUS" Type="bit" Mode="In" />
+  </Function>
+  <Function Name="discount_delete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="DISC_ID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="discount_FindByHol" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="HOL_ID" Type="int" Mode="In" />
+    <Parameter Name="TF_ID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="discount_FindByWeek" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="WD_ISWEEKEND" Type="bit" Mode="In" />
+    <Parameter Name="TF_ID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="discount_GetAll" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="discount_GetAllVisible" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="discount_GetInfoById" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="DISC_ID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="discount_GetTypeById" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="DISC_ID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="discount_insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="DISC_ID" Type="int" Mode="In" />
+    <Parameter Name="DISCT_ID" Type="int" Mode="In" />
+    <Parameter Name="HOL_ID" Type="int" Mode="In" />
+    <Parameter Name="TF_ID" Type="int" Mode="In" />
+    <Parameter Name="DISC_NAME" Type="nvarchar" Mode="In" />
+    <Parameter Name="DISC_CODE" Type="varchar" Mode="In" />
+    <Parameter Name="WD_ISWEEKEND" Type="bit" Mode="In" />
+    <Parameter Name="DISC_VALUE" Type="int" Mode="In" />
+    <Parameter Name="DISC_DES" Type="nvarchar" Mode="In" />
+    <Parameter Name="CREATE_DATE" Type="datetime" Mode="In" />
+    <Parameter Name="DISC_START" Type="datetime" Mode="In" />
+    <Parameter Name="DISC_END" Type="datetime" Mode="In" />
+    <Parameter Name="DISC_STATUS" Type="bit" Mode="In" />
+  </Function>
+  <Function Name="discount_IsExist" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="DISC_CODE" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="discount_isExistsType" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="DISCT_ID" Type="int" Mode="In" />
+    <Parameter Name="HOL_ID" Type="int" Mode="In" />
+    <Parameter Name="TF_ID" Type="int" Mode="In" />
+    <Parameter Name="WD_ISWEEKEND" Type="bit" Mode="In" />
+  </Function>
+  <Function Name="discount_type_delete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="DISCT_ID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="discount_type_GetAll" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="discount_type_insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="DISCT_ID" Type="int" Mode="In" />
+    <Parameter Name="DISCT_NAME" Type="nvarchar" Mode="In" />
+    <Parameter Name="DISCT_CHECK" Type="int" Mode="In" />
+    <Parameter Name="DISCT_DES" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="discount_type_update" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="DISCT_ID" Type="int" Mode="In" />
+    <Parameter Name="DISCT_NAME" Type="nvarchar" Mode="In" />
+    <Parameter Name="DISCT_CHECK" Type="int" Mode="In" />
+    <Parameter Name="DISCT_DES" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="discount_update" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="DISC_ID" Type="int" Mode="In" />
+    <Parameter Name="DISCT_ID" Type="int" Mode="In" />
+    <Parameter Name="HOL_ID" Type="int" Mode="In" />
+    <Parameter Name="TF_ID" Type="int" Mode="In" />
+    <Parameter Name="WD_ISWEEKEND" Type="bit" Mode="In" />
+  </Function>
+  <Function Name="employees_Delete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="EM_ID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="employees_FindInfoByAccId" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ACC_ID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="employees_GetAll" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="employees_GetAll_Visible" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="employees_GetLastestID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="EM_NAME" Type="nvarchar" Mode="In" />
+    <Parameter Name="PHONE" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="employees_insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="EM_ID" Type="int" Mode="In" />
+    <Parameter Name="DEP_ID" Type="int" Mode="In" />
+    <Parameter Name="EM_NAME" Type="nvarchar" Mode="In" />
+    <Parameter Name="EM_CODE" Type="nvarchar" Mode="In" />
+    <Parameter Name="PHONE" Type="varchar" Mode="In" />
+    <Parameter Name="IDENTITY_NUMBER" Type="varchar" Mode="In" />
+    <Parameter Name="SEX" Type="char" Mode="In" />
+    <Parameter Name="ADDRESS" Type="nvarchar" Mode="In" />
+    <Parameter Name="DESCRIPTION" Type="nvarchar" Mode="In" />
+    <Parameter Name="IMAGE" Type="image" Mode="In" />
+    <Parameter Name="EM_STATUS" Type="bit" Mode="In" />
+  </Function>
+  <Function Name="employees_IsExist" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="EM_CODE" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="employees_update" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="EM_ID" Type="int" Mode="In" />
+    <Parameter Name="DEP_ID" Type="int" Mode="In" />
+    <Parameter Name="EM_NAME" Type="nvarchar" Mode="In" />
+    <Parameter Name="EM_CODE" Type="nvarchar" Mode="In" />
+    <Parameter Name="PHONE" Type="varchar" Mode="In" />
+    <Parameter Name="IDENTITY_NUMBER" Type="varchar" Mode="In" />
+    <Parameter Name="SEX" Type="char" Mode="In" />
+    <Parameter Name="ADDRESS" Type="nvarchar" Mode="In" />
+    <Parameter Name="DESCRIPTION" Type="nvarchar" Mode="In" />
+    <Parameter Name="IMAGE" Type="image" Mode="In" />
+    <Parameter Name="EM_STATUS" Type="bit" Mode="In" />
+  </Function>
+  <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
+  <Function Name="GetXMLDemo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="GetXMLDemo1" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="GetXMLDemo2" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="holiday_Available" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="holiday_delete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="HOL_ID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="holiday_findHoliday" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="VALUE" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="holiday_GetAll" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="holiday_GetAllVisible" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="holiday_insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="HOL_ID" Type="int" Mode="In" />
+    <Parameter Name="HOL_NAME" Type="nvarchar" Mode="In" />
+    <Parameter Name="HOL_FROM" Type="char" Mode="In" />
+    <Parameter Name="HOL_TO" Type="char" Mode="In" />
+    <Parameter Name="HOL_STATUS" Type="bit" Mode="In" />
+  </Function>
+  <Function Name="holiday_IsExist" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="HOL_NAME" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="holiday_update" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="HOL_ID" Type="int" Mode="In" />
+    <Parameter Name="HOL_NAME" Type="nvarchar" Mode="In" />
+    <Parameter Name="HOL_FROM" Type="char" Mode="In" />
+    <Parameter Name="HOL_TO" Type="char" Mode="In" />
+    <Parameter Name="HOL_STATUS" Type="bit" Mode="In" />
+  </Function>
+  <Function Name="paging_barcodes" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="PageNumber" Type="int" Mode="In" />
+    <Parameter Name="PageSize" Type="int" Mode="In" />
+  </Function>
+  <Function Name="paging_detail_sales" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="PageNumber" Type="int" Mode="In" />
+    <Parameter Name="PageSize" Type="int" Mode="In" />
+  </Function>
+  <Function Name="paging_io_info" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="PageNumber" Type="int" Mode="In" />
+    <Parameter Name="PageSize" Type="int" Mode="In" />
+  </Function>
+  <Function Name="paging_sale_no" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="PageNumber" Type="int" Mode="In" />
+    <Parameter Name="PageSize" Type="int" Mode="In" />
+  </Function>
+  <Function Name="priviles_Delete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="PRI_ID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="priviles_GetAll" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="priviles_GetAll_Visible" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="priviles_insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="PRI_ID" Type="int" Mode="In" />
+    <Parameter Name="PRI_DESCRIPTION" Type="nvarchar" Mode="In" />
+    <Parameter Name="PRI_STATUS" Type="bit" Mode="In" />
+  </Function>
+  <Function Name="priviles_IsExists" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="PRI_ID" Type="int" Mode="In" />
+    <Parameter Name="PRI_DESCRIPTION" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="priviles_update" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="PRI_ID" Type="int" Mode="In" />
+    <Parameter Name="PRI_DESCRIPTION" Type="nvarchar" Mode="In" />
+    <Parameter Name="PRI_STATUS" Type="bit" Mode="In" />
+  </Function>
+  <Function Name="redeem_add_formula_GetAll" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="redeem_formula_GetAll" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="redeem_transform_get" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="redeem_transform_update" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id" Type="int" Mode="In" />
+    <Parameter Name="value" Type="int" Mode="In" />
+  </Function>
+  <Function Name="select_account" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ACC_ID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="version" Type="int" Mode="In" />
+    <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+  </Function>
+  <Function Name="sp_creatediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="version" Type="int" Mode="In" />
+    <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+  </Function>
+  <Function Name="sp_dropdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_helpdiagramdefinition" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_helpdiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_renamediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="statistic_barcode" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="number" Type="int" Mode="In" />
+  </Function>
+  <Function Name="statistic_department" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="statistic_device_all" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="statistic_DoanhThu_TongThucThu" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="START_DATE" Type="datetime" Mode="In" />
+    <Parameter Name="END_DATE" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="statistic_DoanhThuTheoKhuVuc" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="START_DATE" Type="datetime" Mode="In" />
+    <Parameter Name="END_DATE" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="statistic_DoanhThuTheoLoaiVe" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="START_DATE" Type="datetime" Mode="In" />
+    <Parameter Name="END_DATE" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="statistic_DoanhThuTheoNhanVien" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="START_DATE" Type="datetime" Mode="In" />
+    <Parameter Name="END_DATE" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="statistic_DoanhThuTheoNhanVien1" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="START_DATE" Type="datetime" Mode="In" />
+    <Parameter Name="END_DATE" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="statistic_DoanhThuTheoThoiGian" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="START_DATE" Type="datetime" Mode="In" />
+    <Parameter Name="END_DATE" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="statistic_employee" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="STATUS" Type="bit" Mode="In" />
+  </Function>
+  <Function Name="statistic_employees" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="statistic_test_xemhoadon" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="TS_NO" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="statistic_ThongKeKhauTru" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="From" Type="varchar" Mode="In" />
+    <Parameter Name="To" Type="varchar" Mode="In" />
+    <Parameter Name="IS_WEEKEND" Type="int" Mode="In" />
+    <Parameter Name="IS_HOLIDAY" Type="int" Mode="In" />
+    <Parameter Name="strSQL" Type="nvarchar(max)" Mode="In" />
+  </Function>
+  <Function Name="statistic_ticket_damage" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="END_APPLY_DATE" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="statistic_ticket_not_active" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="END_APPLY_DATE" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="statistic_ticket_printed" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="TYPE_CODE" Type="nvarchar" Mode="In" />
+    <Parameter Name="ZONE_CODE" Type="nvarchar" Mode="In" />
+    <Parameter Name="EM_CODE" Type="nvarchar" Mode="In" />
+    <Parameter Name="START_CREATE_DATE" Type="datetime" Mode="In" />
+    <Parameter Name="END_CREATE_DATE" Type="datetime" Mode="In" />
+    <Parameter Name="START_APPLY_DATE" Type="datetime" Mode="In" />
+    <Parameter Name="END_APPLY_DATE" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="statistic_ticket_sale" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="TYPE_CODE" Type="nvarchar" Mode="In" />
+    <Parameter Name="ZONE_CODE" Type="nvarchar" Mode="In" />
+    <Parameter Name="EM_CODE" Type="nvarchar" Mode="In" />
+    <Parameter Name="START_CREATE_DATE" Type="datetime" Mode="In" />
+    <Parameter Name="END_CREATE_DATE" Type="datetime" Mode="In" />
+    <Parameter Name="START_APPLY_DATE" Type="datetime" Mode="In" />
+    <Parameter Name="END_APPLY_DATE" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="statistic_ticket_sale2" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="START_DATE" Type="datetime" Mode="In" />
+    <Parameter Name="END_DATE" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="statistic_ticket_sale3" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="START_DATE" Type="datetime" Mode="In" />
+    <Parameter Name="END_DATE" Type="datetime" Mode="In" />
+    <Parameter Name="EM_ID" Type="int" Mode="In" />
+    <Parameter Name="ZONE_ID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="statistic_ticketByType" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="START_DATE" Type="datetime" Mode="In" />
+    <Parameter Name="END_DATE" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="statistic_ticketTotalSold" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="START_DATE" Type="datetime" Mode="In" />
+    <Parameter Name="END_DATE" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="statistic_ticketUsedFree" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="START_DATE" Type="datetime" Mode="In" />
+    <Parameter Name="END_DATE" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="statistic_user_info" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="statistic_VeKhachDangKy" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="START_DATE" Type="datetime" Mode="In" />
+    <Parameter Name="END_DATE" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="statistic_VeKhachVangLai" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="START_DATE" Type="datetime" Mode="In" />
+    <Parameter Name="END_DATE" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="statistic_zone" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="ticket_price_FindPricebyHol" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="TYPEID" Type="int" Mode="In" />
+    <Parameter Name="ZONE_ID" Type="int" Mode="In" />
+    <Parameter Name="TF_ID" Type="int" Mode="In" />
+    <Parameter Name="HOL_ID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="ticket_price_FindPricebyIsWeekend" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="TYPEID" Type="int" Mode="In" />
+    <Parameter Name="ZONE_ID" Type="int" Mode="In" />
+    <Parameter Name="TF_ID" Type="int" Mode="In" />
+    <Parameter Name="WD_ISWEEKEND" Type="bit" Mode="In" />
+  </Function>
+  <Function Name="ticket_price_GetAll" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="ticket_price_insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="PRICE_ID" Type="int" Mode="In" />
+    <Parameter Name="CT_ID" Type="int" Mode="In" />
+    <Parameter Name="TYPEID" Type="int" Mode="In" />
+    <Parameter Name="ZONE_ID" Type="int" Mode="In" />
+    <Parameter Name="TF_ID" Type="int" Mode="In" />
+    <Parameter Name="HOL_ID" Type="int" Mode="In" />
+    <Parameter Name="WD_ISWEEKEND" Type="bit" Mode="In" />
+    <Parameter Name="PRICE" Type="bigint" Mode="In" />
+    <Parameter Name="TEXT_PRICE" Type="nvarchar" Mode="In" />
+    <Parameter Name="ACC_ID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="ticket_price_IsExistPrice" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="TYPEID" Type="int" Mode="In" />
+    <Parameter Name="ZONE_ID" Type="int" Mode="In" />
+    <Parameter Name="TF_ID" Type="int" Mode="In" />
+    <Parameter Name="HOL_ID" Type="int" Mode="In" />
+    <Parameter Name="WD_ISWEEKEND" Type="bit" Mode="In" />
+  </Function>
+  <Function Name="ticket_price_update" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="PRICE_ID" Type="int" Mode="In" />
+    <Parameter Name="CT_ID" Type="int" Mode="In" />
+    <Parameter Name="TYPEID" Type="int" Mode="In" />
+    <Parameter Name="ZONE_ID" Type="int" Mode="In" />
+    <Parameter Name="TF_ID" Type="int" Mode="In" />
+    <Parameter Name="HOL_ID" Type="int" Mode="In" />
+    <Parameter Name="WD_ISWEEKEND" Type="bit" Mode="In" />
+    <Parameter Name="PRICE" Type="bigint" Mode="In" />
+    <Parameter Name="TEXT_PRICE" Type="nvarchar" Mode="In" />
+    <Parameter Name="ACC_ID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="ticket_sale_Child2" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="From" Type="varchar" Mode="In" />
+    <Parameter Name="To" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="ticket_sale_ChildTop5000Desc" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="ticket_sale_delete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="TS_ID" Type="bigint" Mode="In" />
+  </Function>
+  <Function Name="ticket_sale_getAll" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="ticket_sale_getBillbyTS_ID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="TS_ID" Type="bigint" Mode="In" />
+  </Function>
+  <Function Name="ticket_sale_insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="TS_ID" Type="bigint" Mode="In" />
+    <Parameter Name="TS_NO" Type="varchar" Mode="In" />
+    <Parameter Name="PRICE" Type="bigint" Mode="In" />
+    <Parameter Name="PAY" Type="bigint" Mode="In" />
+    <Parameter Name="DISC_ID" Type="int" Mode="In" />
+    <Parameter Name="DESCRIPTION" Type="nvarchar" Mode="In" />
+    <Parameter Name="USER_ID" Type="int" Mode="In" />
+    <Parameter Name="DISCOUNT_MONEY" Type="int" Mode="In" />
+    <Parameter Name="REDEEM_ADD" Type="int" Mode="In" />
+    <Parameter Name="REDEEM_SUB" Type="int" Mode="In" />
+    <Parameter Name="REDEEM_SUB_MONEY" Type="int" Mode="In" />
+    <Parameter Name="ACC_ID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="ticket_sale_Parent" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="From" Type="datetime" Mode="In" />
+    <Parameter Name="To" Type="datetime" Mode="In" />
+    <Parameter Name="TS_NO" Type="nvarchar" Mode="In" />
+    <Parameter Name="DISC_CODE" Type="nvarchar" Mode="In" />
+    <Parameter Name="EM_CODE" Type="nvarchar" Mode="In" />
+    <Parameter Name="USER_CODE" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="ticket_sale_Parent2" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="DISC_ID" Type="int" Mode="In" />
+    <Parameter Name="TS_NO" Type="varchar" Mode="In" />
+    <Parameter Name="EM_ID" Type="int" Mode="In" />
+    <Parameter Name="USER_ID" Type="int" Mode="In" />
+    <Parameter Name="From" Type="varchar" Mode="In" />
+    <Parameter Name="To" Type="varchar" Mode="In" />
+    <Parameter Name="strSQL" Type="nvarchar(max)" Mode="In" />
+  </Function>
+  <Function Name="ticket_sale_ParentTop5000Desc" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="ticket_sale_update" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="TS_ID" Type="bigint" Mode="In" />
+    <Parameter Name="TS_NO" Type="varchar" Mode="In" />
+    <Parameter Name="PRICE" Type="bigint" Mode="In" />
+    <Parameter Name="PAY" Type="bigint" Mode="In" />
+    <Parameter Name="DISC_ID" Type="int" Mode="In" />
+    <Parameter Name="DESCRIPTION" Type="nvarchar" Mode="In" />
+    <Parameter Name="USER_ID" Type="int" Mode="In" />
+    <Parameter Name="REDEEM_ADD" Type="int" Mode="In" />
+    <Parameter Name="REDEEM_SUB" Type="int" Mode="In" />
+    <Parameter Name="REDEEM_SUB_MONEY" Type="int" Mode="In" />
+  </Function>
+  <Function Name="ticket_type_Delete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="TYPEID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="ticket_type_GetAll" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="ticket_type_GetTypeNamebyId" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="TYPEID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="ticket_type_insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="TYPEID" Type="int" Mode="In" />
+    <Parameter Name="TYPENAME" Type="nvarchar" Mode="In" />
+    <Parameter Name="TYPE_CODE" Type="varchar" Mode="In" />
+    <Parameter Name="TYPE_CHECK" Type="int" Mode="In" />
+    <Parameter Name="DESCRIPTIONS" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="ticket_type_IsExistTYPE_CODE" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="TYPEID" Type="int" Mode="In" />
+    <Parameter Name="TYPE_CODE" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="ticket_type_IsExistTYPENAME" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="TYPEID" Type="int" Mode="In" />
+    <Parameter Name="TYPENAME" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="ticket_type_update" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="TYPEID" Type="int" Mode="In" />
+    <Parameter Name="TYPENAME" Type="nvarchar" Mode="In" />
+    <Parameter Name="TYPE_CODE" Type="varchar" Mode="In" />
+    <Parameter Name="TYPE_CHECK" Type="int" Mode="In" />
+    <Parameter Name="DESCRIPTIONS" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="time_frame_delete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="TF_ID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="time_frame_GetAll" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="time_frame_GetAllVisible" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="time_frame_GetIdByCheck" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="TF_CHECK" Type="int" Mode="In" />
+  </Function>
+  <Function Name="time_frame_GetIDbyLifeTime" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="time_frame_GetNotAllDay" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="time_frame_GetRowById" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="TF_ID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="time_frame_insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="TF_ID" Type="int" Mode="In" />
+    <Parameter Name="TF_NAME" Type="nvarchar" Mode="In" />
+    <Parameter Name="TF_CHECK" Type="int" Mode="In" />
+    <Parameter Name="TF_FROM" Type="time" Mode="In" />
+    <Parameter Name="TF_TO" Type="time" Mode="In" />
+    <Parameter Name="TF_DES" Type="nvarchar" Mode="In" />
+    <Parameter Name="TF_STATUS" Type="bit" Mode="In" />
+  </Function>
+  <Function Name="time_frame_IsExist" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="TF_NAME" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="time_frame_IsExistInDAY" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="VALUE" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="time_frame_kiemTraTrungKhungGio" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="TF_ID" Type="int" Mode="In" />
+    <Parameter Name="TF_TO" Type="time" Mode="In" />
+    <Parameter Name="TF_FROM" Type="time" Mode="In" />
+  </Function>
+  <Function Name="time_frame_update" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="TF_ID" Type="int" Mode="In" />
+    <Parameter Name="TF_NAME" Type="nvarchar" Mode="In" />
+    <Parameter Name="TF_CHECK" Type="int" Mode="In" />
+    <Parameter Name="TF_FROM" Type="time" Mode="In" />
+    <Parameter Name="TF_TO" Type="time" Mode="In" />
+    <Parameter Name="TF_DES" Type="nvarchar" Mode="In" />
+    <Parameter Name="TF_STATUS" Type="bit" Mode="In" />
+  </Function>
+  <Function Name="update_cardno" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="CA_ID" Type="int" Mode="In" />
+    <Parameter Name="USER_ID" Type="int" Mode="In" />
+    <Parameter Name="CA_NO" Type="varchar" Mode="In" />
+    <Parameter Name="CA_NUMBER" Type="varchar" Mode="In" />
+    <Parameter Name="CT_ID" Type="int" Mode="In" />
+    <Parameter Name="TYPEID" Type="int" Mode="In" />
+    <Parameter Name="CA_STATUS" Type="bit" Mode="In" />
+    <Parameter Name="CA_ACTIVE" Type="bit" Mode="In" />
+    <Parameter Name="DESCRIPTION" Type="nvarchar" Mode="In" />
+    <Parameter Name="APPLY_DATE" Type="datetime" Mode="In" />
+    <Parameter Name="EXPRIED_DATE" Type="datetime" Mode="In" />
+    <Parameter Name="CA_DAMAGED" Type="bit" Mode="In" />
+    <Parameter Name="CA_LOST" Type="bit" Mode="In" />
+    <Parameter Name="USING" Type="bit" Mode="In" />
+    <Parameter Name="ALLOW_SYNCHRONIZED" Type="bit" Mode="In" />
+    <Parameter Name="ZONE_LIST" Type="varchar" Mode="In" />
+    <Parameter Name="ACC_ID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="update_cardtype" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="CT_ID" Type="int" Mode="In" />
+    <Parameter Name="CT_NAME" Type="nvarchar" Mode="In" />
+    <Parameter Name="CT_CODE" Type="varchar" Mode="In" />
+    <Parameter Name="CT_DESCRIPTION" Type="nvarchar" Mode="In" />
+    <Parameter Name="CT_STATUS" Type="bit" Mode="In" />
+  </Function>
+  <Function Name="update_device" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="DEVICE_ID" Type="int" Mode="In" />
+    <Parameter Name="DEVICE_NAME" Type="nvarchar" Mode="In" />
+    <Parameter Name="DEVICE_CODE" Type="varchar" Mode="In" />
+    <Parameter Name="DT_ID" Type="int" Mode="In" />
+    <Parameter Name="CONTROLLER_ID" Type="int" Mode="In" />
+    <Parameter Name="DEVICE_MAC" Type="varchar" Mode="In" />
+    <Parameter Name="DEVICE_PORT" Type="int" Mode="In" />
+    <Parameter Name="DEVICE_DES" Type="nvarchar" Mode="In" />
+    <Parameter Name="DEVICE_STATUS" Type="bit" Mode="In" />
+  </Function>
+  <Function Name="update_game_sport" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="GS_ID" Type="int" Mode="In" />
+    <Parameter Name="GS_NAME" Type="nvarchar" Mode="In" />
+    <Parameter Name="GS_LIMIT" Type="int" Mode="In" />
+    <Parameter Name="GS_DES" Type="nvarchar" Mode="In" />
+    <Parameter Name="GS_STATUS" Type="bit" Mode="In" />
+  </Function>
+  <Function Name="update_io_info" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IO_ID" Type="bigint" Mode="In" />
+    <Parameter Name="IO_TIME" Type="datetime" Mode="In" />
+    <Parameter Name="CONTROLLER_ID" Type="int" Mode="In" />
+    <Parameter Name="CA_ID" Type="int" Mode="In" />
+    <Parameter Name="BAR_ID" Type="bigint" Mode="In" />
+    <Parameter Name="TFA_ID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="update_menulist" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="MNU_ID" Type="int" Mode="In" />
+    <Parameter Name="MNU_NAME" Type="nvarchar" Mode="In" />
+    <Parameter Name="MNU_DISPLAY" Type="nvarchar" Mode="In" />
+    <Parameter Name="MNU_PARENT" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="update_redeem" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="REDEEM_ID" Type="bigint" Mode="In" />
+    <Parameter Name="SN_ID" Type="bigint" Mode="In" />
+    <Parameter Name="REDEEM_VALUE" Type="int" Mode="In" />
+    <Parameter Name="REDEEM_MONEY" Type="int" Mode="In" />
+    <Parameter Name="REDEEM_STATUS" Type="bit" Mode="In" />
+  </Function>
+  <Function Name="update_redeem_add_formula" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="RAF_ID" Type="int" Mode="In" />
+    <Parameter Name="RAF_NAME" Type="nvarchar" Mode="In" />
+    <Parameter Name="RAF_MONEY" Type="int" Mode="In" />
+    <Parameter Name="RAF_VALUE" Type="int" Mode="In" />
+    <Parameter Name="RAF_ACTIVE" Type="bit" Mode="In" />
+    <Parameter Name="RAF_UPDATE_DATE" Type="datetime" Mode="In" />
+    <Parameter Name="ACC_ID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="update_redeem_formula" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="RF_ID" Type="int" Mode="In" />
+    <Parameter Name="RF_NAME" Type="nvarchar" Mode="In" />
+    <Parameter Name="RF_REDVALUE" Type="int" Mode="In" />
+    <Parameter Name="RF_MONEY" Type="int" Mode="In" />
+    <Parameter Name="RF_ACTIVE" Type="bit" Mode="In" />
+    <Parameter Name="RF_UPDATE_DATE" Type="datetime" Mode="In" />
+    <Parameter Name="ACC_ID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="update_sale_no" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="SN_ID" Type="bigint" Mode="In" />
+    <Parameter Name="SN_NO" Type="varchar" Mode="In" />
+    <Parameter Name="DESCRIPTION" Type="nvarchar" Mode="In" />
+    <Parameter Name="USER_ID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="update_time_frame_active" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="TFA_ID" Type="int" Mode="In" />
+    <Parameter Name="TFA_NAME" Type="nvarchar" Mode="In" />
+    <Parameter Name="TFA_FROM" Type="time" Mode="In" />
+    <Parameter Name="TFA_TO" Type="time" Mode="In" />
+    <Parameter Name="TFA_DES" Type="nvarchar" Mode="In" />
+    <Parameter Name="TFA_STATUS" Type="bit" Mode="In" />
+  </Function>
+  <Function Name="update_unit" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="UNIT_ID" Type="int" Mode="In" />
+    <Parameter Name="UNIT_CODE" Type="varchar" Mode="In" />
+    <Parameter Name="UNIT_NAME" Type="nvarchar" Mode="In" />
+    <Parameter Name="UNIT_DES" Type="nvarchar" Mode="In" />
+    <Parameter Name="UNIT_STATUS" Type="bit" Mode="In" />
+  </Function>
+  <Function Name="update_user_info" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="USER_ID" Type="int" Mode="In" />
+    <Parameter Name="USER_TYPEID" Type="int" Mode="In" />
+    <Parameter Name="GS_ID" Type="int" Mode="In" />
+    <Parameter Name="USER_NAME" Type="nvarchar" Mode="In" />
+    <Parameter Name="USER_CODE" Type="varchar" Mode="In" />
+    <Parameter Name="PHONE" Type="varchar" Mode="In" />
+    <Parameter Name="IDENTITY_NUMBER" Type="varchar" Mode="In" />
+    <Parameter Name="SEX" Type="char" Mode="In" />
+    <Parameter Name="USER_BIRTH" Type="date" Mode="In" />
+    <Parameter Name="ADDRESS" Type="nvarchar" Mode="In" />
+    <Parameter Name="IMAGE" Type="image" Mode="In" />
+    <Parameter Name="EMAIL" Type="varchar" Mode="In" />
+    <Parameter Name="NOTE" Type="nvarchar" Mode="In" />
+    <Parameter Name="USER_STATUS" Type="bit" Mode="In" />
+    <Parameter Name="REDEEM_POINTS" Type="int" Mode="In" />
+  </Function>
+  <Function Name="update_user_type" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="USER_TYPEID" Type="int" Mode="In" />
+    <Parameter Name="USER_TYPENAME" Type="nvarchar" Mode="In" />
+    <Parameter Name="DESCRIPTION" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="update_weekdays" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="WD_ID" Type="int" Mode="In" />
+    <Parameter Name="WD_CHECK" Type="int" Mode="In" />
+    <Parameter Name="WD_NAME" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="user_info_UpdatePoint" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="USER_ID" Type="int" Mode="In" />
+    <Parameter Name="REDEEM_POINTS" Type="int" Mode="In" />
+  </Function>
+  <Function Name="user_type_GetAll" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="userInfo_Delete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="USER_ID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="userInfo_FindInfobyCode" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="USER_CODE" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="userInfo_FindInfobyId" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="USER_ID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="userInfo_FindInfobyPhone" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="PHONE" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="userInfo_GetAll" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="userInfo_GetAllVisible" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="userInfo_insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="USER_ID" Type="int" Mode="In" />
+    <Parameter Name="USER_TYPEID" Type="int" Mode="In" />
+    <Parameter Name="USER_NAME" Type="nvarchar" Mode="In" />
+    <Parameter Name="USER_CODE" Type="varchar" Mode="In" />
+    <Parameter Name="PHONE" Type="varchar" Mode="In" />
+    <Parameter Name="IDENTITY_NUMBER" Type="varchar" Mode="In" />
+    <Parameter Name="SEX" Type="char" Mode="In" />
+    <Parameter Name="USER_BIRTH" Type="date" Mode="In" />
+    <Parameter Name="ADDRESS" Type="nvarchar" Mode="In" />
+    <Parameter Name="EMAIL" Type="varchar" Mode="In" />
+    <Parameter Name="IMAGE" Type="image" Mode="In" />
+    <Parameter Name="NOTE" Type="nvarchar" Mode="In" />
+    <Parameter Name="USER_STATUS" Type="bit" Mode="In" />
+    <Parameter Name="REDEEM_POINTS" Type="int" Mode="In" />
+    <Parameter Name="CREATE_DATE" Type="datetime" Mode="In" />
+    <Parameter Name="UPDATE_DATE" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="userInfo_IsExist" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="USER_CODE" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="userInfo_IsExistPhone" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="NUMBER_PHONE" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="userInfo_update" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="USER_ID" Type="int" Mode="In" />
+    <Parameter Name="USER_TYPEID" Type="int" Mode="In" />
+    <Parameter Name="USER_NAME" Type="nvarchar" Mode="In" />
+    <Parameter Name="USER_CODE" Type="varchar" Mode="In" />
+    <Parameter Name="PHONE" Type="varchar" Mode="In" />
+    <Parameter Name="IDENTITY_NUMBER" Type="varchar" Mode="In" />
+    <Parameter Name="SEX" Type="char" Mode="In" />
+    <Parameter Name="USER_BIRTH" Type="date" Mode="In" />
+    <Parameter Name="ADDRESS" Type="nvarchar" Mode="In" />
+    <Parameter Name="IMAGE" Type="image" Mode="In" />
+    <Parameter Name="EMAIL" Type="varchar" Mode="In" />
+    <Parameter Name="NOTE" Type="nvarchar" Mode="In" />
+    <Parameter Name="USER_STATUS" Type="bit" Mode="In" />
+    <Parameter Name="REDEEM_POINTS" Type="int" Mode="In" />
+    <Parameter Name="CREATE_DATE" Type="datetime" Mode="In" />
+    <Parameter Name="UPDATE_DATE" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="userInfo_updateRedeemPoints" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="POINTS" Type="int" Mode="In" />
+    <Parameter Name="USER_ID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="visiblecontrols_DeleteByPRI_ID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="PRI_ID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="visiblecontrols_insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="VI_ID" Type="int" Mode="In" />
+    <Parameter Name="PRI_ID" Type="int" Mode="In" />
+    <Parameter Name="MNU_ID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="visiblecontrols_update" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="VI_ID" Type="int" Mode="In" />
+    <Parameter Name="PRI_ID" Type="int" Mode="In" />
+    <Parameter Name="MNU_ID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="weekdays_GetAll" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="zone_delete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ZONE_ID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="zone_GetAll" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="zone_GetAll_Visible" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="zone_GetZoneNamebyId" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ZONE_ID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="zone_insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ZONE_ID" Type="int" Mode="In" />
+    <Parameter Name="ZONE_NAME" Type="nvarchar" Mode="In" />
+    <Parameter Name="ZONE_CODE" Type="varchar" Mode="In" />
+    <Parameter Name="ZONE_DES" Type="nvarchar" Mode="In" />
+    <Parameter Name="ZONE_STATUS" Type="bit" Mode="In" />
+  </Function>
+  <Function Name="zone_IsExist" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ZONE_CODE" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="zone_update" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ZONE_ID" Type="int" Mode="In" />
+    <Parameter Name="ZONE_NAME" Type="nvarchar" Mode="In" />
+    <Parameter Name="ZONE_CODE" Type="varchar" Mode="In" />
+    <Parameter Name="ZONE_DES" Type="nvarchar" Mode="In" />
+    <Parameter Name="ZONE_STATUS" Type="bit" Mode="In" />
+  </Function>
+  <EntityContainer Name="TICKET_MANAGERModelStoreContainer">
+    <EntitySet Name="ACCOUNTS" EntityType="Self.ACCOUNTS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="BARCODE" EntityType="Self.BARCODE" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CARD_NO" EntityType="Self.CARD_NO" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CARD_TYPE" EntityType="Self.CARD_TYPE" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DEPARTMENT" EntityType="Self.DEPARTMENT" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DETAIL_SALE" EntityType="Self.DETAIL_SALE" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DEVICE" EntityType="Self.DEVICE" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DEVICE_TYPE" EntityType="Self.DEVICE_TYPE" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DISCOUNT" EntityType="Self.DISCOUNT" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DISCOUNT_TYPE" EntityType="Self.DISCOUNT_TYPE" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="EMPLOYEES" EntityType="Self.EMPLOYEES" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="GAME_SPORT" EntityType="Self.GAME_SPORT" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="HOLIDAY" EntityType="Self.HOLIDAY" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="IO_INFO" EntityType="Self.IO_INFO" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MENULIST" EntityType="Self.MENULIST" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PRIVILES" EntityType="Self.PRIVILES" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="REDEEM" EntityType="Self.REDEEM" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="REDEEM_TRANSFORM" EntityType="Self.REDEEM_TRANSFORM" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TICKET_PRICE" EntityType="Self.TICKET_PRICE" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TICKET_SALE" EntityType="Self.TICKET_SALE" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TICKET_TYPE" EntityType="Self.TICKET_TYPE" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TIME_FRAME" EntityType="Self.TIME_FRAME" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UNIT" EntityType="Self.UNIT" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="USER_INFO" EntityType="Self.USER_INFO" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="USER_TYPE" EntityType="Self.USER_TYPE" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="VISIBLECONTROLS" EntityType="Self.VISIBLECONTROLS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ZONE" EntityType="Self.ZONE" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_ACCOUNTS_EMPLOYEES" Association="Self.FK_ACCOUNTS_EMPLOYEES">
+      <End Role="EMPLOYEES" EntitySet="EMPLOYEES" />
+      <End Role="ACCOUNTS" EntitySet="ACCOUNTS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ACCOUNTS_PRIVILES" Association="Self.FK_ACCOUNTS_PRIVILES">
+      <End Role="PRIVILES" EntitySet="PRIVILES" />
+      <End Role="ACCOUNTS" EntitySet="ACCOUNTS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_BARCODE_CARD_TYPE" Association="Self.FK_BARCODE_CARD_TYPE">
+      <End Role="CARD_TYPE" EntitySet="CARD_TYPE" />
+      <End Role="BARCODE" EntitySet="BARCODE" />
+    </AssociationSet>
+    <AssociationSet Name="FK_BARCODE_TICKET_TYPE" Association="Self.FK_BARCODE_TICKET_TYPE">
+      <End Role="TICKET_TYPE" EntitySet="TICKET_TYPE" />
+      <End Role="BARCODE" EntitySet="BARCODE" />
+    </AssociationSet>
+    <AssociationSet Name="FK_BARCODE_ZONE" Association="Self.FK_BARCODE_ZONE">
+      <End Role="ZONE" EntitySet="ZONE" />
+      <End Role="BARCODE" EntitySet="BARCODE" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CARD_NO_CARD_TYPE" Association="Self.FK_CARD_NO_CARD_TYPE">
+      <End Role="CARD_TYPE" EntitySet="CARD_TYPE" />
+      <End Role="CARD_NO" EntitySet="CARD_NO" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CARD_NO_TICKET_TYPE" Association="Self.FK_CARD_NO_TICKET_TYPE">
+      <End Role="TICKET_TYPE" EntitySet="TICKET_TYPE" />
+      <End Role="CARD_NO" EntitySet="CARD_NO" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DETAIL_SALE_BARCODE" Association="Self.FK_DETAIL_SALE_BARCODE">
+      <End Role="BARCODE" EntitySet="BARCODE" />
+      <End Role="DETAIL_SALE" EntitySet="DETAIL_SALE" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DETAIL_SALE_CARD_NO" Association="Self.FK_DETAIL_SALE_CARD_NO">
+      <End Role="CARD_NO" EntitySet="CARD_NO" />
+      <End Role="DETAIL_SALE" EntitySet="DETAIL_SALE" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DETAIL_SALE_TICKET_SALE" Association="Self.FK_DETAIL_SALE_TICKET_SALE">
+      <End Role="TICKET_SALE" EntitySet="TICKET_SALE" />
+      <End Role="DETAIL_SALE" EntitySet="DETAIL_SALE" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DEVICE_DEVICE_TYPE" Association="Self.FK_DEVICE_DEVICE_TYPE">
+      <End Role="DEVICE_TYPE" EntitySet="DEVICE_TYPE" />
+      <End Role="DEVICE" EntitySet="DEVICE" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DEVICE_ZONE" Association="Self.FK_DEVICE_ZONE">
+      <End Role="ZONE" EntitySet="ZONE" />
+      <End Role="DEVICE" EntitySet="DEVICE" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DISCOUNT_DISCOUNT_TYPE" Association="Self.FK_DISCOUNT_DISCOUNT_TYPE">
+      <End Role="DISCOUNT_TYPE" EntitySet="DISCOUNT_TYPE" />
+      <End Role="DISCOUNT" EntitySet="DISCOUNT" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DISCOUNT_HOLIDAY" Association="Self.FK_DISCOUNT_HOLIDAY">
+      <End Role="HOLIDAY" EntitySet="HOLIDAY" />
+      <End Role="DISCOUNT" EntitySet="DISCOUNT" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EMPLOYEES_DEPARTMENT" Association="Self.FK_EMPLOYEES_DEPARTMENT">
+      <End Role="DEPARTMENT" EntitySet="DEPARTMENT" />
+      <End Role="EMPLOYEES" EntitySet="EMPLOYEES" />
+    </AssociationSet>
+    <AssociationSet Name="FK_IO_INFO_BARCODE" Association="Self.FK_IO_INFO_BARCODE">
+      <End Role="BARCODE" EntitySet="BARCODE" />
+      <End Role="IO_INFO" EntitySet="IO_INFO" />
+    </AssociationSet>
+    <AssociationSet Name="FK_IO_INFO_CARD_NO" Association="Self.FK_IO_INFO_CARD_NO">
+      <End Role="CARD_NO" EntitySet="CARD_NO" />
+      <End Role="IO_INFO" EntitySet="IO_INFO" />
+    </AssociationSet>
+    <AssociationSet Name="FK_IO_INFO_ZONE" Association="Self.FK_IO_INFO_ZONE">
+      <End Role="ZONE" EntitySet="ZONE" />
+      <End Role="IO_INFO" EntitySet="IO_INFO" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TICKET_PRICE_CARD_TYPE" Association="Self.FK_TICKET_PRICE_CARD_TYPE">
+      <End Role="CARD_TYPE" EntitySet="CARD_TYPE" />
+      <End Role="TICKET_PRICE" EntitySet="TICKET_PRICE" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TICKET_PRICE_HOLIDAY" Association="Self.FK_TICKET_PRICE_HOLIDAY">
+      <End Role="HOLIDAY" EntitySet="HOLIDAY" />
+      <End Role="TICKET_PRICE" EntitySet="TICKET_PRICE" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TICKET_PRICE_TICKET_TYPE" Association="Self.FK_TICKET_PRICE_TICKET_TYPE">
+      <End Role="TICKET_TYPE" EntitySet="TICKET_TYPE" />
+      <End Role="TICKET_PRICE" EntitySet="TICKET_PRICE" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TICKET_PRICE_TIME_FRAME" Association="Self.FK_TICKET_PRICE_TIME_FRAME">
+      <End Role="TIME_FRAME" EntitySet="TIME_FRAME" />
+      <End Role="TICKET_PRICE" EntitySet="TICKET_PRICE" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TICKET_SALE_DISCOUNT" Association="Self.FK_TICKET_SALE_DISCOUNT">
+      <End Role="DISCOUNT" EntitySet="DISCOUNT" />
+      <End Role="TICKET_SALE" EntitySet="TICKET_SALE" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TICKET_SALE_USER_INFO" Association="Self.FK_TICKET_SALE_USER_INFO">
+      <End Role="USER_INFO" EntitySet="USER_INFO" />
+      <End Role="TICKET_SALE" EntitySet="TICKET_SALE" />
+    </AssociationSet>
+    <AssociationSet Name="FK_USER_INFO_USER_TYPE" Association="Self.FK_USER_INFO_USER_TYPE">
+      <End Role="USER_TYPE" EntitySet="USER_TYPE" />
+      <End Role="USER_INFO" EntitySet="USER_INFO" />
+    </AssociationSet>
+    <AssociationSet Name="FK_VISIBLECONTROLS_MENULIST" Association="Self.FK_VISIBLECONTROLS_MENULIST">
+      <End Role="MENULIST" EntitySet="MENULIST" />
+      <End Role="VISIBLECONTROLS" EntitySet="VISIBLECONTROLS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_VISIBLECONTROLS_PRIVILES" Association="Self.FK_VISIBLECONTROLS_PRIVILES">
+      <End Role="PRIVILES" EntitySet="PRIVILES" />
+      <End Role="VISIBLECONTROLS" EntitySet="VISIBLECONTROLS" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

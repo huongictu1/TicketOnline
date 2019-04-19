@@ -1,0 +1,1580 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="TICKET_MANAGERModelStoreContainer" CdmEntityContainer="TICKET_MANAGEREntities">
+    <EntitySetMapping Name="ACCOUNTS">
+      <EntityTypeMapping TypeName="TICKET_MANAGERModel.ACCOUNT">
+        <MappingFragment StoreEntitySet="ACCOUNTS">
+          <ScalarProperty Name="ACC_ID" ColumnName="ACC_ID" />
+          <ScalarProperty Name="PRI_ID" ColumnName="PRI_ID" />
+          <ScalarProperty Name="EM_ID" ColumnName="EM_ID" />
+          <ScalarProperty Name="ACC_USERNAME" ColumnName="ACC_USERNAME" />
+          <ScalarProperty Name="ACC_PASSWORD" ColumnName="ACC_PASSWORD" />
+          <ScalarProperty Name="ACC_STATUS" ColumnName="ACC_STATUS" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BARCODEs">
+      <EntityTypeMapping TypeName="TICKET_MANAGERModel.BARCODE">
+        <MappingFragment StoreEntitySet="BARCODE">
+          <ScalarProperty Name="BAR_ID" ColumnName="BAR_ID" />
+          <ScalarProperty Name="CT_ID" ColumnName="CT_ID" />
+          <ScalarProperty Name="TYPEID" ColumnName="TYPEID" />
+          <ScalarProperty Name="ZONE_ID" ColumnName="ZONE_ID" />
+          <ScalarProperty Name="BAR_NO" ColumnName="BAR_NO" />
+          <ScalarProperty Name="NUMBER" ColumnName="NUMBER" />
+          <ScalarProperty Name="CREATE_DATE" ColumnName="CREATE_DATE" />
+          <ScalarProperty Name="APPLY_DATE" ColumnName="APPLY_DATE" />
+          <ScalarProperty Name="ACC_ID" ColumnName="ACC_ID" />
+          <ScalarProperty Name="ACTIVE" ColumnName="ACTIVE" />
+          <ScalarProperty Name="USED" ColumnName="USED" />
+          <ScalarProperty Name="DAMAGE" ColumnName="DAMAGE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CARD_NO">
+      <EntityTypeMapping TypeName="TICKET_MANAGERModel.CARD_NO">
+        <MappingFragment StoreEntitySet="CARD_NO">
+          <ScalarProperty Name="CA_ID" ColumnName="CA_ID" />
+          <ScalarProperty Name="USER_ID" ColumnName="USER_ID" />
+          <ScalarProperty Name="CA_NO" ColumnName="CA_NO" />
+          <ScalarProperty Name="CA_NUMBER" ColumnName="CA_NUMBER" />
+          <ScalarProperty Name="CT_ID" ColumnName="CT_ID" />
+          <ScalarProperty Name="TYPEID" ColumnName="TYPEID" />
+          <ScalarProperty Name="CREATE_DATE" ColumnName="CREATE_DATE" />
+          <ScalarProperty Name="UPDATE_DATE" ColumnName="UPDATE_DATE" />
+          <ScalarProperty Name="CA_STATUS" ColumnName="CA_STATUS" />
+          <ScalarProperty Name="CA_ACTIVE" ColumnName="CA_ACTIVE" />
+          <ScalarProperty Name="DESCRIPTION" ColumnName="DESCRIPTION" />
+          <ScalarProperty Name="APPLY_DATE" ColumnName="APPLY_DATE" />
+          <ScalarProperty Name="EXPRIED_DATE" ColumnName="EXPRIED_DATE" />
+          <ScalarProperty Name="CA_DAMAGED" ColumnName="CA_DAMAGED" />
+          <ScalarProperty Name="CA_LOST" ColumnName="CA_LOST" />
+          <ScalarProperty Name="USING" ColumnName="USING" />
+          <ScalarProperty Name="ALLOW_SYNCHRONIZED" ColumnName="ALLOW_SYNCHRONIZED" />
+          <ScalarProperty Name="ZONE_LIST" ColumnName="ZONE_LIST" />
+          <ScalarProperty Name="ACC_ID" ColumnName="ACC_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CARD_TYPE">
+      <EntityTypeMapping TypeName="TICKET_MANAGERModel.CARD_TYPE">
+        <MappingFragment StoreEntitySet="CARD_TYPE">
+          <ScalarProperty Name="CT_ID" ColumnName="CT_ID" />
+          <ScalarProperty Name="CT_NAME" ColumnName="CT_NAME" />
+          <ScalarProperty Name="CT_CODE" ColumnName="CT_CODE" />
+          <ScalarProperty Name="CT_DESCRIPTION" ColumnName="CT_DESCRIPTION" />
+          <ScalarProperty Name="CT_STATUS" ColumnName="CT_STATUS" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DEPARTMENTs">
+      <EntityTypeMapping TypeName="TICKET_MANAGERModel.DEPARTMENT">
+        <MappingFragment StoreEntitySet="DEPARTMENT">
+          <ScalarProperty Name="DEP_ID" ColumnName="DEP_ID" />
+          <ScalarProperty Name="DEP_NAME" ColumnName="DEP_NAME" />
+          <ScalarProperty Name="DEP_DESCRIPTION" ColumnName="DEP_DESCRIPTION" />
+          <ScalarProperty Name="DEP_STATUS" ColumnName="DEP_STATUS" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DETAIL_SALE">
+      <EntityTypeMapping TypeName="TICKET_MANAGERModel.DETAIL_SALE">
+        <MappingFragment StoreEntitySet="DETAIL_SALE">
+          <ScalarProperty Name="DTS_ID" ColumnName="DTS_ID" />
+          <ScalarProperty Name="TS_ID" ColumnName="TS_ID" />
+          <ScalarProperty Name="CA_ID" ColumnName="CA_ID" />
+          <ScalarProperty Name="BAR_ID" ColumnName="BAR_ID" />
+          <ScalarProperty Name="DTS_PRICE" ColumnName="DTS_PRICE" />
+          <ScalarProperty Name="DTS_PAY" ColumnName="DTS_PAY" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DEVICEs">
+      <EntityTypeMapping TypeName="TICKET_MANAGERModel.DEVICE">
+        <MappingFragment StoreEntitySet="DEVICE">
+          <ScalarProperty Name="DEVICE_ID" ColumnName="DEVICE_ID" />
+          <ScalarProperty Name="DEVICE_NAME" ColumnName="DEVICE_NAME" />
+          <ScalarProperty Name="DEVICE_CODE" ColumnName="DEVICE_CODE" />
+          <ScalarProperty Name="DT_ID" ColumnName="DT_ID" />
+          <ScalarProperty Name="ZONE_ID" ColumnName="ZONE_ID" />
+          <ScalarProperty Name="DEVICE_MAC" ColumnName="DEVICE_MAC" />
+          <ScalarProperty Name="DEVICE_PORT" ColumnName="DEVICE_PORT" />
+          <ScalarProperty Name="DEVICE_DES" ColumnName="DEVICE_DES" />
+          <ScalarProperty Name="DEVICE_STATUS" ColumnName="DEVICE_STATUS" />
+          <ScalarProperty Name="DEVICE_IP" ColumnName="DEVICE_IP" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DEVICE_TYPE">
+      <EntityTypeMapping TypeName="TICKET_MANAGERModel.DEVICE_TYPE">
+        <MappingFragment StoreEntitySet="DEVICE_TYPE">
+          <ScalarProperty Name="DT_ID" ColumnName="DT_ID" />
+          <ScalarProperty Name="DT_NAME" ColumnName="DT_NAME" />
+          <ScalarProperty Name="DT_CODE" ColumnName="DT_CODE" />
+          <ScalarProperty Name="DT_DES" ColumnName="DT_DES" />
+          <ScalarProperty Name="DT_STATUS" ColumnName="DT_STATUS" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DISCOUNTs">
+      <EntityTypeMapping TypeName="TICKET_MANAGERModel.DISCOUNT">
+        <MappingFragment StoreEntitySet="DISCOUNT">
+          <ScalarProperty Name="DISC_ID" ColumnName="DISC_ID" />
+          <ScalarProperty Name="DISCT_ID" ColumnName="DISCT_ID" />
+          <ScalarProperty Name="HOL_ID" ColumnName="HOL_ID" />
+          <ScalarProperty Name="TF_ID" ColumnName="TF_ID" />
+          <ScalarProperty Name="DISC_NAME" ColumnName="DISC_NAME" />
+          <ScalarProperty Name="DISC_CODE" ColumnName="DISC_CODE" />
+          <ScalarProperty Name="DISC_VALUE" ColumnName="DISC_VALUE" />
+          <ScalarProperty Name="DISC_DES" ColumnName="DISC_DES" />
+          <ScalarProperty Name="CREATE_DATE" ColumnName="CREATE_DATE" />
+          <ScalarProperty Name="DISC_START" ColumnName="DISC_START" />
+          <ScalarProperty Name="DISC_END" ColumnName="DISC_END" />
+          <ScalarProperty Name="DISC_STATUS" ColumnName="DISC_STATUS" />
+          <ScalarProperty Name="WD_ISWEEKEND" ColumnName="WD_ISWEEKEND" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DISCOUNT_TYPE">
+      <EntityTypeMapping TypeName="TICKET_MANAGERModel.DISCOUNT_TYPE">
+        <MappingFragment StoreEntitySet="DISCOUNT_TYPE">
+          <ScalarProperty Name="DISCT_ID" ColumnName="DISCT_ID" />
+          <ScalarProperty Name="DISCT_NAME" ColumnName="DISCT_NAME" />
+          <ScalarProperty Name="DISCT_CHECK" ColumnName="DISCT_CHECK" />
+          <ScalarProperty Name="DISCT_DES" ColumnName="DISCT_DES" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EMPLOYEES">
+      <EntityTypeMapping TypeName="TICKET_MANAGERModel.EMPLOYEE">
+        <MappingFragment StoreEntitySet="EMPLOYEES">
+          <ScalarProperty Name="EM_ID" ColumnName="EM_ID" />
+          <ScalarProperty Name="DEP_ID" ColumnName="DEP_ID" />
+          <ScalarProperty Name="EM_NAME" ColumnName="EM_NAME" />
+          <ScalarProperty Name="EM_CODE" ColumnName="EM_CODE" />
+          <ScalarProperty Name="PHONE" ColumnName="PHONE" />
+          <ScalarProperty Name="IDENTITY_NUMBER" ColumnName="IDENTITY_NUMBER" />
+          <ScalarProperty Name="SEX" ColumnName="SEX" />
+          <ScalarProperty Name="ADDRESS" ColumnName="ADDRESS" />
+          <ScalarProperty Name="DESCRIPTION" ColumnName="DESCRIPTION" />
+          <ScalarProperty Name="IMAGE" ColumnName="IMAGE" />
+          <ScalarProperty Name="EM_STATUS" ColumnName="EM_STATUS" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GAME_SPORT">
+      <EntityTypeMapping TypeName="TICKET_MANAGERModel.GAME_SPORT">
+        <MappingFragment StoreEntitySet="GAME_SPORT">
+          <ScalarProperty Name="GS_ID" ColumnName="GS_ID" />
+          <ScalarProperty Name="GS_NAME" ColumnName="GS_NAME" />
+          <ScalarProperty Name="GS_LIMIT" ColumnName="GS_LIMIT" />
+          <ScalarProperty Name="GS_DES" ColumnName="GS_DES" />
+          <ScalarProperty Name="GS_STATUS" ColumnName="GS_STATUS" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HOLIDAYs">
+      <EntityTypeMapping TypeName="TICKET_MANAGERModel.HOLIDAY">
+        <MappingFragment StoreEntitySet="HOLIDAY">
+          <ScalarProperty Name="HOL_ID" ColumnName="HOL_ID" />
+          <ScalarProperty Name="HOL_NAME" ColumnName="HOL_NAME" />
+          <ScalarProperty Name="HOL_FROM" ColumnName="HOL_FROM" />
+          <ScalarProperty Name="HOL_TO" ColumnName="HOL_TO" />
+          <ScalarProperty Name="HOL_STATUS" ColumnName="HOL_STATUS" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="IO_INFO">
+      <EntityTypeMapping TypeName="TICKET_MANAGERModel.IO_INFO">
+        <MappingFragment StoreEntitySet="IO_INFO">
+          <ScalarProperty Name="IO_ID" ColumnName="IO_ID" />
+          <ScalarProperty Name="IO_TIME" ColumnName="IO_TIME" />
+          <ScalarProperty Name="ZONE_ID" ColumnName="ZONE_ID" />
+          <ScalarProperty Name="CA_ID" ColumnName="CA_ID" />
+          <ScalarProperty Name="BAR_ID" ColumnName="BAR_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MENULISTs">
+      <EntityTypeMapping TypeName="TICKET_MANAGERModel.MENULIST">
+        <MappingFragment StoreEntitySet="MENULIST">
+          <ScalarProperty Name="MNU_ID" ColumnName="MNU_ID" />
+          <ScalarProperty Name="MNU_NAME" ColumnName="MNU_NAME" />
+          <ScalarProperty Name="MNU_DISPLAY" ColumnName="MNU_DISPLAY" />
+          <ScalarProperty Name="MNU_PARENT" ColumnName="MNU_PARENT" />
+          <ScalarProperty Name="IS_MENU" ColumnName="IS_MENU" />
+          <ScalarProperty Name="URL" ColumnName="URL" />
+          <ScalarProperty Name="ICON" ColumnName="ICON" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PRIVILES">
+      <EntityTypeMapping TypeName="TICKET_MANAGERModel.PRIVILE">
+        <MappingFragment StoreEntitySet="PRIVILES">
+          <ScalarProperty Name="PRI_ID" ColumnName="PRI_ID" />
+          <ScalarProperty Name="PRI_DESCRIPTION" ColumnName="PRI_DESCRIPTION" />
+          <ScalarProperty Name="PRI_STATUS" ColumnName="PRI_STATUS" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="REDEEMs">
+      <EntityTypeMapping TypeName="TICKET_MANAGERModel.REDEEM">
+        <MappingFragment StoreEntitySet="REDEEM">
+          <ScalarProperty Name="REDEEM_ID" ColumnName="REDEEM_ID" />
+          <ScalarProperty Name="SN_ID" ColumnName="SN_ID" />
+          <ScalarProperty Name="REDEEM_VALUE" ColumnName="REDEEM_VALUE" />
+          <ScalarProperty Name="REDEEM_MONEY" ColumnName="REDEEM_MONEY" />
+          <ScalarProperty Name="REDEEM_STATUS" ColumnName="REDEEM_STATUS" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="REDEEM_TRANSFORM">
+      <EntityTypeMapping TypeName="TICKET_MANAGERModel.REDEEM_TRANSFORM">
+        <MappingFragment StoreEntitySet="REDEEM_TRANSFORM">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="TRANS_NAME" ColumnName="TRANS_NAME" />
+          <ScalarProperty Name="TRANS_VALUE" ColumnName="TRANS_VALUE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="TICKET_MANAGERModel.sysdiagram">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TICKET_PRICE">
+      <EntityTypeMapping TypeName="TICKET_MANAGERModel.TICKET_PRICE">
+        <MappingFragment StoreEntitySet="TICKET_PRICE">
+          <ScalarProperty Name="PRICE_ID" ColumnName="PRICE_ID" />
+          <ScalarProperty Name="CT_ID" ColumnName="CT_ID" />
+          <ScalarProperty Name="TYPEID" ColumnName="TYPEID" />
+          <ScalarProperty Name="ZONE_ID" ColumnName="ZONE_ID" />
+          <ScalarProperty Name="TF_ID" ColumnName="TF_ID" />
+          <ScalarProperty Name="HOL_ID" ColumnName="HOL_ID" />
+          <ScalarProperty Name="WD_ISWEEKEND" ColumnName="WD_ISWEEKEND" />
+          <ScalarProperty Name="PRICE" ColumnName="PRICE" />
+          <ScalarProperty Name="TEXT_PRICE" ColumnName="TEXT_PRICE" />
+          <ScalarProperty Name="UPDATE_DATE" ColumnName="UPDATE_DATE" />
+          <ScalarProperty Name="ACC_ID" ColumnName="ACC_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TICKET_SALE">
+      <EntityTypeMapping TypeName="TICKET_MANAGERModel.TICKET_SALE">
+        <MappingFragment StoreEntitySet="TICKET_SALE">
+          <ScalarProperty Name="TS_ID" ColumnName="TS_ID" />
+          <ScalarProperty Name="TS_NO" ColumnName="TS_NO" />
+          <ScalarProperty Name="PRICE" ColumnName="PRICE" />
+          <ScalarProperty Name="PAY" ColumnName="PAY" />
+          <ScalarProperty Name="DISC_ID" ColumnName="DISC_ID" />
+          <ScalarProperty Name="CREATE_DATE" ColumnName="CREATE_DATE" />
+          <ScalarProperty Name="DESCRIPTION" ColumnName="DESCRIPTION" />
+          <ScalarProperty Name="USER_ID" ColumnName="USER_ID" />
+          <ScalarProperty Name="DISCOUNT_MONEY" ColumnName="DISCOUNT_MONEY" />
+          <ScalarProperty Name="REDEEM_ADD" ColumnName="REDEEM_ADD" />
+          <ScalarProperty Name="REDEEM_SUB" ColumnName="REDEEM_SUB" />
+          <ScalarProperty Name="REDEEM_SUB_MONEY" ColumnName="REDEEM_SUB_MONEY" />
+          <ScalarProperty Name="ACC_ID" ColumnName="ACC_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TICKET_TYPE">
+      <EntityTypeMapping TypeName="TICKET_MANAGERModel.TICKET_TYPE">
+        <MappingFragment StoreEntitySet="TICKET_TYPE">
+          <ScalarProperty Name="TYPEID" ColumnName="TYPEID" />
+          <ScalarProperty Name="TYPENAME" ColumnName="TYPENAME" />
+          <ScalarProperty Name="TYPE_CODE" ColumnName="TYPE_CODE" />
+          <ScalarProperty Name="TYPE_CHECK" ColumnName="TYPE_CHECK" />
+          <ScalarProperty Name="DESCRIPTIONS" ColumnName="DESCRIPTIONS" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TIME_FRAME">
+      <EntityTypeMapping TypeName="TICKET_MANAGERModel.TIME_FRAME">
+        <MappingFragment StoreEntitySet="TIME_FRAME">
+          <ScalarProperty Name="TF_ID" ColumnName="TF_ID" />
+          <ScalarProperty Name="TF_NAME" ColumnName="TF_NAME" />
+          <ScalarProperty Name="TF_CHECK" ColumnName="TF_CHECK" />
+          <ScalarProperty Name="TF_FROM" ColumnName="TF_FROM" />
+          <ScalarProperty Name="TF_TO" ColumnName="TF_TO" />
+          <ScalarProperty Name="TF_DES" ColumnName="TF_DES" />
+          <ScalarProperty Name="TF_STATUS" ColumnName="TF_STATUS" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UNITs">
+      <EntityTypeMapping TypeName="TICKET_MANAGERModel.UNIT">
+        <MappingFragment StoreEntitySet="UNIT">
+          <ScalarProperty Name="UNIT_ID" ColumnName="UNIT_ID" />
+          <ScalarProperty Name="UNIT_CODE" ColumnName="UNIT_CODE" />
+          <ScalarProperty Name="UNIT_NAME" ColumnName="UNIT_NAME" />
+          <ScalarProperty Name="UNIT_DES" ColumnName="UNIT_DES" />
+          <ScalarProperty Name="UNIT_STATUS" ColumnName="UNIT_STATUS" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="USER_INFO">
+      <EntityTypeMapping TypeName="TICKET_MANAGERModel.USER_INFO">
+        <MappingFragment StoreEntitySet="USER_INFO">
+          <ScalarProperty Name="USER_ID" ColumnName="USER_ID" />
+          <ScalarProperty Name="USER_TYPEID" ColumnName="USER_TYPEID" />
+          <ScalarProperty Name="USER_NAME" ColumnName="USER_NAME" />
+          <ScalarProperty Name="USER_CODE" ColumnName="USER_CODE" />
+          <ScalarProperty Name="PHONE" ColumnName="PHONE" />
+          <ScalarProperty Name="IDENTITY_NUMBER" ColumnName="IDENTITY_NUMBER" />
+          <ScalarProperty Name="SEX" ColumnName="SEX" />
+          <ScalarProperty Name="USER_BIRTH" ColumnName="USER_BIRTH" />
+          <ScalarProperty Name="ADDRESS" ColumnName="ADDRESS" />
+          <ScalarProperty Name="IMAGE" ColumnName="IMAGE" />
+          <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+          <ScalarProperty Name="NOTE" ColumnName="NOTE" />
+          <ScalarProperty Name="USER_STATUS" ColumnName="USER_STATUS" />
+          <ScalarProperty Name="REDEEM_POINTS" ColumnName="REDEEM_POINTS" />
+          <ScalarProperty Name="CREATE_DATE" ColumnName="CREATE_DATE" />
+          <ScalarProperty Name="UPDATE_DATE" ColumnName="UPDATE_DATE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="USER_TYPE">
+      <EntityTypeMapping TypeName="TICKET_MANAGERModel.USER_TYPE">
+        <MappingFragment StoreEntitySet="USER_TYPE">
+          <ScalarProperty Name="USER_TYPEID" ColumnName="USER_TYPEID" />
+          <ScalarProperty Name="USER_TYPENAME" ColumnName="USER_TYPENAME" />
+          <ScalarProperty Name="DESCRIPTION" ColumnName="DESCRIPTION" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VISIBLECONTROLS">
+      <EntityTypeMapping TypeName="TICKET_MANAGERModel.VISIBLECONTROL">
+        <MappingFragment StoreEntitySet="VISIBLECONTROLS">
+          <ScalarProperty Name="VI_ID" ColumnName="VI_ID" />
+          <ScalarProperty Name="PRI_ID" ColumnName="PRI_ID" />
+          <ScalarProperty Name="MNU_ID" ColumnName="MNU_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ZONEs">
+      <EntityTypeMapping TypeName="TICKET_MANAGERModel.ZONE">
+        <MappingFragment StoreEntitySet="ZONE">
+          <ScalarProperty Name="ZONE_ID" ColumnName="ZONE_ID" />
+          <ScalarProperty Name="ZONE_NAME" ColumnName="ZONE_NAME" />
+          <ScalarProperty Name="ZONE_CODE" ColumnName="ZONE_CODE" />
+          <ScalarProperty Name="ZONE_DES" ColumnName="ZONE_DES" />
+          <ScalarProperty Name="ZONE_STATUS" ColumnName="ZONE_STATUS" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="accounts_ChangePassword" FunctionName="TICKET_MANAGERModel.Store.accounts_ChangePassword" />
+    <FunctionImportMapping FunctionImportName="accounts_CheckLogin" FunctionName="TICKET_MANAGERModel.Store.accounts_CheckLogin">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="TICKET_MANAGERModel.accounts_CheckLogin_Result">
+          <ScalarProperty Name="PRI_ID" ColumnName="PRI_ID" />
+          <ScalarProperty Name="PRI_DESCRIPTION" ColumnName="PRI_DESCRIPTION" />
+          <ScalarProperty Name="PRI_STATUS" ColumnName="PRI_STATUS" />
+          <ScalarProperty Name="EM_NAME" ColumnName="EM_NAME" />
+          <ScalarProperty Name="EM_ID" ColumnName="EM_ID" />
+          <ScalarProperty Name="EM_STATUS" ColumnName="EM_STATUS" />
+          <ScalarProperty Name="ACC_STATUS" ColumnName="ACC_STATUS" />
+          <ScalarProperty Name="ACC_ID" ColumnName="ACC_ID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="accounts_Delete" FunctionName="TICKET_MANAGERModel.Store.accounts_Delete" />
+    <FunctionImportMapping FunctionImportName="accounts_GetACC_IDfromEM_ID" FunctionName="TICKET_MANAGERModel.Store.accounts_GetACC_IDfromEM_ID" />
+    <FunctionImportMapping FunctionImportName="accounts_GetAll" FunctionName="TICKET_MANAGERModel.Store.accounts_GetAll">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="TICKET_MANAGERModel.accounts_GetAll_Result">
+          <ScalarProperty Name="ACC_ID" ColumnName="ACC_ID" />
+          <ScalarProperty Name="PRI_ID" ColumnName="PRI_ID" />
+          <ScalarProperty Name="EM_ID" ColumnName="EM_ID" />
+          <ScalarProperty Name="EM_NAME" ColumnName="EM_NAME" />
+          <ScalarProperty Name="ACC_USERNAME" ColumnName="ACC_USERNAME" />
+          <ScalarProperty Name="PRI_DESCRIPTION" ColumnName="PRI_DESCRIPTION" />
+          <ScalarProperty Name="ACC_STATUS" ColumnName="ACC_STATUS" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="accounts_insert" FunctionName="TICKET_MANAGERModel.Store.accounts_insert" />
+    <FunctionImportMapping FunctionImportName="accounts_IsExistsAccount" FunctionName="TICKET_MANAGERModel.Store.accounts_IsExistsAccount" />
+    <FunctionImportMapping FunctionImportName="accounts_IsExistsUserName" FunctionName="TICKET_MANAGERModel.Store.accounts_IsExistsUserName" />
+    <FunctionImportMapping FunctionImportName="accounts_ResetPass" FunctionName="TICKET_MANAGERModel.Store.accounts_ResetPass" />
+    <FunctionImportMapping FunctionImportName="accounts_update" FunctionName="TICKET_MANAGERModel.Store.accounts_update" />
+    <FunctionImportMapping FunctionImportName="barcode_check_reset_number" FunctionName="TICKET_MANAGERModel.Store.barcode_check_reset_number" />
+    <FunctionImportMapping FunctionImportName="barcode_delete" FunctionName="TICKET_MANAGERModel.Store.barcode_delete" />
+    <FunctionImportMapping FunctionImportName="barcode_get_max_number_of_date" FunctionName="TICKET_MANAGERModel.Store.barcode_get_max_number_of_date" />
+    <FunctionImportMapping FunctionImportName="barcode_GetTop5000desc" FunctionName="TICKET_MANAGERModel.Store.barcode_GetTop5000desc">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="TICKET_MANAGERModel.barcode_GetTop5000desc_Result">
+          <ScalarProperty Name="BAR_ID" ColumnName="BAR_ID" />
+          <ScalarProperty Name="CT_ID" ColumnName="CT_ID" />
+          <ScalarProperty Name="TYPEID" ColumnName="TYPEID" />
+          <ScalarProperty Name="ZONE_ID" ColumnName="ZONE_ID" />
+          <ScalarProperty Name="BAR_NO" ColumnName="BAR_NO" />
+          <ScalarProperty Name="NUMBER" ColumnName="NUMBER" />
+          <ScalarProperty Name="CREATE_DATE" ColumnName="CREATE_DATE" />
+          <ScalarProperty Name="APPLY_DATE" ColumnName="APPLY_DATE" />
+          <ScalarProperty Name="ACC_ID" ColumnName="ACC_ID" />
+          <ScalarProperty Name="ACTIVE" ColumnName="ACTIVE" />
+          <ScalarProperty Name="USED" ColumnName="USED" />
+          <ScalarProperty Name="DAMAGE" ColumnName="DAMAGE" />
+          <ScalarProperty Name="TYPENAME" ColumnName="TYPENAME" />
+          <ScalarProperty Name="ZONE_NAME" ColumnName="ZONE_NAME" />
+          <ScalarProperty Name="EM_NAME" ColumnName="EM_NAME" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="barcode_insert" FunctionName="TICKET_MANAGERModel.Store.barcode_insert" />
+    <FunctionImportMapping FunctionImportName="barcode_IsExist" FunctionName="TICKET_MANAGERModel.Store.barcode_IsExist" />
+    <FunctionImportMapping FunctionImportName="barcode_isExistAndInfo" FunctionName="TICKET_MANAGERModel.Store.barcode_isExistAndInfo">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="TICKET_MANAGERModel.barcode_isExistAndInfo_Result">
+          <ScalarProperty Name="BAR_ID" ColumnName="BAR_ID" />
+          <ScalarProperty Name="CT_ID" ColumnName="CT_ID" />
+          <ScalarProperty Name="TYPEID" ColumnName="TYPEID" />
+          <ScalarProperty Name="ZONE_ID" ColumnName="ZONE_ID" />
+          <ScalarProperty Name="ACTIVE" ColumnName="ACTIVE" />
+          <ScalarProperty Name="USED" ColumnName="USED" />
+          <ScalarProperty Name="DAMAGE" ColumnName="DAMAGE" />
+          <ScalarProperty Name="APPLY_DATE" ColumnName="APPLY_DATE" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="barcode_update" FunctionName="TICKET_MANAGERModel.Store.barcode_update" />
+    <FunctionImportMapping FunctionImportName="barcode_UpdateDamage" FunctionName="TICKET_MANAGERModel.Store.barcode_UpdateDamage" />
+    <FunctionImportMapping FunctionImportName="common_GetDate" FunctionName="TICKET_MANAGERModel.Store.common_GetDate" />
+    <FunctionImportMapping FunctionImportName="common_GetDate_test" FunctionName="TICKET_MANAGERModel.Store.common_GetDate_test" />
+    <FunctionImportMapping FunctionImportName="department_Delete" FunctionName="TICKET_MANAGERModel.Store.department_Delete" />
+    <FunctionImportMapping FunctionImportName="department_GetAll" FunctionName="TICKET_MANAGERModel.Store.department_GetAll">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="TICKET_MANAGERModel.department_GetAll_Result">
+          <ScalarProperty Name="DEP_ID" ColumnName="DEP_ID" />
+          <ScalarProperty Name="DEP_NAME" ColumnName="DEP_NAME" />
+          <ScalarProperty Name="DEP_DESCRIPTION" ColumnName="DEP_DESCRIPTION" />
+          <ScalarProperty Name="DEP_STATUS" ColumnName="DEP_STATUS" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="department_GetAllVisible" FunctionName="TICKET_MANAGERModel.Store.department_GetAllVisible">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="TICKET_MANAGERModel.department_GetAllVisible_Result">
+          <ScalarProperty Name="DEP_ID" ColumnName="DEP_ID" />
+          <ScalarProperty Name="DEP_NAME" ColumnName="DEP_NAME" />
+          <ScalarProperty Name="DEP_DESCRIPTION" ColumnName="DEP_DESCRIPTION" />
+          <ScalarProperty Name="DEP_STATUS" ColumnName="DEP_STATUS" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="department_insert" FunctionName="TICKET_MANAGERModel.Store.department_insert" />
+    <FunctionImportMapping FunctionImportName="department_update" FunctionName="TICKET_MANAGERModel.Store.department_update" />
+    <FunctionImportMapping FunctionImportName="detail_sale_delete" FunctionName="TICKET_MANAGERModel.Store.detail_sale_delete" />
+    <FunctionImportMapping FunctionImportName="detail_sale_getAll" FunctionName="TICKET_MANAGERModel.Store.detail_sale_getAll">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="TICKET_MANAGERModel.detail_sale_getAll_Result">
+          <ScalarProperty Name="DTS_ID" ColumnName="DTS_ID" />
+          <ScalarProperty Name="TS_ID" ColumnName="TS_ID" />
+          <ScalarProperty Name="TS_NO" ColumnName="TS_NO" />
+          <ScalarProperty Name="CA_ID" ColumnName="CA_ID" />
+          <ScalarProperty Name="BAR_ID" ColumnName="BAR_ID" />
+          <ScalarProperty Name="DTS_PRICE" ColumnName="DTS_PRICE" />
+          <ScalarProperty Name="DTS_PAY" ColumnName="DTS_PAY" />
+          <ScalarProperty Name="BAR_NO" ColumnName="BAR_NO" />
+          <ScalarProperty Name="ZONE_ID" ColumnName="ZONE_ID" />
+          <ScalarProperty Name="ZONE_NAME" ColumnName="ZONE_NAME" />
+          <ScalarProperty Name="ZONE_CODE" ColumnName="ZONE_CODE" />
+          <ScalarProperty Name="TYPEID" ColumnName="TYPEID" />
+          <ScalarProperty Name="TYPENAME" ColumnName="TYPENAME" />
+          <ScalarProperty Name="TYPE_CODE" ColumnName="TYPE_CODE" />
+          <ScalarProperty Name="CT_ID" ColumnName="CT_ID" />
+          <ScalarProperty Name="CT_NAME" ColumnName="CT_NAME" />
+          <ScalarProperty Name="CT_CODE" ColumnName="CT_CODE" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="detail_sale_GetByTS" FunctionName="TICKET_MANAGERModel.Store.detail_sale_GetByTS">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="TICKET_MANAGERModel.detail_sale_GetByTS_Result">
+          <ScalarProperty Name="TS_ID" ColumnName="TS_ID" />
+          <ScalarProperty Name="DTS_ID" ColumnName="DTS_ID" />
+          <ScalarProperty Name="BAR_NO" ColumnName="BAR_NO" />
+          <ScalarProperty Name="ZONE_NAME" ColumnName="ZONE_NAME" />
+          <ScalarProperty Name="TYPENAME" ColumnName="TYPENAME" />
+          <ScalarProperty Name="DTS_PRICE" ColumnName="DTS_PRICE" />
+          <ScalarProperty Name="DTS_PAY" ColumnName="DTS_PAY" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="detail_sale_insert" FunctionName="TICKET_MANAGERModel.Store.detail_sale_insert" />
+    <FunctionImportMapping FunctionImportName="detail_sale_update" FunctionName="TICKET_MANAGERModel.Store.detail_sale_update" />
+    <FunctionImportMapping FunctionImportName="device_Delete" FunctionName="TICKET_MANAGERModel.Store.device_Delete" />
+    <FunctionImportMapping FunctionImportName="device_GetAll" FunctionName="TICKET_MANAGERModel.Store.device_GetAll">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="TICKET_MANAGERModel.device_GetAll_Result">
+          <ScalarProperty Name="DEVICE_ID" ColumnName="DEVICE_ID" />
+          <ScalarProperty Name="DEVICE_NAME" ColumnName="DEVICE_NAME" />
+          <ScalarProperty Name="DEVICE_CODE" ColumnName="DEVICE_CODE" />
+          <ScalarProperty Name="DT_ID" ColumnName="DT_ID" />
+          <ScalarProperty Name="ZONE_ID" ColumnName="ZONE_ID" />
+          <ScalarProperty Name="DEVICE_MAC" ColumnName="DEVICE_MAC" />
+          <ScalarProperty Name="DEVICE_PORT" ColumnName="DEVICE_PORT" />
+          <ScalarProperty Name="DEVICE_DES" ColumnName="DEVICE_DES" />
+          <ScalarProperty Name="DEVICE_STATUS" ColumnName="DEVICE_STATUS" />
+          <ScalarProperty Name="DEVICE_IP" ColumnName="DEVICE_IP" />
+          <ScalarProperty Name="DT_NAME" ColumnName="DT_NAME" />
+          <ScalarProperty Name="DT_CODE" ColumnName="DT_CODE" />
+          <ScalarProperty Name="ZONE_NAME" ColumnName="ZONE_NAME" />
+          <ScalarProperty Name="ZONE_CODE" ColumnName="ZONE_CODE" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="device_GetAll_Visible" FunctionName="TICKET_MANAGERModel.Store.device_GetAll_Visible">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="TICKET_MANAGERModel.device_GetAll_Visible_Result">
+          <ScalarProperty Name="DEVICE_ID" ColumnName="DEVICE_ID" />
+          <ScalarProperty Name="DEVICE_NAME" ColumnName="DEVICE_NAME" />
+          <ScalarProperty Name="DEVICE_CODE" ColumnName="DEVICE_CODE" />
+          <ScalarProperty Name="DT_ID" ColumnName="DT_ID" />
+          <ScalarProperty Name="ZONE_ID" ColumnName="ZONE_ID" />
+          <ScalarProperty Name="DEVICE_MAC" ColumnName="DEVICE_MAC" />
+          <ScalarProperty Name="DEVICE_IP" ColumnName="DEVICE_IP" />
+          <ScalarProperty Name="DEVICE_PORT" ColumnName="DEVICE_PORT" />
+          <ScalarProperty Name="DEVICE_DES" ColumnName="DEVICE_DES" />
+          <ScalarProperty Name="DEVICE_STATUS" ColumnName="DEVICE_STATUS" />
+          <ScalarProperty Name="DT_NAME" ColumnName="DT_NAME" />
+          <ScalarProperty Name="DT_CODE" ColumnName="DT_CODE" />
+          <ScalarProperty Name="ZONE_NAME" ColumnName="ZONE_NAME" />
+          <ScalarProperty Name="ZONE_CODE" ColumnName="ZONE_CODE" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="device_insert" FunctionName="TICKET_MANAGERModel.Store.device_insert" />
+    <FunctionImportMapping FunctionImportName="device_IsExist" FunctionName="TICKET_MANAGERModel.Store.device_IsExist" />
+    <FunctionImportMapping FunctionImportName="device_type_Delete" FunctionName="TICKET_MANAGERModel.Store.device_type_Delete" />
+    <FunctionImportMapping FunctionImportName="device_type_GetAll" FunctionName="TICKET_MANAGERModel.Store.device_type_GetAll">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="TICKET_MANAGERModel.device_type_GetAll_Result">
+          <ScalarProperty Name="DT_ID" ColumnName="DT_ID" />
+          <ScalarProperty Name="DT_NAME" ColumnName="DT_NAME" />
+          <ScalarProperty Name="DT_CODE" ColumnName="DT_CODE" />
+          <ScalarProperty Name="DT_DES" ColumnName="DT_DES" />
+          <ScalarProperty Name="DT_STATUS" ColumnName="DT_STATUS" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="device_type_GetAllVisible" FunctionName="TICKET_MANAGERModel.Store.device_type_GetAllVisible">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="TICKET_MANAGERModel.device_type_GetAllVisible_Result">
+          <ScalarProperty Name="DT_ID" ColumnName="DT_ID" />
+          <ScalarProperty Name="DT_NAME" ColumnName="DT_NAME" />
+          <ScalarProperty Name="DT_CODE" ColumnName="DT_CODE" />
+          <ScalarProperty Name="DT_DES" ColumnName="DT_DES" />
+          <ScalarProperty Name="DT_STATUS" ColumnName="DT_STATUS" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="device_type_insert" FunctionName="TICKET_MANAGERModel.Store.device_type_insert" />
+    <FunctionImportMapping FunctionImportName="device_type_IsExist" FunctionName="TICKET_MANAGERModel.Store.device_type_IsExist" />
+    <FunctionImportMapping FunctionImportName="device_type_update" FunctionName="TICKET_MANAGERModel.Store.device_type_update" />
+    <FunctionImportMapping FunctionImportName="device_update" FunctionName="TICKET_MANAGERModel.Store.device_update" />
+    <FunctionImportMapping FunctionImportName="discount_delete" FunctionName="TICKET_MANAGERModel.Store.discount_delete" />
+    <FunctionImportMapping FunctionImportName="discount_FindByHol" FunctionName="TICKET_MANAGERModel.Store.discount_FindByHol">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="TICKET_MANAGERModel.discount_FindByHol_Result">
+          <ScalarProperty Name="DISC_ID" ColumnName="DISC_ID" />
+          <ScalarProperty Name="DISCT_ID" ColumnName="DISCT_ID" />
+          <ScalarProperty Name="DISC_NAME" ColumnName="DISC_NAME" />
+          <ScalarProperty Name="DISC_CODE" ColumnName="DISC_CODE" />
+          <ScalarProperty Name="DISC_VALUE" ColumnName="DISC_VALUE" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="discount_FindByWeek" FunctionName="TICKET_MANAGERModel.Store.discount_FindByWeek">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="TICKET_MANAGERModel.discount_FindByWeek_Result">
+          <ScalarProperty Name="DISC_ID" ColumnName="DISC_ID" />
+          <ScalarProperty Name="DISCT_ID" ColumnName="DISCT_ID" />
+          <ScalarProperty Name="DISC_NAME" ColumnName="DISC_NAME" />
+          <ScalarProperty Name="DISC_CODE" ColumnName="DISC_CODE" />
+          <ScalarProperty Name="DISC_VALUE" ColumnName="DISC_VALUE" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="discount_GetAll" FunctionName="TICKET_MANAGERModel.Store.discount_GetAll">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="TICKET_MANAGERModel.discount_GetAll_Result">
+          <ScalarProperty Name="DISC_ID" ColumnName="DISC_ID" />
+          <ScalarProperty Name="DISCT_ID" ColumnName="DISCT_ID" />
+          <ScalarProperty Name="HOL_ID" ColumnName="HOL_ID" />
+          <ScalarProperty Name="TF_ID" ColumnName="TF_ID" />
+          <ScalarProperty Name="DISC_NAME" ColumnName="DISC_NAME" />
+          <ScalarProperty Name="DISC_CODE" ColumnName="DISC_CODE" />
+          <ScalarProperty Name="DISC_VALUE" ColumnName="DISC_VALUE" />
+          <ScalarProperty Name="DISC_DES" ColumnName="DISC_DES" />
+          <ScalarProperty Name="CREATE_DATE" ColumnName="CREATE_DATE" />
+          <ScalarProperty Name="DISC_START" ColumnName="DISC_START" />
+          <ScalarProperty Name="DISC_END" ColumnName="DISC_END" />
+          <ScalarProperty Name="DISC_STATUS" ColumnName="DISC_STATUS" />
+          <ScalarProperty Name="WD_ISWEEKEND" ColumnName="WD_ISWEEKEND" />
+          <ScalarProperty Name="DISCT_NAME" ColumnName="DISCT_NAME" />
+          <ScalarProperty Name="HOL_NAME" ColumnName="HOL_NAME" />
+          <ScalarProperty Name="TF_NAME" ColumnName="TF_NAME" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="discount_GetAllVisible" FunctionName="TICKET_MANAGERModel.Store.discount_GetAllVisible">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="TICKET_MANAGERModel.discount_GetAllVisible_Result">
+          <ScalarProperty Name="DISC_ID" ColumnName="DISC_ID" />
+          <ScalarProperty Name="DISCT_ID" ColumnName="DISCT_ID" />
+          <ScalarProperty Name="HOL_ID" ColumnName="HOL_ID" />
+          <ScalarProperty Name="TF_ID" ColumnName="TF_ID" />
+          <ScalarProperty Name="DISC_NAME" ColumnName="DISC_NAME" />
+          <ScalarProperty Name="DISC_CODE" ColumnName="DISC_CODE" />
+          <ScalarProperty Name="DISC_VALUE" ColumnName="DISC_VALUE" />
+          <ScalarProperty Name="DISC_DES" ColumnName="DISC_DES" />
+          <ScalarProperty Name="CREATE_DATE" ColumnName="CREATE_DATE" />
+          <ScalarProperty Name="DISC_START" ColumnName="DISC_START" />
+          <ScalarProperty Name="DISC_END" ColumnName="DISC_END" />
+          <ScalarProperty Name="DISC_STATUS" ColumnName="DISC_STATUS" />
+          <ScalarProperty Name="WD_ISWEEKEND" ColumnName="WD_ISWEEKEND" />
+          <ScalarProperty Name="DISCT_NAME" ColumnName="DISCT_NAME" />
+          <ScalarProperty Name="HOL_NAME" ColumnName="HOL_NAME" />
+          <ScalarProperty Name="TF_NAME" ColumnName="TF_NAME" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="discount_GetInfoById" FunctionName="TICKET_MANAGERModel.Store.discount_GetInfoById">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="TICKET_MANAGERModel.discount_GetInfoById_Result">
+          <ScalarProperty Name="DISC_ID" ColumnName="DISC_ID" />
+          <ScalarProperty Name="DISCT_ID" ColumnName="DISCT_ID" />
+          <ScalarProperty Name="HOL_ID" ColumnName="HOL_ID" />
+          <ScalarProperty Name="TF_ID" ColumnName="TF_ID" />
+          <ScalarProperty Name="DISC_NAME" ColumnName="DISC_NAME" />
+          <ScalarProperty Name="DISC_CODE" ColumnName="DISC_CODE" />
+          <ScalarProperty Name="DISC_VALUE" ColumnName="DISC_VALUE" />
+          <ScalarProperty Name="DISC_DES" ColumnName="DISC_DES" />
+          <ScalarProperty Name="CREATE_DATE" ColumnName="CREATE_DATE" />
+          <ScalarProperty Name="DISC_START" ColumnName="DISC_START" />
+          <ScalarProperty Name="DISC_END" ColumnName="DISC_END" />
+          <ScalarProperty Name="DISC_STATUS" ColumnName="DISC_STATUS" />
+          <ScalarProperty Name="WD_ISWEEKEND" ColumnName="WD_ISWEEKEND" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="discount_GetTypeById" FunctionName="TICKET_MANAGERModel.Store.discount_GetTypeById" />
+    <FunctionImportMapping FunctionImportName="discount_insert" FunctionName="TICKET_MANAGERModel.Store.discount_insert" />
+    <FunctionImportMapping FunctionImportName="discount_IsExist" FunctionName="TICKET_MANAGERModel.Store.discount_IsExist" />
+    <FunctionImportMapping FunctionImportName="discount_isExistsType" FunctionName="TICKET_MANAGERModel.Store.discount_isExistsType" />
+    <FunctionImportMapping FunctionImportName="discount_type_delete" FunctionName="TICKET_MANAGERModel.Store.discount_type_delete" />
+    <FunctionImportMapping FunctionImportName="discount_type_GetAll" FunctionName="TICKET_MANAGERModel.Store.discount_type_GetAll">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="TICKET_MANAGERModel.discount_type_GetAll_Result">
+          <ScalarProperty Name="DISCT_ID" ColumnName="DISCT_ID" />
+          <ScalarProperty Name="DISCT_NAME" ColumnName="DISCT_NAME" />
+          <ScalarProperty Name="DISCT_CHECK" ColumnName="DISCT_CHECK" />
+          <ScalarProperty Name="DISCT_DES" ColumnName="DISCT_DES" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="discount_type_insert" FunctionName="TICKET_MANAGERModel.Store.discount_type_insert" />
+    <FunctionImportMapping FunctionImportName="discount_type_update" FunctionName="TICKET_MANAGERModel.Store.discount_type_update" />
+    <FunctionImportMapping FunctionImportName="discount_update" FunctionName="TICKET_MANAGERModel.Store.discount_update" />
+    <FunctionImportMapping FunctionImportName="employees_Delete" FunctionName="TICKET_MANAGERModel.Store.employees_Delete" />
+    <FunctionImportMapping FunctionImportName="employees_FindInfoByAccId" FunctionName="TICKET_MANAGERModel.Store.employees_FindInfoByAccId">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="TICKET_MANAGERModel.employees_FindInfoByAccId_Result">
+          <ScalarProperty Name="EM_NAME" ColumnName="EM_NAME" />
+          <ScalarProperty Name="EM_CODE" ColumnName="EM_CODE" />
+          <ScalarProperty Name="PHONE" ColumnName="PHONE" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="employees_GetAll" FunctionName="TICKET_MANAGERModel.Store.employees_GetAll">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="TICKET_MANAGERModel.employees_GetAll_Result">
+          <ScalarProperty Name="EM_ID" ColumnName="EM_ID" />
+          <ScalarProperty Name="EM_NAME" ColumnName="EM_NAME" />
+          <ScalarProperty Name="EM_CODE" ColumnName="EM_CODE" />
+          <ScalarProperty Name="PHONE" ColumnName="PHONE" />
+          <ScalarProperty Name="IDENTITY_NUMBER" ColumnName="IDENTITY_NUMBER" />
+          <ScalarProperty Name="DESCRIPTION" ColumnName="DESCRIPTION" />
+          <ScalarProperty Name="SEX" ColumnName="SEX" />
+          <ScalarProperty Name="ADDRESS" ColumnName="ADDRESS" />
+          <ScalarProperty Name="EM_STATUS" ColumnName="EM_STATUS" />
+          <ScalarProperty Name="IMAGE" ColumnName="IMAGE" />
+          <ScalarProperty Name="DEP_ID" ColumnName="DEP_ID" />
+          <ScalarProperty Name="DEP_NAME" ColumnName="DEP_NAME" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="employees_GetAll_Visible" FunctionName="TICKET_MANAGERModel.Store.employees_GetAll_Visible">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="TICKET_MANAGERModel.employees_GetAll_Visible_Result">
+          <ScalarProperty Name="EM_ID" ColumnName="EM_ID" />
+          <ScalarProperty Name="EM_NAME" ColumnName="EM_NAME" />
+          <ScalarProperty Name="EM_CODE" ColumnName="EM_CODE" />
+          <ScalarProperty Name="PHONE" ColumnName="PHONE" />
+          <ScalarProperty Name="IDENTITY_NUMBER" ColumnName="IDENTITY_NUMBER" />
+          <ScalarProperty Name="DESCRIPTION" ColumnName="DESCRIPTION" />
+          <ScalarProperty Name="SEX" ColumnName="SEX" />
+          <ScalarProperty Name="ADDRESS" ColumnName="ADDRESS" />
+          <ScalarProperty Name="EM_STATUS" ColumnName="EM_STATUS" />
+          <ScalarProperty Name="IMAGE" ColumnName="IMAGE" />
+          <ScalarProperty Name="DEP_ID" ColumnName="DEP_ID" />
+          <ScalarProperty Name="DEP_NAME" ColumnName="DEP_NAME" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="employees_GetLastestID" FunctionName="TICKET_MANAGERModel.Store.employees_GetLastestID" />
+    <FunctionImportMapping FunctionImportName="employees_insert" FunctionName="TICKET_MANAGERModel.Store.employees_insert" />
+    <FunctionImportMapping FunctionImportName="employees_IsExist" FunctionName="TICKET_MANAGERModel.Store.employees_IsExist" />
+    <FunctionImportMapping FunctionImportName="employees_update" FunctionName="TICKET_MANAGERModel.Store.employees_update" />
+    <FunctionImportMapping FunctionImportName="GetXMLDemo" FunctionName="TICKET_MANAGERModel.Store.GetXMLDemo" />
+    <FunctionImportMapping FunctionImportName="GetXMLDemo1" FunctionName="TICKET_MANAGERModel.Store.GetXMLDemo1" />
+    <FunctionImportMapping FunctionImportName="GetXMLDemo2" FunctionName="TICKET_MANAGERModel.Store.GetXMLDemo2" />
+    <FunctionImportMapping FunctionImportName="holiday_Available" FunctionName="TICKET_MANAGERModel.Store.holiday_Available">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="TICKET_MANAGERModel.holiday_Available_Result">
+          <ScalarProperty Name="HOL_ID" ColumnName="HOL_ID" />
+          <ScalarProperty Name="HOL_NAME" ColumnName="HOL_NAME" />
+          <ScalarProperty Name="HOL_FROM" ColumnName="HOL_FROM" />
+          <ScalarProperty Name="HOL_TO" ColumnName="HOL_TO" />
+          <ScalarProperty Name="HOL_STATUS" ColumnName="HOL_STATUS" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="holiday_delete" FunctionName="TICKET_MANAGERModel.Store.holiday_delete" />
+    <FunctionImportMapping FunctionImportName="holiday_findHoliday" FunctionName="TICKET_MANAGERModel.Store.holiday_findHoliday" />
+    <FunctionImportMapping FunctionImportName="holiday_GetAll" FunctionName="TICKET_MANAGERModel.Store.holiday_GetAll">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="TICKET_MANAGERModel.holiday_GetAll_Result">
+          <ScalarProperty Name="HOL_ID" ColumnName="HOL_ID" />
+          <ScalarProperty Name="HOL_NAME" ColumnName="HOL_NAME" />
+          <ScalarProperty Name="HOL_FROM" ColumnName="HOL_FROM" />
+          <ScalarProperty Name="HOL_TO" ColumnName="HOL_TO" />
+          <ScalarProperty Name="HOL_STATUS" ColumnName="HOL_STATUS" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="holiday_GetAllVisible" FunctionName="TICKET_MANAGERModel.Store.holiday_GetAllVisible">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="TICKET_MANAGERModel.holiday_GetAllVisible_Result">
+          <ScalarProperty Name="HOL_ID" ColumnName="HOL_ID" />
+          <ScalarProperty Name="HOL_NAME" ColumnName="HOL_NAME" />
+          <ScalarProperty Name="HOL_FROM" ColumnName="HOL_FROM" />
+          <ScalarProperty Name="HOL_TO" ColumnName="HOL_TO" />
+          <ScalarProperty Name="HOL_STATUS" ColumnName="HOL_STATUS" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="holiday_insert" FunctionName="TICKET_MANAGERModel.Store.holiday_insert" />
+    <FunctionImportMapping FunctionImportName="holiday_IsExist" FunctionName="TICKET_MANAGERModel.Store.holiday_IsExist" />
+    <FunctionImportMapping FunctionImportName="holiday_update" FunctionName="TICKET_MANAGERModel.Store.holiday_update" />
+    <FunctionImportMapping FunctionImportName="paging_barcodes" FunctionName="TICKET_MANAGERModel.Store.paging_barcodes">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="TICKET_MANAGERModel.paging_barcodes_Result">
+          <ScalarProperty Name="BAR_ID" ColumnName="BAR_ID" />
+          <ScalarProperty Name="CT_ID" ColumnName="CT_ID" />
+          <ScalarProperty Name="TYPEID" ColumnName="TYPEID" />
+          <ScalarProperty Name="ZONE_ID" ColumnName="ZONE_ID" />
+          <ScalarProperty Name="BAR_NO" ColumnName="BAR_NO" />
+          <ScalarProperty Name="NUMBER" ColumnName="NUMBER" />
+          <ScalarProperty Name="CREATE_DATE" ColumnName="CREATE_DATE" />
+          <ScalarProperty Name="APPLY_DATE" ColumnName="APPLY_DATE" />
+          <ScalarProperty Name="ACC_ID" ColumnName="ACC_ID" />
+          <ScalarProperty Name="ACTIVE" ColumnName="ACTIVE" />
+          <ScalarProperty Name="USED" ColumnName="USED" />
+          <ScalarProperty Name="DAMAGE" ColumnName="DAMAGE" />
+          <ScalarProperty Name="rownum" ColumnName="rownum" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="paging_detail_sales" FunctionName="TICKET_MANAGERModel.Store.paging_detail_sales">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="TICKET_MANAGERModel.paging_detail_sales_Result">
+          <ScalarProperty Name="DTS_ID" ColumnName="DTS_ID" />
+          <ScalarProperty Name="TS_ID" ColumnName="TS_ID" />
+          <ScalarProperty Name="CA_ID" ColumnName="CA_ID" />
+          <ScalarProperty Name="BAR_ID" ColumnName="BAR_ID" />
+          <ScalarProperty Name="DTS_PRICE" ColumnName="DTS_PRICE" />
+          <ScalarProperty Name="DTS_PAY" ColumnName="DTS_PAY" />
+          <ScalarProperty Name="rownum" ColumnName="rownum" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="paging_io_info" FunctionName="TICKET_MANAGERModel.Store.paging_io_info">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="TICKET_MANAGERModel.paging_io_info_Result">
+          <ScalarProperty Name="IO_ID" ColumnName="IO_ID" />
+          <ScalarProperty Name="IO_TIME" ColumnName="IO_TIME" />
+          <ScalarProperty Name="ZONE_ID" ColumnName="ZONE_ID" />
+          <ScalarProperty Name="CA_ID" ColumnName="CA_ID" />
+          <ScalarProperty Name="BAR_ID" ColumnName="BAR_ID" />
+          <ScalarProperty Name="rownum" ColumnName="rownum" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="paging_sale_no" FunctionName="TICKET_MANAGERModel.Store.paging_sale_no" />
+    <FunctionImportMapping FunctionImportName="priviles_Delete" FunctionName="TICKET_MANAGERModel.Store.priviles_Delete" />
+    <FunctionImportMapping FunctionImportName="priviles_GetAll" FunctionName="TICKET_MANAGERModel.Store.priviles_GetAll">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="TICKET_MANAGERModel.priviles_GetAll_Result">
+          <ScalarProperty Name="PRI_ID" ColumnName="PRI_ID" />
+          <ScalarProperty Name="PRI_DESCRIPTION" ColumnName="PRI_DESCRIPTION" />
+          <ScalarProperty Name="PRI_STATUS" ColumnName="PRI_STATUS" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="priviles_GetAll_Visible" FunctionName="TICKET_MANAGERModel.Store.priviles_GetAll_Visible">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="TICKET_MANAGERModel.priviles_GetAll_Visible_Result">
+          <ScalarProperty Name="PRI_ID" ColumnName="PRI_ID" />
+          <ScalarProperty Name="PRI_DESCRIPTION" ColumnName="PRI_DESCRIPTION" />
+          <ScalarProperty Name="PRI_STATUS" ColumnName="PRI_STATUS" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="priviles_insert" FunctionName="TICKET_MANAGERModel.Store.priviles_insert" />
+    <FunctionImportMapping FunctionImportName="priviles_IsExists" FunctionName="TICKET_MANAGERModel.Store.priviles_IsExists" />
+    <FunctionImportMapping FunctionImportName="priviles_update" FunctionName="TICKET_MANAGERModel.Store.priviles_update" />
+    <FunctionImportMapping FunctionImportName="redeem_add_formula_GetAll" FunctionName="TICKET_MANAGERModel.Store.redeem_add_formula_GetAll" />
+    <FunctionImportMapping FunctionImportName="redeem_formula_GetAll" FunctionName="TICKET_MANAGERModel.Store.redeem_formula_GetAll" />
+    <FunctionImportMapping FunctionImportName="redeem_transform_get" FunctionName="TICKET_MANAGERModel.Store.redeem_transform_get" />
+    <FunctionImportMapping FunctionImportName="redeem_transform_update" FunctionName="TICKET_MANAGERModel.Store.redeem_transform_update" />
+    <FunctionImportMapping FunctionImportName="select_account" FunctionName="TICKET_MANAGERModel.Store.select_account">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="TICKET_MANAGERModel.select_account_Result">
+          <ScalarProperty Name="ACC_ID" ColumnName="ACC_ID" />
+          <ScalarProperty Name="PRI_ID" ColumnName="PRI_ID" />
+          <ScalarProperty Name="EM_ID" ColumnName="EM_ID" />
+          <ScalarProperty Name="ACC_USERNAME" ColumnName="ACC_USERNAME" />
+          <ScalarProperty Name="ACC_PASSWORD" ColumnName="ACC_PASSWORD" />
+          <ScalarProperty Name="ACC_STATUS" ColumnName="ACC_STATUS" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="TICKET_MANAGERModel.Store.sp_alterdiagram" />
+    <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="TICKET_MANAGERModel.Store.sp_creatediagram" />
+    <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="TICKET_MANAGERModel.Store.sp_dropdiagram" />
+    <FunctionImportMapping FunctionImportName="sp_helpdiagramdefinition" FunctionName="TICKET_MANAGERModel.Store.sp_helpdiagramdefinition">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="TICKET_MANAGERModel.sp_helpdiagramdefinition_Result">
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_helpdiagrams" FunctionName="TICKET_MANAGERModel.Store.sp_helpdiagrams">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="TICKET_MANAGERModel.sp_helpdiagrams_Result">
+          <ScalarProperty Name="Database" ColumnName="Database" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Owner" ColumnName="Owner" />
+          <ScalarProperty Name="OwnerID" ColumnName="OwnerID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="TICKET_MANAGERModel.Store.sp_renamediagram" />
+    <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="TICKET_MANAGERModel.Store.sp_upgraddiagrams" />
+    <FunctionImportMapping FunctionImportName="statistic_barcode" FunctionName="TICKET_MANAGERModel.Store.statistic_barcode">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="TICKET_MANAGERModel.statistic_barcode_Result">
+          <ScalarProperty Name="BAR_ID" ColumnName="BAR_ID" />
+          <ScalarProperty Name="CT_ID" ColumnName="CT_ID" />
+          <ScalarProperty Name="TYPEID" ColumnName="TYPEID" />
+          <ScalarProperty Name="ZONE_ID" ColumnName="ZONE_ID" />
+          <ScalarProperty Name="BAR_NO" ColumnName="BAR_NO" />
+          <ScalarProperty Name="NUMBER" ColumnName="NUMBER" />
+          <ScalarProperty Name="CREATE_DATE" ColumnName="CREATE_DATE" />
+          <ScalarProperty Name="APPLY_DATE" ColumnName="APPLY_DATE" />
+          <ScalarProperty Name="ACC_ID" ColumnName="ACC_ID" />
+          <ScalarProperty Name="ACTIVE" ColumnName="ACTIVE" />
+          <ScalarProperty Name="USED" ColumnName="USED" />
+          <ScalarProperty Name="DAMAGE" ColumnName="DAMAGE" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="statistic_department" FunctionName="TICKET_MANAGERModel.Store.statistic_department">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="TICKET_MANAGERModel.statistic_department_Result">
+          <ScalarProperty Name="DEP_NAME" ColumnName="DEP_NAME" />
+          <ScalarProperty Name="DEP_DESCRIPTION" ColumnName="DEP_DESCRIPTION" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="statistic_device_all" FunctionName="TICKET_MANAGERModel.Store.statistic_device_all">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="TICKET_MANAGERModel.statistic_device_all_Result">
+          <ScalarProperty Name="DEVICE_ID" ColumnName="DEVICE_ID" />
+          <ScalarProperty Name="DEVICE_NAME" ColumnName="DEVICE_NAME" />
+          <ScalarProperty Name="DEVICE_CODE" ColumnName="DEVICE_CODE" />
+          <ScalarProperty Name="DEVICE_MAC" ColumnName="DEVICE_MAC" />
+          <ScalarProperty Name="DEVICE_PORT" ColumnName="DEVICE_PORT" />
+          <ScalarProperty Name="DEVICE_DES" ColumnName="DEVICE_DES" />
+          <ScalarProperty Name="DEVICE_IP" ColumnName="DEVICE_IP" />
+          <ScalarProperty Name="DT_NAME" ColumnName="DT_NAME" />
+          <ScalarProperty Name="DT_CODE" ColumnName="DT_CODE" />
+          <ScalarProperty Name="ZONE_NAME" ColumnName="ZONE_NAME" />
+          <ScalarProperty Name="ZONE_CODE" ColumnName="ZONE_CODE" />
+          <ScalarProperty Name="strDEVICE_STATUS" ColumnName="strDEVICE_STATUS" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="statistic_DoanhThu_TongThucThu" FunctionName="TICKET_MANAGERModel.Store.statistic_DoanhThu_TongThucThu" />
+    <FunctionImportMapping FunctionImportName="statistic_DoanhThuTheoKhuVuc" FunctionName="TICKET_MANAGERModel.Store.statistic_DoanhThuTheoKhuVuc">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="TICKET_MANAGERModel.statistic_DoanhThuTheoKhuVuc_Result">
+          <ScalarProperty Name="ZONE_NAME" ColumnName="ZONE_NAME" />
+          <ScalarProperty Name="TYPENAME" ColumnName="TYPENAME" />
+          <ScalarProperty Name="SUM_NUMBER_BAR" ColumnName="SUM_NUMBER_BAR" />
+          <ScalarProperty Name="SUM_PAY" ColumnName="SUM_PAY" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="statistic_DoanhThuTheoLoaiVe" FunctionName="TICKET_MANAGERModel.Store.statistic_DoanhThuTheoLoaiVe">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="TICKET_MANAGERModel.statistic_DoanhThuTheoLoaiVe_Result">
+          <ScalarProperty Name="ZONE_NAME" ColumnName="ZONE_NAME" />
+          <ScalarProperty Name="TYPENAME" ColumnName="TYPENAME" />
+          <ScalarProperty Name="SUM_NUMBER_BAR" ColumnName="SUM_NUMBER_BAR" />
+          <ScalarProperty Name="SUM_PAY" ColumnName="SUM_PAY" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="statistic_DoanhThuTheoNhanVien" FunctionName="TICKET_MANAGERModel.Store.statistic_DoanhThuTheoNhanVien">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="TICKET_MANAGERModel.statistic_DoanhThuTheoNhanVien_Result">
+          <ScalarProperty Name="EM_ID" ColumnName="EM_ID" />
+          <ScalarProperty Name="EM_NAME" ColumnName="EM_NAME" />
+          <ScalarProperty Name="TYPENAME" ColumnName="TYPENAME" />
+          <ScalarProperty Name="ZONE_NAME" ColumnName="ZONE_NAME" />
+          <ScalarProperty Name="COUNT" ColumnName="COUNT" />
+          <ScalarProperty Name="PAY" ColumnName="PAY" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="statistic_DoanhThuTheoNhanVien1" FunctionName="TICKET_MANAGERModel.Store.statistic_DoanhThuTheoNhanVien1">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="TICKET_MANAGERModel.statistic_DoanhThuTheoNhanVien1_Result">
+          <ScalarProperty Name="TS_NO" ColumnName="TS_NO" />
+          <ScalarProperty Name="PAY" ColumnName="PAY" />
+          <ScalarProperty Name="CREATE_DATE" ColumnName="CREATE_DATE" />
+          <ScalarProperty Name="EM_NAME" ColumnName="EM_NAME" />
+          <ScalarProperty Name="USER_NAME" ColumnName="USER_NAME" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="statistic_DoanhThuTheoThoiGian" FunctionName="TICKET_MANAGERModel.Store.statistic_DoanhThuTheoThoiGian">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="TICKET_MANAGERModel.statistic_DoanhThuTheoThoiGian_Result">
+          <ScalarProperty Name="TYPENAME" ColumnName="TYPENAME" />
+          <ScalarProperty Name="ZONE_NAME" ColumnName="ZONE_NAME" />
+          <ScalarProperty Name="COUNT" ColumnName="COUNT" />
+          <ScalarProperty Name="TOTAL_PAY" ColumnName="TOTAL_PAY" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="statistic_employee" FunctionName="TICKET_MANAGERModel.Store.statistic_employee">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="TICKET_MANAGERModel.statistic_employee_Result">
+          <ScalarProperty Name="EM_NAME" ColumnName="EM_NAME" />
+          <ScalarProperty Name="EM_CODE" ColumnName="EM_CODE" />
+          <ScalarProperty Name="IDENTITY_NUMBER" ColumnName="IDENTITY_NUMBER" />
+          <ScalarProperty Name="ADDRESS" ColumnName="ADDRESS" />
+          <ScalarProperty Name="DEP_NAME" ColumnName="DEP_NAME" />
+          <ScalarProperty Name="PHONE" ColumnName="PHONE" />
+          <ScalarProperty Name="SEX" ColumnName="SEX" />
+          <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="statistic_employees" FunctionName="TICKET_MANAGERModel.Store.statistic_employees">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="TICKET_MANAGERModel.statistic_employees_Result">
+          <ScalarProperty Name="EM_ID" ColumnName="EM_ID" />
+          <ScalarProperty Name="DEP_ID" ColumnName="DEP_ID" />
+          <ScalarProperty Name="DEP_NAME" ColumnName="DEP_NAME" />
+          <ScalarProperty Name="EM_NAME" ColumnName="EM_NAME" />
+          <ScalarProperty Name="EM_CODE" ColumnName="EM_CODE" />
+          <ScalarProperty Name="PHONE" ColumnName="PHONE" />
+          <ScalarProperty Name="IDENTITY_NUMBER" ColumnName="IDENTITY_NUMBER" />
+          <ScalarProperty Name="SEX" ColumnName="SEX" />
+          <ScalarProperty Name="ADDRESS" ColumnName="ADDRESS" />
+          <ScalarProperty Name="DESCRIPTION" ColumnName="DESCRIPTION" />
+          <ScalarProperty Name="EM_STATUS" ColumnName="EM_STATUS" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="statistic_test_xemhoadon" FunctionName="TICKET_MANAGERModel.Store.statistic_test_xemhoadon">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="TICKET_MANAGERModel.statistic_test_xemhoadon_Result">
+          <ScalarProperty Name="USER_NAME" ColumnName="USER_NAME" />
+          <ScalarProperty Name="PHONE" ColumnName="PHONE" />
+          <ScalarProperty Name="PAY" ColumnName="PAY" />
+          <ScalarProperty Name="TS_NO" ColumnName="TS_NO" />
+          <ScalarProperty Name="CREATE_DATE" ColumnName="CREATE_DATE" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="statistic_ThongKeKhauTru" FunctionName="TICKET_MANAGERModel.Store.statistic_ThongKeKhauTru" />
+    <FunctionImportMapping FunctionImportName="statistic_ticket_damage" FunctionName="TICKET_MANAGERModel.Store.statistic_ticket_damage">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="TICKET_MANAGERModel.statistic_ticket_damage_Result">
+          <ScalarProperty Name="BAR_ID" ColumnName="BAR_ID" />
+          <ScalarProperty Name="CT_NAME" ColumnName="CT_NAME" />
+          <ScalarProperty Name="TYPENAME" ColumnName="TYPENAME" />
+          <ScalarProperty Name="ZONE_NAME" ColumnName="ZONE_NAME" />
+          <ScalarProperty Name="BAR_NO" ColumnName="BAR_NO" />
+          <ScalarProperty Name="NUMBER" ColumnName="NUMBER" />
+          <ScalarProperty Name="CREATE_DATE" ColumnName="CREATE_DATE" />
+          <ScalarProperty Name="APPLY_DATE" ColumnName="APPLY_DATE" />
+          <ScalarProperty Name="ACC_USERNAME" ColumnName="ACC_USERNAME" />
+          <ScalarProperty Name="ACTIVE" ColumnName="ACTIVE" />
+          <ScalarProperty Name="USED" ColumnName="USED" />
+          <ScalarProperty Name="DAMAGE" ColumnName="DAMAGE" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="statistic_ticket_not_active" FunctionName="TICKET_MANAGERModel.Store.statistic_ticket_not_active">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="TICKET_MANAGERModel.statistic_ticket_not_active_Result">
+          <ScalarProperty Name="BAR_ID" ColumnName="BAR_ID" />
+          <ScalarProperty Name="CT_NAME" ColumnName="CT_NAME" />
+          <ScalarProperty Name="TYPENAME" ColumnName="TYPENAME" />
+          <ScalarProperty Name="ZONE_NAME" ColumnName="ZONE_NAME" />
+          <ScalarProperty Name="BAR_NO" ColumnName="BAR_NO" />
+          <ScalarProperty Name="NUMBER" ColumnName="NUMBER" />
+          <ScalarProperty Name="CREATE_DATE" ColumnName="CREATE_DATE" />
+          <ScalarProperty Name="APPLY_DATE" ColumnName="APPLY_DATE" />
+          <ScalarProperty Name="ACC_USERNAME" ColumnName="ACC_USERNAME" />
+          <ScalarProperty Name="ACTIVE" ColumnName="ACTIVE" />
+          <ScalarProperty Name="USED" ColumnName="USED" />
+          <ScalarProperty Name="DAMAGE" ColumnName="DAMAGE" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="statistic_ticket_printed" FunctionName="TICKET_MANAGERModel.Store.statistic_ticket_printed">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="TICKET_MANAGERModel.statistic_ticket_printed_Result">
+          <ScalarProperty Name="BAR_ID" ColumnName="BAR_ID" />
+          <ScalarProperty Name="TYPENAME" ColumnName="TYPENAME" />
+          <ScalarProperty Name="ZONE_NAME" ColumnName="ZONE_NAME" />
+          <ScalarProperty Name="BAR_NO" ColumnName="BAR_NO" />
+          <ScalarProperty Name="NUMBER" ColumnName="NUMBER" />
+          <ScalarProperty Name="CREATE_DATE" ColumnName="CREATE_DATE" />
+          <ScalarProperty Name="APPLY_DATE" ColumnName="APPLY_DATE" />
+          <ScalarProperty Name="ACC_USERNAME" ColumnName="ACC_USERNAME" />
+          <ScalarProperty Name="EM_NAME" ColumnName="EM_NAME" />
+          <ScalarProperty Name="ACTIVE" ColumnName="ACTIVE" />
+          <ScalarProperty Name="USED" ColumnName="USED" />
+          <ScalarProperty Name="DAMAGE" ColumnName="DAMAGE" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="statistic_ticket_sale" FunctionName="TICKET_MANAGERModel.Store.statistic_ticket_sale">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="TICKET_MANAGERModel.statistic_ticket_sale_Result">
+          <ScalarProperty Name="BAR_ID" ColumnName="BAR_ID" />
+          <ScalarProperty Name="CT_NAME" ColumnName="CT_NAME" />
+          <ScalarProperty Name="TYPENAME" ColumnName="TYPENAME" />
+          <ScalarProperty Name="ZONE_NAME" ColumnName="ZONE_NAME" />
+          <ScalarProperty Name="BAR_NO" ColumnName="BAR_NO" />
+          <ScalarProperty Name="NUMBER" ColumnName="NUMBER" />
+          <ScalarProperty Name="CREATE_DATE" ColumnName="CREATE_DATE" />
+          <ScalarProperty Name="APPLY_DATE" ColumnName="APPLY_DATE" />
+          <ScalarProperty Name="ACC_USERNAME" ColumnName="ACC_USERNAME" />
+          <ScalarProperty Name="EM_NAME" ColumnName="EM_NAME" />
+          <ScalarProperty Name="TS_NO" ColumnName="TS_NO" />
+          <ScalarProperty Name="ACTIVE" ColumnName="ACTIVE" />
+          <ScalarProperty Name="USED" ColumnName="USED" />
+          <ScalarProperty Name="DAMAGE" ColumnName="DAMAGE" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="statistic_ticket_sale2" FunctionName="TICKET_MANAGERModel.Store.statistic_ticket_sale2">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="TICKET_MANAGERModel.statistic_ticket_sale2_Result">
+          <ScalarProperty Name="USER_NAME" ColumnName="USER_NAME" />
+          <ScalarProperty Name="BAR_NO" ColumnName="BAR_NO" />
+          <ScalarProperty Name="TS_NO" ColumnName="TS_NO" />
+          <ScalarProperty Name="CREATE_DATE" ColumnName="CREATE_DATE" />
+          <ScalarProperty Name="TYPENAME" ColumnName="TYPENAME" />
+          <ScalarProperty Name="DTS_PRICE" ColumnName="DTS_PRICE" />
+          <ScalarProperty Name="DTS_PAY" ColumnName="DTS_PAY" />
+          <ScalarProperty Name="EM_NAME" ColumnName="EM_NAME" />
+          <ScalarProperty Name="ZONE_NAME" ColumnName="ZONE_NAME" />
+          <ScalarProperty Name="PRICE" ColumnName="PRICE" />
+          <ScalarProperty Name="PAY" ColumnName="PAY" />
+          <ScalarProperty Name="EM_ID" ColumnName="EM_ID" />
+          <ScalarProperty Name="ZONE_ID" ColumnName="ZONE_ID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="statistic_ticket_sale3" FunctionName="TICKET_MANAGERModel.Store.statistic_ticket_sale3">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="TICKET_MANAGERModel.statistic_ticket_sale3_Result">
+          <ScalarProperty Name="USER_NAME" ColumnName="USER_NAME" />
+          <ScalarProperty Name="BAR_NO" ColumnName="BAR_NO" />
+          <ScalarProperty Name="TS_NO" ColumnName="TS_NO" />
+          <ScalarProperty Name="CREATE_DATE" ColumnName="CREATE_DATE" />
+          <ScalarProperty Name="TYPENAME" ColumnName="TYPENAME" />
+          <ScalarProperty Name="DTS_PRICE" ColumnName="DTS_PRICE" />
+          <ScalarProperty Name="DTS_PAY" ColumnName="DTS_PAY" />
+          <ScalarProperty Name="PRICE" ColumnName="PRICE" />
+          <ScalarProperty Name="PAY" ColumnName="PAY" />
+          <ScalarProperty Name="EM_NAME" ColumnName="EM_NAME" />
+          <ScalarProperty Name="ZONE_NAME" ColumnName="ZONE_NAME" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="statistic_ticketByType" FunctionName="TICKET_MANAGERModel.Store.statistic_ticketByType">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="TICKET_MANAGERModel.statistic_ticketByType_Result">
+          <ScalarProperty Name="BAR_ID" ColumnName="BAR_ID" />
+          <ScalarProperty Name="BAR_NO" ColumnName="BAR_NO" />
+          <ScalarProperty Name="APPLY_DATE" ColumnName="APPLY_DATE" />
+          <ScalarProperty Name="TYPENAME" ColumnName="TYPENAME" />
+          <ScalarProperty Name="ZONE_NAME" ColumnName="ZONE_NAME" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="statistic_ticketTotalSold" FunctionName="TICKET_MANAGERModel.Store.statistic_ticketTotalSold">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="TICKET_MANAGERModel.statistic_ticketTotalSold_Result">
+          <ScalarProperty Name="TYPENAME" ColumnName="TYPENAME" />
+          <ScalarProperty Name="ZONE_NAME" ColumnName="ZONE_NAME" />
+          <ScalarProperty Name="TOTAL" ColumnName="TOTAL" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="statistic_ticketUsedFree" FunctionName="TICKET_MANAGERModel.Store.statistic_ticketUsedFree">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="TICKET_MANAGERModel.statistic_ticketUsedFree_Result">
+          <ScalarProperty Name="BAR_ID" ColumnName="BAR_ID" />
+          <ScalarProperty Name="BAR_NO" ColumnName="BAR_NO" />
+          <ScalarProperty Name="APPLY_DATE" ColumnName="APPLY_DATE" />
+          <ScalarProperty Name="TYPENAME" ColumnName="TYPENAME" />
+          <ScalarProperty Name="ZONE_NAME" ColumnName="ZONE_NAME" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="statistic_user_info" FunctionName="TICKET_MANAGERModel.Store.statistic_user_info">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="TICKET_MANAGERModel.statistic_user_info_Result">
+          <ScalarProperty Name="USER_ID" ColumnName="USER_ID" />
+          <ScalarProperty Name="USER_NAME" ColumnName="USER_NAME" />
+          <ScalarProperty Name="SEX" ColumnName="SEX" />
+          <ScalarProperty Name="PHONE" ColumnName="PHONE" />
+          <ScalarProperty Name="IDENTITY_NUMBER" ColumnName="IDENTITY_NUMBER" />
+          <ScalarProperty Name="ADDRESS" ColumnName="ADDRESS" />
+          <ScalarProperty Name="USER_STATUS" ColumnName="USER_STATUS" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="statistic_VeKhachDangKy" FunctionName="TICKET_MANAGERModel.Store.statistic_VeKhachDangKy">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="TICKET_MANAGERModel.statistic_VeKhachDangKy_Result">
+          <ScalarProperty Name="BAR_ID" ColumnName="BAR_ID" />
+          <ScalarProperty Name="BAR_NO" ColumnName="BAR_NO" />
+          <ScalarProperty Name="APPLY_DATE" ColumnName="APPLY_DATE" />
+          <ScalarProperty Name="USER_NAME" ColumnName="USER_NAME" />
+          <ScalarProperty Name="TS_NO" ColumnName="TS_NO" />
+          <ScalarProperty Name="ACC_ID" ColumnName="ACC_ID" />
+          <ScalarProperty Name="EM_NAME" ColumnName="EM_NAME" />
+          <ScalarProperty Name="TYPENAME" ColumnName="TYPENAME" />
+          <ScalarProperty Name="ZONE_NAME" ColumnName="ZONE_NAME" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="statistic_VeKhachVangLai" FunctionName="TICKET_MANAGERModel.Store.statistic_VeKhachVangLai">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="TICKET_MANAGERModel.statistic_VeKhachVangLai_Result">
+          <ScalarProperty Name="BAR_ID" ColumnName="BAR_ID" />
+          <ScalarProperty Name="BAR_NO" ColumnName="BAR_NO" />
+          <ScalarProperty Name="APPLY_DATE" ColumnName="APPLY_DATE" />
+          <ScalarProperty Name="TS_NO" ColumnName="TS_NO" />
+          <ScalarProperty Name="ACC_ID" ColumnName="ACC_ID" />
+          <ScalarProperty Name="EM_NAME" ColumnName="EM_NAME" />
+          <ScalarProperty Name="TYPENAME" ColumnName="TYPENAME" />
+          <ScalarProperty Name="ZONE_NAME" ColumnName="ZONE_NAME" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="statistic_zone" FunctionName="TICKET_MANAGERModel.Store.statistic_zone">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="TICKET_MANAGERModel.statistic_zone_Result">
+          <ScalarProperty Name="ZONE_NAME" ColumnName="ZONE_NAME" />
+          <ScalarProperty Name="ZONE_CODE" ColumnName="ZONE_CODE" />
+          <ScalarProperty Name="ZONE_DES" ColumnName="ZONE_DES" />
+          <ScalarProperty Name="ZONE_STATUS" ColumnName="ZONE_STATUS" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="ticket_price_FindPricebyHol" FunctionName="TICKET_MANAGERModel.Store.ticket_price_FindPricebyHol" />
+    <FunctionImportMapping FunctionImportName="ticket_price_FindPricebyIsWeekend" FunctionName="TICKET_MANAGERModel.Store.ticket_price_FindPricebyIsWeekend" />
+    <FunctionImportMapping FunctionImportName="ticket_price_GetAll" FunctionName="TICKET_MANAGERModel.Store.ticket_price_GetAll">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="TICKET_MANAGERModel.ticket_price_GetAll_Result">
+          <ScalarProperty Name="PRICE_ID" ColumnName="PRICE_ID" />
+          <ScalarProperty Name="CT_ID" ColumnName="CT_ID" />
+          <ScalarProperty Name="TYPEID" ColumnName="TYPEID" />
+          <ScalarProperty Name="ZONE_ID" ColumnName="ZONE_ID" />
+          <ScalarProperty Name="TF_ID" ColumnName="TF_ID" />
+          <ScalarProperty Name="HOL_ID" ColumnName="HOL_ID" />
+          <ScalarProperty Name="WD_ISWEEKEND" ColumnName="WD_ISWEEKEND" />
+          <ScalarProperty Name="PRICE" ColumnName="PRICE" />
+          <ScalarProperty Name="TEXT_PRICE" ColumnName="TEXT_PRICE" />
+          <ScalarProperty Name="UPDATE_DATE" ColumnName="UPDATE_DATE" />
+          <ScalarProperty Name="ACC_ID" ColumnName="ACC_ID" />
+          <ScalarProperty Name="ISWEEKEND" ColumnName="ISWEEKEND" />
+          <ScalarProperty Name="TYPENAME" ColumnName="TYPENAME" />
+          <ScalarProperty Name="ZONE_NAME" ColumnName="ZONE_NAME" />
+          <ScalarProperty Name="TF_NAME" ColumnName="TF_NAME" />
+          <ScalarProperty Name="HOL_NAME" ColumnName="HOL_NAME" />
+          <ScalarProperty Name="EM_NAME" ColumnName="EM_NAME" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="ticket_price_insert" FunctionName="TICKET_MANAGERModel.Store.ticket_price_insert" />
+    <FunctionImportMapping FunctionImportName="ticket_price_IsExistPrice" FunctionName="TICKET_MANAGERModel.Store.ticket_price_IsExistPrice">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="TICKET_MANAGERModel.ticket_price_IsExistPrice_Result">
+          <ScalarProperty Name="PRICE_ID" ColumnName="PRICE_ID" />
+          <ScalarProperty Name="PRICE" ColumnName="PRICE" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="ticket_price_update" FunctionName="TICKET_MANAGERModel.Store.ticket_price_update" />
+    <FunctionImportMapping FunctionImportName="ticket_sale_Child2" FunctionName="TICKET_MANAGERModel.Store.ticket_sale_Child2">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="TICKET_MANAGERModel.ticket_sale_Child2_Result">
+          <ScalarProperty Name="TS_ID" ColumnName="TS_ID" />
+          <ScalarProperty Name="DTS_ID" ColumnName="DTS_ID" />
+          <ScalarProperty Name="DTS_PRICE" ColumnName="DTS_PRICE" />
+          <ScalarProperty Name="BAR_NO" ColumnName="BAR_NO" />
+          <ScalarProperty Name="TYPENAME" ColumnName="TYPENAME" />
+          <ScalarProperty Name="ZONE_NAME" ColumnName="ZONE_NAME" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="ticket_sale_ChildTop5000Desc" FunctionName="TICKET_MANAGERModel.Store.ticket_sale_ChildTop5000Desc">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="TICKET_MANAGERModel.ticket_sale_ChildTop5000Desc_Result">
+          <ScalarProperty Name="DTS_ID" ColumnName="DTS_ID" />
+          <ScalarProperty Name="TS_ID" ColumnName="TS_ID" />
+          <ScalarProperty Name="BAR_ID" ColumnName="BAR_ID" />
+          <ScalarProperty Name="DTS_PRICE" ColumnName="DTS_PRICE" />
+          <ScalarProperty Name="DTS_PAY" ColumnName="DTS_PAY" />
+          <ScalarProperty Name="BAR_NO" ColumnName="BAR_NO" />
+          <ScalarProperty Name="TYPENAME" ColumnName="TYPENAME" />
+          <ScalarProperty Name="ZONE_NAME" ColumnName="ZONE_NAME" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="ticket_sale_delete" FunctionName="TICKET_MANAGERModel.Store.ticket_sale_delete" />
+    <FunctionImportMapping FunctionImportName="ticket_sale_getAll" FunctionName="TICKET_MANAGERModel.Store.ticket_sale_getAll">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="TICKET_MANAGERModel.ticket_sale_getAll_Result">
+          <ScalarProperty Name="TS_ID" ColumnName="TS_ID" />
+          <ScalarProperty Name="TS_NO" ColumnName="TS_NO" />
+          <ScalarProperty Name="PRICE" ColumnName="PRICE" />
+          <ScalarProperty Name="PAY" ColumnName="PAY" />
+          <ScalarProperty Name="DISC_ID" ColumnName="DISC_ID" />
+          <ScalarProperty Name="DISC_CODE" ColumnName="DISC_CODE" />
+          <ScalarProperty Name="CREATE_DATE" ColumnName="CREATE_DATE" />
+          <ScalarProperty Name="DESCRIPTION" ColumnName="DESCRIPTION" />
+          <ScalarProperty Name="USER_ID" ColumnName="USER_ID" />
+          <ScalarProperty Name="USER_NAME" ColumnName="USER_NAME" />
+          <ScalarProperty Name="USER_CODE" ColumnName="USER_CODE" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="ticket_sale_getBillbyTS_ID" FunctionName="TICKET_MANAGERModel.Store.ticket_sale_getBillbyTS_ID">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="TICKET_MANAGERModel.ticket_sale_getBillbyTS_ID_Result">
+          <ScalarProperty Name="TICKET_TYPE_ZONE" ColumnName="TICKET_TYPE_ZONE" />
+          <ScalarProperty Name="NUMBER_OF_TICKET" ColumnName="NUMBER_OF_TICKET" />
+          <ScalarProperty Name="PRICE" ColumnName="PRICE" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="ticket_sale_insert" FunctionName="TICKET_MANAGERModel.Store.ticket_sale_insert" />
+    <FunctionImportMapping FunctionImportName="ticket_sale_Parent" FunctionName="TICKET_MANAGERModel.Store.ticket_sale_Parent">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="TICKET_MANAGERModel.ticket_sale_Parent_Result">
+          <ScalarProperty Name="TS_ID" ColumnName="TS_ID" />
+          <ScalarProperty Name="TS_NO" ColumnName="TS_NO" />
+          <ScalarProperty Name="PRICE" ColumnName="PRICE" />
+          <ScalarProperty Name="PAY" ColumnName="PAY" />
+          <ScalarProperty Name="DISC_ID" ColumnName="DISC_ID" />
+          <ScalarProperty Name="CREATE_DATE" ColumnName="CREATE_DATE" />
+          <ScalarProperty Name="DESCRIPTION" ColumnName="DESCRIPTION" />
+          <ScalarProperty Name="USER_ID" ColumnName="USER_ID" />
+          <ScalarProperty Name="REDEEM_ADD" ColumnName="REDEEM_ADD" />
+          <ScalarProperty Name="REDEEM_SUB" ColumnName="REDEEM_SUB" />
+          <ScalarProperty Name="REDEEM_SUB_MONEY" ColumnName="REDEEM_SUB_MONEY" />
+          <ScalarProperty Name="ACC_ID" ColumnName="ACC_ID" />
+          <ScalarProperty Name="DISC_NAME" ColumnName="DISC_NAME" />
+          <ScalarProperty Name="DISC_CODE" ColumnName="DISC_CODE" />
+          <ScalarProperty Name="USER_NAME" ColumnName="USER_NAME" />
+          <ScalarProperty Name="EM_NAME" ColumnName="EM_NAME" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="ticket_sale_Parent2" FunctionName="TICKET_MANAGERModel.Store.ticket_sale_Parent2" />
+    <FunctionImportMapping FunctionImportName="ticket_sale_ParentTop5000Desc" FunctionName="TICKET_MANAGERModel.Store.ticket_sale_ParentTop5000Desc">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="TICKET_MANAGERModel.ticket_sale_ParentTop5000Desc_Result">
+          <ScalarProperty Name="TS_ID" ColumnName="TS_ID" />
+          <ScalarProperty Name="TS_NO" ColumnName="TS_NO" />
+          <ScalarProperty Name="PRICE" ColumnName="PRICE" />
+          <ScalarProperty Name="PAY" ColumnName="PAY" />
+          <ScalarProperty Name="DISC_ID" ColumnName="DISC_ID" />
+          <ScalarProperty Name="CREATE_DATE" ColumnName="CREATE_DATE" />
+          <ScalarProperty Name="DESCRIPTION" ColumnName="DESCRIPTION" />
+          <ScalarProperty Name="USER_ID" ColumnName="USER_ID" />
+          <ScalarProperty Name="REDEEM_ADD" ColumnName="REDEEM_ADD" />
+          <ScalarProperty Name="REDEEM_SUB" ColumnName="REDEEM_SUB" />
+          <ScalarProperty Name="REDEEM_SUB_MONEY" ColumnName="REDEEM_SUB_MONEY" />
+          <ScalarProperty Name="ACC_ID" ColumnName="ACC_ID" />
+          <ScalarProperty Name="DISC_NAME" ColumnName="DISC_NAME" />
+          <ScalarProperty Name="DISC_CODE" ColumnName="DISC_CODE" />
+          <ScalarProperty Name="USER_NAME" ColumnName="USER_NAME" />
+          <ScalarProperty Name="EM_NAME" ColumnName="EM_NAME" />
+          <ScalarProperty Name="DISCOUNT_MONEY" ColumnName="DISCOUNT_MONEY" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="ticket_sale_update" FunctionName="TICKET_MANAGERModel.Store.ticket_sale_update" />
+    <FunctionImportMapping FunctionImportName="ticket_type_Delete" FunctionName="TICKET_MANAGERModel.Store.ticket_type_Delete" />
+    <FunctionImportMapping FunctionImportName="ticket_type_GetAll" FunctionName="TICKET_MANAGERModel.Store.ticket_type_GetAll">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="TICKET_MANAGERModel.ticket_type_GetAll_Result">
+          <ScalarProperty Name="TYPEID" ColumnName="TYPEID" />
+          <ScalarProperty Name="TYPENAME" ColumnName="TYPENAME" />
+          <ScalarProperty Name="TYPE_CODE" ColumnName="TYPE_CODE" />
+          <ScalarProperty Name="TYPE_CHECK_NAME" ColumnName="TYPE_CHECK_NAME" />
+          <ScalarProperty Name="TYPE_CHECK" ColumnName="TYPE_CHECK" />
+          <ScalarProperty Name="DESCRIPTIONS" ColumnName="DESCRIPTIONS" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="ticket_type_GetTypeNamebyId" FunctionName="TICKET_MANAGERModel.Store.ticket_type_GetTypeNamebyId" />
+    <FunctionImportMapping FunctionImportName="ticket_type_insert" FunctionName="TICKET_MANAGERModel.Store.ticket_type_insert" />
+    <FunctionImportMapping FunctionImportName="ticket_type_IsExistTYPE_CODE" FunctionName="TICKET_MANAGERModel.Store.ticket_type_IsExistTYPE_CODE" />
+    <FunctionImportMapping FunctionImportName="ticket_type_IsExistTYPENAME" FunctionName="TICKET_MANAGERModel.Store.ticket_type_IsExistTYPENAME" />
+    <FunctionImportMapping FunctionImportName="ticket_type_update" FunctionName="TICKET_MANAGERModel.Store.ticket_type_update" />
+    <FunctionImportMapping FunctionImportName="time_frame_delete" FunctionName="TICKET_MANAGERModel.Store.time_frame_delete" />
+    <FunctionImportMapping FunctionImportName="time_frame_GetAll" FunctionName="TICKET_MANAGERModel.Store.time_frame_GetAll">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="TICKET_MANAGERModel.time_frame_GetAll_Result">
+          <ScalarProperty Name="TF_ID" ColumnName="TF_ID" />
+          <ScalarProperty Name="TF_NAME" ColumnName="TF_NAME" />
+          <ScalarProperty Name="TF_CHECK" ColumnName="TF_CHECK" />
+          <ScalarProperty Name="TF_FROM" ColumnName="TF_FROM" />
+          <ScalarProperty Name="TF_TO" ColumnName="TF_TO" />
+          <ScalarProperty Name="TF_DES" ColumnName="TF_DES" />
+          <ScalarProperty Name="TF_STATUS" ColumnName="TF_STATUS" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="time_frame_GetAllVisible" FunctionName="TICKET_MANAGERModel.Store.time_frame_GetAllVisible">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="TICKET_MANAGERModel.time_frame_GetAllVisible_Result">
+          <ScalarProperty Name="TF_ID" ColumnName="TF_ID" />
+          <ScalarProperty Name="TF_NAME" ColumnName="TF_NAME" />
+          <ScalarProperty Name="TF_CHECK" ColumnName="TF_CHECK" />
+          <ScalarProperty Name="TF_FROM" ColumnName="TF_FROM" />
+          <ScalarProperty Name="TF_TO" ColumnName="TF_TO" />
+          <ScalarProperty Name="TF_DES" ColumnName="TF_DES" />
+          <ScalarProperty Name="TF_STATUS" ColumnName="TF_STATUS" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="time_frame_GetIdByCheck" FunctionName="TICKET_MANAGERModel.Store.time_frame_GetIdByCheck" />
+    <FunctionImportMapping FunctionImportName="time_frame_GetIDbyLifeTime" FunctionName="TICKET_MANAGERModel.Store.time_frame_GetIDbyLifeTime" />
+    <FunctionImportMapping FunctionImportName="time_frame_GetNotAllDay" FunctionName="TICKET_MANAGERModel.Store.time_frame_GetNotAllDay">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="TICKET_MANAGERModel.time_frame_GetNotAllDay_Result">
+          <ScalarProperty Name="TF_ID" ColumnName="TF_ID" />
+          <ScalarProperty Name="TF_NAME" ColumnName="TF_NAME" />
+          <ScalarProperty Name="TF_CHECK" ColumnName="TF_CHECK" />
+          <ScalarProperty Name="TF_FROM" ColumnName="TF_FROM" />
+          <ScalarProperty Name="TF_TO" ColumnName="TF_TO" />
+          <ScalarProperty Name="TF_DES" ColumnName="TF_DES" />
+          <ScalarProperty Name="TF_STATUS" ColumnName="TF_STATUS" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="time_frame_GetRowById" FunctionName="TICKET_MANAGERModel.Store.time_frame_GetRowById">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="TICKET_MANAGERModel.time_frame_GetRowById_Result">
+          <ScalarProperty Name="TF_FROM" ColumnName="TF_FROM" />
+          <ScalarProperty Name="TF_TO" ColumnName="TF_TO" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="time_frame_insert" FunctionName="TICKET_MANAGERModel.Store.time_frame_insert" />
+    <FunctionImportMapping FunctionImportName="time_frame_IsExist" FunctionName="TICKET_MANAGERModel.Store.time_frame_IsExist" />
+    <FunctionImportMapping FunctionImportName="time_frame_IsExistInDAY" FunctionName="TICKET_MANAGERModel.Store.time_frame_IsExistInDAY" />
+    <FunctionImportMapping FunctionImportName="time_frame_kiemTraTrungKhungGio" FunctionName="TICKET_MANAGERModel.Store.time_frame_kiemTraTrungKhungGio" />
+    <FunctionImportMapping FunctionImportName="time_frame_update" FunctionName="TICKET_MANAGERModel.Store.time_frame_update" />
+    <FunctionImportMapping FunctionImportName="update_cardno" FunctionName="TICKET_MANAGERModel.Store.update_cardno" />
+    <FunctionImportMapping FunctionImportName="update_cardtype" FunctionName="TICKET_MANAGERModel.Store.update_cardtype" />
+    <FunctionImportMapping FunctionImportName="update_device" FunctionName="TICKET_MANAGERModel.Store.update_device" />
+    <FunctionImportMapping FunctionImportName="update_game_sport" FunctionName="TICKET_MANAGERModel.Store.update_game_sport" />
+    <FunctionImportMapping FunctionImportName="update_io_info" FunctionName="TICKET_MANAGERModel.Store.update_io_info" />
+    <FunctionImportMapping FunctionImportName="update_menulist" FunctionName="TICKET_MANAGERModel.Store.update_menulist" />
+    <FunctionImportMapping FunctionImportName="update_redeem" FunctionName="TICKET_MANAGERModel.Store.update_redeem" />
+    <FunctionImportMapping FunctionImportName="update_redeem_add_formula" FunctionName="TICKET_MANAGERModel.Store.update_redeem_add_formula" />
+    <FunctionImportMapping FunctionImportName="update_redeem_formula" FunctionName="TICKET_MANAGERModel.Store.update_redeem_formula" />
+    <FunctionImportMapping FunctionImportName="update_sale_no" FunctionName="TICKET_MANAGERModel.Store.update_sale_no" />
+    <FunctionImportMapping FunctionImportName="update_time_frame_active" FunctionName="TICKET_MANAGERModel.Store.update_time_frame_active" />
+    <FunctionImportMapping FunctionImportName="update_unit" FunctionName="TICKET_MANAGERModel.Store.update_unit" />
+    <FunctionImportMapping FunctionImportName="update_user_info" FunctionName="TICKET_MANAGERModel.Store.update_user_info" />
+    <FunctionImportMapping FunctionImportName="update_user_type" FunctionName="TICKET_MANAGERModel.Store.update_user_type" />
+    <FunctionImportMapping FunctionImportName="update_weekdays" FunctionName="TICKET_MANAGERModel.Store.update_weekdays" />
+    <FunctionImportMapping FunctionImportName="user_info_UpdatePoint" FunctionName="TICKET_MANAGERModel.Store.user_info_UpdatePoint" />
+    <FunctionImportMapping FunctionImportName="user_type_GetAll" FunctionName="TICKET_MANAGERModel.Store.user_type_GetAll">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="TICKET_MANAGERModel.user_type_GetAll_Result">
+          <ScalarProperty Name="USER_TYPEID" ColumnName="USER_TYPEID" />
+          <ScalarProperty Name="USER_TYPENAME" ColumnName="USER_TYPENAME" />
+          <ScalarProperty Name="DESCRIPTION" ColumnName="DESCRIPTION" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="userInfo_Delete" FunctionName="TICKET_MANAGERModel.Store.userInfo_Delete" />
+    <FunctionImportMapping FunctionImportName="userInfo_FindInfobyCode" FunctionName="TICKET_MANAGERModel.Store.userInfo_FindInfobyCode">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="TICKET_MANAGERModel.userInfo_FindInfobyCode_Result">
+          <ScalarProperty Name="USER_ID" ColumnName="USER_ID" />
+          <ScalarProperty Name="USER_NAME" ColumnName="USER_NAME" />
+          <ScalarProperty Name="PHONE" ColumnName="PHONE" />
+          <ScalarProperty Name="SEX" ColumnName="SEX" />
+          <ScalarProperty Name="USER_CODE" ColumnName="USER_CODE" />
+          <ScalarProperty Name="USER_BIRTH" ColumnName="USER_BIRTH" />
+          <ScalarProperty Name="ADDRESS" ColumnName="ADDRESS" />
+          <ScalarProperty Name="REDEEM_POINTS" ColumnName="REDEEM_POINTS" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="userInfo_FindInfobyId" FunctionName="TICKET_MANAGERModel.Store.userInfo_FindInfobyId">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="TICKET_MANAGERModel.userInfo_FindInfobyId_Result">
+          <ScalarProperty Name="USER_ID" ColumnName="USER_ID" />
+          <ScalarProperty Name="USER_NAME" ColumnName="USER_NAME" />
+          <ScalarProperty Name="PHONE" ColumnName="PHONE" />
+          <ScalarProperty Name="SEX" ColumnName="SEX" />
+          <ScalarProperty Name="USER_CODE" ColumnName="USER_CODE" />
+          <ScalarProperty Name="USER_BIRTH" ColumnName="USER_BIRTH" />
+          <ScalarProperty Name="ADDRESS" ColumnName="ADDRESS" />
+          <ScalarProperty Name="REDEEM_POINTS" ColumnName="REDEEM_POINTS" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="userInfo_FindInfobyPhone" FunctionName="TICKET_MANAGERModel.Store.userInfo_FindInfobyPhone">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="TICKET_MANAGERModel.userInfo_FindInfobyPhone_Result">
+          <ScalarProperty Name="USER_ID" ColumnName="USER_ID" />
+          <ScalarProperty Name="USER_NAME" ColumnName="USER_NAME" />
+          <ScalarProperty Name="USER_CODE" ColumnName="USER_CODE" />
+          <ScalarProperty Name="SEX" ColumnName="SEX" />
+          <ScalarProperty Name="USER_BIRTH" ColumnName="USER_BIRTH" />
+          <ScalarProperty Name="ADDRESS" ColumnName="ADDRESS" />
+          <ScalarProperty Name="PHONE" ColumnName="PHONE" />
+          <ScalarProperty Name="REDEEM_POINTS" ColumnName="REDEEM_POINTS" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="userInfo_GetAll" FunctionName="TICKET_MANAGERModel.Store.userInfo_GetAll">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="TICKET_MANAGERModel.userInfo_GetAll_Result">
+          <ScalarProperty Name="USER_ID" ColumnName="USER_ID" />
+          <ScalarProperty Name="USER_TYPEID" ColumnName="USER_TYPEID" />
+          <ScalarProperty Name="USER_TYPENAME" ColumnName="USER_TYPENAME" />
+          <ScalarProperty Name="USER_NAME" ColumnName="USER_NAME" />
+          <ScalarProperty Name="USER_CODE" ColumnName="USER_CODE" />
+          <ScalarProperty Name="PHONE" ColumnName="PHONE" />
+          <ScalarProperty Name="IDENTITY_NUMBER" ColumnName="IDENTITY_NUMBER" />
+          <ScalarProperty Name="SEX" ColumnName="SEX" />
+          <ScalarProperty Name="USER_BIRTH" ColumnName="USER_BIRTH" />
+          <ScalarProperty Name="ADDRESS" ColumnName="ADDRESS" />
+          <ScalarProperty Name="IMAGE" ColumnName="IMAGE" />
+          <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+          <ScalarProperty Name="NOTE" ColumnName="NOTE" />
+          <ScalarProperty Name="USER_STATUS" ColumnName="USER_STATUS" />
+          <ScalarProperty Name="REDEEM_POINTS" ColumnName="REDEEM_POINTS" />
+          <ScalarProperty Name="CREATE_DATE" ColumnName="CREATE_DATE" />
+          <ScalarProperty Name="UPDATE_DATE" ColumnName="UPDATE_DATE" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="userInfo_GetAllVisible" FunctionName="TICKET_MANAGERModel.Store.userInfo_GetAllVisible">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="TICKET_MANAGERModel.userInfo_GetAllVisible_Result">
+          <ScalarProperty Name="USER_ID" ColumnName="USER_ID" />
+          <ScalarProperty Name="USER_TYPEID" ColumnName="USER_TYPEID" />
+          <ScalarProperty Name="USER_TYPENAME" ColumnName="USER_TYPENAME" />
+          <ScalarProperty Name="USER_NAME" ColumnName="USER_NAME" />
+          <ScalarProperty Name="USER_CODE" ColumnName="USER_CODE" />
+          <ScalarProperty Name="PHONE" ColumnName="PHONE" />
+          <ScalarProperty Name="IDENTITY_NUMBER" ColumnName="IDENTITY_NUMBER" />
+          <ScalarProperty Name="SEX" ColumnName="SEX" />
+          <ScalarProperty Name="USER_BIRTH" ColumnName="USER_BIRTH" />
+          <ScalarProperty Name="ADDRESS" ColumnName="ADDRESS" />
+          <ScalarProperty Name="IMAGE" ColumnName="IMAGE" />
+          <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+          <ScalarProperty Name="NOTE" ColumnName="NOTE" />
+          <ScalarProperty Name="USER_STATUS" ColumnName="USER_STATUS" />
+          <ScalarProperty Name="REDEEM_POINTS" ColumnName="REDEEM_POINTS" />
+          <ScalarProperty Name="CREATE_DATE" ColumnName="CREATE_DATE" />
+          <ScalarProperty Name="UPDATE_DATE" ColumnName="UPDATE_DATE" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="userInfo_insert" FunctionName="TICKET_MANAGERModel.Store.userInfo_insert" />
+    <FunctionImportMapping FunctionImportName="userInfo_IsExist" FunctionName="TICKET_MANAGERModel.Store.userInfo_IsExist" />
+    <FunctionImportMapping FunctionImportName="userInfo_IsExistPhone" FunctionName="TICKET_MANAGERModel.Store.userInfo_IsExistPhone" />
+    <FunctionImportMapping FunctionImportName="userInfo_update" FunctionName="TICKET_MANAGERModel.Store.userInfo_update" />
+    <FunctionImportMapping FunctionImportName="userInfo_updateRedeemPoints" FunctionName="TICKET_MANAGERModel.Store.userInfo_updateRedeemPoints" />
+    <FunctionImportMapping FunctionImportName="visiblecontrols_DeleteByPRI_ID" FunctionName="TICKET_MANAGERModel.Store.visiblecontrols_DeleteByPRI_ID" />
+    <FunctionImportMapping FunctionImportName="visiblecontrols_insert" FunctionName="TICKET_MANAGERModel.Store.visiblecontrols_insert" />
+    <FunctionImportMapping FunctionImportName="visiblecontrols_update" FunctionName="TICKET_MANAGERModel.Store.visiblecontrols_update" />
+    <FunctionImportMapping FunctionImportName="weekdays_GetAll" FunctionName="TICKET_MANAGERModel.Store.weekdays_GetAll" />
+    <FunctionImportMapping FunctionImportName="zone_delete" FunctionName="TICKET_MANAGERModel.Store.zone_delete" />
+    <FunctionImportMapping FunctionImportName="zone_GetAll" FunctionName="TICKET_MANAGERModel.Store.zone_GetAll">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="TICKET_MANAGERModel.zone_GetAll_Result">
+          <ScalarProperty Name="ZONE_ID" ColumnName="ZONE_ID" />
+          <ScalarProperty Name="ZONE_NAME" ColumnName="ZONE_NAME" />
+          <ScalarProperty Name="ZONE_CODE" ColumnName="ZONE_CODE" />
+          <ScalarProperty Name="ZONE_DES" ColumnName="ZONE_DES" />
+          <ScalarProperty Name="ZONE_STATUS" ColumnName="ZONE_STATUS" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="zone_GetAll_Visible" FunctionName="TICKET_MANAGERModel.Store.zone_GetAll_Visible">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="TICKET_MANAGERModel.zone_GetAll_Visible_Result">
+          <ScalarProperty Name="ZONE_ID" ColumnName="ZONE_ID" />
+          <ScalarProperty Name="ZONE_NAME" ColumnName="ZONE_NAME" />
+          <ScalarProperty Name="ZONE_CODE" ColumnName="ZONE_CODE" />
+          <ScalarProperty Name="ZONE_DES" ColumnName="ZONE_DES" />
+          <ScalarProperty Name="ZONE_STATUS" ColumnName="ZONE_STATUS" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="zone_GetZoneNamebyId" FunctionName="TICKET_MANAGERModel.Store.zone_GetZoneNamebyId" />
+    <FunctionImportMapping FunctionImportName="zone_insert" FunctionName="TICKET_MANAGERModel.Store.zone_insert" />
+    <FunctionImportMapping FunctionImportName="zone_IsExist" FunctionName="TICKET_MANAGERModel.Store.zone_IsExist" />
+    <FunctionImportMapping FunctionImportName="zone_update" FunctionName="TICKET_MANAGERModel.Store.zone_update" />
+  </EntityContainerMapping>
+</Mapping>
