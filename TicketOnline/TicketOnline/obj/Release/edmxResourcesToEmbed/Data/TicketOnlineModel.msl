@@ -1,0 +1,175 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="QLBanVeFilmModelStoreContainer" CdmEntityContainer="QLBanVeFilmEntities">
+    <EntitySetMapping Name="Accounts">
+      <EntityTypeMapping TypeName="QLBanVeFilmModel.Account">
+        <MappingFragment StoreEntitySet="Account">
+          <ScalarProperty Name="accountID" ColumnName="accountID" />
+          <ScalarProperty Name="userName" ColumnName="userName" />
+          <ScalarProperty Name="passWord" ColumnName="passWord" />
+          <ScalarProperty Name="dateCreate" ColumnName="dateCreate" />
+          <ScalarProperty Name="roleID" ColumnName="roleID" />
+          <ScalarProperty Name="employeeID" ColumnName="employeeID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Cinemas">
+      <EntityTypeMapping TypeName="QLBanVeFilmModel.Cinema">
+        <MappingFragment StoreEntitySet="Cinema">
+          <ScalarProperty Name="cinemaID" ColumnName="cinemaID" />
+          <ScalarProperty Name="cinemaName" ColumnName="cinemaName" />
+          <ScalarProperty Name="address" ColumnName="address" />
+          <ScalarProperty Name="phoneNumber" ColumnName="phoneNumber" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Customers">
+      <EntityTypeMapping TypeName="QLBanVeFilmModel.Customer">
+        <MappingFragment StoreEntitySet="Customer">
+          <ScalarProperty Name="customerID" ColumnName="customerID" />
+          <ScalarProperty Name="customerCode" ColumnName="customerCode" />
+          <ScalarProperty Name="customerName" ColumnName="customerName" />
+          <ScalarProperty Name="phoneNumber" ColumnName="phoneNumber" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Employees">
+      <EntityTypeMapping TypeName="QLBanVeFilmModel.Employee">
+        <MappingFragment StoreEntitySet="Employee">
+          <ScalarProperty Name="employeeID" ColumnName="employeeID" />
+          <ScalarProperty Name="employeeCode" ColumnName="employeeCode" />
+          <ScalarProperty Name="employeeName" ColumnName="employeeName" />
+          <ScalarProperty Name="sex" ColumnName="sex" />
+          <ScalarProperty Name="dateOfBirth" ColumnName="dateOfBirth" />
+          <ScalarProperty Name="address" ColumnName="address" />
+          <ScalarProperty Name="phoneNumber" ColumnName="phoneNumber" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="identityCard" ColumnName="identityCard" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Films">
+      <EntityTypeMapping TypeName="QLBanVeFilmModel.Film">
+        <MappingFragment StoreEntitySet="Film">
+          <ScalarProperty Name="filmID" ColumnName="filmID" />
+          <ScalarProperty Name="filmCode" ColumnName="filmCode" />
+          <ScalarProperty Name="filmName" ColumnName="filmName" />
+          <ScalarProperty Name="typeID" ColumnName="typeID" />
+          <ScalarProperty Name="produceYear" ColumnName="produceYear" />
+          <ScalarProperty Name="produceNation" ColumnName="produceNation" />
+          <ScalarProperty Name="time" ColumnName="time" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Roles">
+      <EntityTypeMapping TypeName="QLBanVeFilmModel.Role">
+        <MappingFragment StoreEntitySet="Role">
+          <ScalarProperty Name="roleID" ColumnName="roleID" />
+          <ScalarProperty Name="roleName" ColumnName="roleName" />
+          <ScalarProperty Name="status" ColumnName="status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RoomDetails">
+      <EntityTypeMapping TypeName="QLBanVeFilmModel.RoomDetail">
+        <MappingFragment StoreEntitySet="RoomDetail">
+          <ScalarProperty Name="roomDetailID" ColumnName="roomDetailID" />
+          <ScalarProperty Name="rowName" ColumnName="rowName" />
+          <ScalarProperty Name="seatLocus" ColumnName="seatLocus" />
+          <ScalarProperty Name="seatType" ColumnName="seatType" />
+          <ScalarProperty Name="showRoomID" ColumnName="showRoomID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SaleTickets">
+      <EntityTypeMapping TypeName="QLBanVeFilmModel.SaleTicket">
+        <MappingFragment StoreEntitySet="SaleTicket">
+          <ScalarProperty Name="saleTicketID" ColumnName="saleTicketID" />
+          <ScalarProperty Name="saleTicketName" ColumnName="saleTicketName" />
+          <ScalarProperty Name="percent" ColumnName="percent" />
+          <ScalarProperty Name="saleType" ColumnName="saleType" />
+          <ScalarProperty Name="dayType" ColumnName="dayType" />
+          <ScalarProperty Name="status" ColumnName="status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ShowRooms">
+      <EntityTypeMapping TypeName="QLBanVeFilmModel.ShowRoom">
+        <MappingFragment StoreEntitySet="ShowRoom">
+          <ScalarProperty Name="showRoomID" ColumnName="showRoomID" />
+          <ScalarProperty Name="showRoomName" ColumnName="showRoomName" />
+          <ScalarProperty Name="rowSeatNumber" ColumnName="rowSeatNumber" />
+          <ScalarProperty Name="seatName" ColumnName="seatName" />
+          <ScalarProperty Name="cinemaID" ColumnName="cinemaID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tickets">
+      <EntityTypeMapping TypeName="QLBanVeFilmModel.Ticket">
+        <MappingFragment StoreEntitySet="Ticket">
+          <ScalarProperty Name="ticketID" ColumnName="ticketID" />
+          <ScalarProperty Name="filmID" ColumnName="filmID" />
+          <ScalarProperty Name="roomDetailID" ColumnName="roomDetailID" />
+          <ScalarProperty Name="price" ColumnName="price" />
+          <ScalarProperty Name="status" ColumnName="status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TicketDetails">
+      <EntityTypeMapping TypeName="QLBanVeFilmModel.TicketDetail">
+        <MappingFragment StoreEntitySet="TicketDetail">
+          <ScalarProperty Name="ticketDetailID" ColumnName="ticketDetailID" />
+          <ScalarProperty Name="ticketID" ColumnName="ticketID" />
+          <ScalarProperty Name="customerID" ColumnName="customerID" />
+          <ScalarProperty Name="saleTicketID" ColumnName="saleTicketID" />
+          <ScalarProperty Name="timeFrameID" ColumnName="timeFrameID" />
+          <ScalarProperty Name="ticketTypeID" ColumnName="ticketTypeID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TicketTypes">
+      <EntityTypeMapping TypeName="QLBanVeFilmModel.TicketType">
+        <MappingFragment StoreEntitySet="TicketType">
+          <ScalarProperty Name="ticketTypeID" ColumnName="ticketTypeID" />
+          <ScalarProperty Name="ticketTypeName" ColumnName="ticketTypeName" />
+          <ScalarProperty Name="status" ColumnName="status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TimeFrames">
+      <EntityTypeMapping TypeName="QLBanVeFilmModel.TimeFrame">
+        <MappingFragment StoreEntitySet="TimeFrame">
+          <ScalarProperty Name="timeFrameID" ColumnName="timeFrameID" />
+          <ScalarProperty Name="timeFrameName" ColumnName="timeFrameName" />
+          <ScalarProperty Name="timeFrom" ColumnName="timeFrom" />
+          <ScalarProperty Name="timeTo" ColumnName="timeTo" />
+          <ScalarProperty Name="status" ColumnName="status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Types">
+      <EntityTypeMapping TypeName="QLBanVeFilmModel.Type">
+        <MappingFragment StoreEntitySet="Type">
+          <ScalarProperty Name="typeID" ColumnName="typeID" />
+          <ScalarProperty Name="typeName" ColumnName="typeName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MenuLists">
+      <EntityTypeMapping TypeName="QLBanVeFilmModel.MenuList">
+        <MappingFragment StoreEntitySet="MenuList">
+          <ScalarProperty Name="isParent" ColumnName="isParent" />
+          <ScalarProperty Name="parentId" ColumnName="parentId" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="activeli" ColumnName="activeli" />
+          <ScalarProperty Name="imageClass" ColumnName="imageClass" />
+          <ScalarProperty Name="area" ColumnName="area" />
+          <ScalarProperty Name="action" ColumnName="action" />
+          <ScalarProperty Name="controller" ColumnName="controller" />
+          <ScalarProperty Name="nameOption" ColumnName="nameOption" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

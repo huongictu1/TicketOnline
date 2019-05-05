@@ -10,7 +10,7 @@ namespace TicketOnline.Controllers
     {
         public HomeController()
         {
-
+            //huong dep zai dang o day
         }
         public ActionResult Index()
         {

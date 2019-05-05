@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="6e722399f6354793b470675be2326eeb" Name="Diagram1">
+        <EntityTypeShape EntityType="QLBanVeFilmModel.Account" Width="1.5" PointX="3" PointY="9.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLBanVeFilmModel.Cinema" Width="1.5" PointX="0.75" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLBanVeFilmModel.Customer" Width="1.5" PointX="7.5" PointY="5.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLBanVeFilmModel.Employee" Width="1.5" PointX="0.75" PointY="9" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLBanVeFilmModel.Film" Width="1.5" PointX="5.25" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLBanVeFilmModel.Role" Width="1.5" PointX="0.75" PointY="5.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLBanVeFilmModel.RoomDetail" Width="1.5" PointX="5.25" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLBanVeFilmModel.SaleTicket" Width="1.5" PointX="7.5" PointY="8" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLBanVeFilmModel.ShowRoom" Width="1.5" PointX="3" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLBanVeFilmModel.Ticket" Width="1.5" PointX="7.5" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLBanVeFilmModel.TicketDetail" Width="1.5" PointX="9.75" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLBanVeFilmModel.TicketType" Width="1.5" PointX="7.5" PointY="11.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLBanVeFilmModel.TimeFrame" Width="1.5" PointX="7.5" PointY="13.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLBanVeFilmModel.Type" Width="1.5" PointX="3" PointY="5.75" IsExpanded="true" />
+        <AssociationConnector Association="QLBanVeFilmModel.FK_Account_Employee" ManuallyRouted="false" />
+        <AssociationConnector Association="QLBanVeFilmModel.FK_Account_Role" ManuallyRouted="false" />
+        <AssociationConnector Association="QLBanVeFilmModel.FK_ShowRoom_Cinema" ManuallyRouted="false" />
+        <AssociationConnector Association="QLBanVeFilmModel.FK_TicketDetail_Customer" ManuallyRouted="false" />
+        <AssociationConnector Association="QLBanVeFilmModel.FK_Film_Type" ManuallyRouted="false" />
+        <AssociationConnector Association="QLBanVeFilmModel.FK_Ticket_Film" ManuallyRouted="false" />
+        <AssociationConnector Association="QLBanVeFilmModel.FK_RoomDetail_ShowRoom" ManuallyRouted="false" />
+        <AssociationConnector Association="QLBanVeFilmModel.FK_Ticket_RoomDetail" ManuallyRouted="false" />
+        <AssociationConnector Association="QLBanVeFilmModel.FK_TicketDetail_SaleTicket" ManuallyRouted="false" />
+        <AssociationConnector Association="QLBanVeFilmModel.FK_TicketDetail_Ticket" ManuallyRouted="false" />
+        <AssociationConnector Association="QLBanVeFilmModel.FK_TicketDetail_TicketType" ManuallyRouted="false" />
+        <AssociationConnector Association="QLBanVeFilmModel.FK_TicketDetail_TimeFrame" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="QLBanVeFilmModel.MenuList" Width="1.5" PointX="10.375" PointY="9.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
